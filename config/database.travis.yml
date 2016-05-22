@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  database: ananas_test
+  encoding: UTF8
+  username: postgres
+  password: 
+  host: 

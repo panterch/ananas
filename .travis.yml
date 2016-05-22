@@ -1,0 +1,9 @@
+language: ruby
+cache: bundler
+sudo: false
+script: 'bundle exec rake db:migrate spec'
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database ananas_test;' -U postgres
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
