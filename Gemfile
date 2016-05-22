@@ -19,6 +19,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 
+# Views
+gem 'simple_form'
+
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
 
