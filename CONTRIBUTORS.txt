@@ -1,0 +1,2 @@
+Copyright 2016-2015 Beat Seeliger and Simon Hürlimann
+Licensed under AGPL license. The license text is included in LICENSE.txt.
