@@ -18,12 +18,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem "font-awesome-rails"
 
 # Views
 gem 'simple_form'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'responders'
+gem 'i18n_rails_helpers'
 
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -31,8 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Datebase
 gem 'pg'
 
-# Authentication
+# Authentication/Authorization
 gem 'devise'
+gem 'cancancan'
 
 # Deployment
 gem 'capistrano-rails', group: :development
