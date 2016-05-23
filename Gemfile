@@ -42,11 +42,6 @@ gem 'cancancan'
 # Deployment
 gem 'capistrano-rails', group: :development
 
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
-end
-
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
