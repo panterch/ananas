@@ -12,5 +12,8 @@ class CrudController < InheritedResources::Base
   # Apply index pagination by default
   has_scope :page, default: 1, only: [ :index ]
   has_scope :per, default: Kaminari.config.default_per_page, only: [ :index ]
+
+  # Search
+  has_scope :by_text if -> { resource_class.respond_to? :by_text}
 end
 

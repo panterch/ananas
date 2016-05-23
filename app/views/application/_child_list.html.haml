@@ -1,0 +1,11 @@
+- unless resource.new_record?
+  - reflection = resource_class.reflect_on_association(association)
+  - klass = reflection.klass
+  - through = reflection.options[:through].to_s
+  - through_route = through.singularize
+
+  .contextual.btn-group
+    = icon_link_to :new, polymorphic_url([:new, resource, through_route]), class: 'btn btn-secondary'
+  %h3= t_model klass
+
+  = render 'list', collection: resource.send(association), resource_class: klass, no_list_search: true
