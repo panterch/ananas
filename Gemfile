@@ -21,6 +21,9 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 
 # Views
 gem 'simple_form'
+gem 'inherited_resources'
+gem 'has_scope'
+gem 'responders'
 
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
