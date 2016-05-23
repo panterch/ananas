@@ -22,6 +22,9 @@
             = link_to t_model(Member), :members, class: 'nav-link'
           %li.nav-item
             = link_to t_model(Mentor), :mentors, class: 'nav-link'
+          - if can?(:manage, User)
+            %li.nav-item
+              = link_to t_model(User), :users, class: 'nav-link'
 
           %li.nav-item.dropdown.pull-xs-right
             = link_to '#', class: 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown' do
