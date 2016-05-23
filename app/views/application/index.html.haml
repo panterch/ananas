@@ -5,5 +5,5 @@
       = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
         %i.large.material-icons add
 
-= render "list"
+= render 'list', collection: collection
 = paginate collection
