@@ -1,0 +1,6 @@
+= simple_form_for resource do |f|
+  - @attributes ||= resource_class.attribute_names - ['id', 'created_at', 'updated_at']
+  - @attributes.each do |field|
+    = f.input field
+
+  = f.button :submit, class: 'btn-primary'
