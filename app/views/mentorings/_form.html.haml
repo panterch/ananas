@@ -1,10 +1,13 @@
 = simple_form_for resource do |f|
-  = f.input :summary
-  = f.input :description
-  = f.input :start_at
-  = f.input :end_at
-  = f.input :url
-  = f.association :mentor
-  = f.association :team
+  = render partial: "events/form_base", locals: {f: f}
 
-  = f.button :submit, class: 'btn-primary'
+  .row
+    = f.association :mentor
+  .row
+    = f.association :team
+
+  .row
+    .input-field.col.s12
+      = f.button :submit, class: 'btn-primary'
+
+

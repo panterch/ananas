@@ -13,7 +13,6 @@
   %body
     .navbar-fixed
       %nav.nav-wrapper
-        = link_to Ananas, :root, class: 'brand-logo'
         %ul.left
           - if user_signed_in?
             %li= link_to t_model(Event), :events

@@ -5,3 +5,11 @@
 .contextual {
   float: right;
 }
+
+.input-field.has_error {
+  p.error-block {
+    font-size: 0.8rem;
+    color: #F44336;
+    margin-top: 0;
+  }
+}
