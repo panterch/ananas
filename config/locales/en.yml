@@ -25,6 +25,7 @@ en:
       mentor:
 
     models:
+      user: User
       mentor: Mentor
       team: Startup
       member: Founder

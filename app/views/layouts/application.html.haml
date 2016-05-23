@@ -13,16 +13,25 @@
     %nav.navbar.navbar-light.bg-faded
       = link_to Ananas, :root, class: 'navbar-brand'
       .nav.navbar-nav
-        %li.nav-item
-          = link_to t_model(Team), :teams, class: 'nav-link'
-        %li.nav-item
-          = link_to t_model(Mentor), :mentors, class: 'nav-link'
-        %li.nav-item
-          = link_to t_model(Member), :members, class: 'nav-link'
-        %li.nav-item
-          = link_to t_model(Event), :events, class: 'nav-link'
-        %li.nav-item
-          .nav-link= current_user.to_s if user_signed_in?
+        - if user_signed_in?
+          %li.nav-item
+            = link_to t_model(Team), :teams, class: 'nav-link'
+          %li.nav-item
+            = link_to t_model(Mentor), :mentors, class: 'nav-link'
+          %li.nav-item
+            = link_to t_model(Member), :members, class: 'nav-link'
+          %li.nav-item
+            = link_to t_model(Event), :events, class: 'nav-link'
+
+          %li.nav-item.dropdown.pull-xs-right
+            = link_to '#', class: 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown' do
+              %i.icon-user
+              = current_user
+              %span.caret
+            .dropdown-menu
+              = link_to t('devise.profile'), current_user, class: 'dropdown-item'
+              .dropdown-divider
+              = link_to t('devise.sign_out'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
 
     .container
       - if notice

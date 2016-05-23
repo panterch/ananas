@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
+
   resources :team_mentors
   resources :team_members
 
@@ -15,8 +18,6 @@ Rails.application.routes.draw do
 
   resources :events
   resources :mentorings
-
-  devise_for :users
 
   root to: "events#index"
 end

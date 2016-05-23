@@ -1,7 +1,7 @@
 - if resource_class.respond_to?(:by_text) && !defined?(no_list_search)
   = render 'list_search'
 
-- attributes = resource_class.attribute_names - ['id', 'created_at', 'updated_at']
+- attributes ||= resource_class.attribute_names - ['id', 'created_at', 'updated_at']
 %table.table.table-striped{:class => "#{resource_class.to_s.downcase.pluralize} collection"}
   %thead
     %tr
