@@ -4,8 +4,4 @@
 
   = f.button :submit, class: 'btn-primary'
 
-- unless resource.new_record?
-  .contextual.btn-group
-    = icon_link_to :new, new_member_team_member_path(resource), class: 'btn btn-secondary'
-  %h3= t_model Team
-  = render 'list', collection: resource.teams, resource_class: Team
+= render 'child_list', association: :teams
