@@ -52,5 +52,40 @@ Team.all.each_with_index do |team, i|
 
 end
 
+program_start = DateTime.now.beginning_of_week
+program_start = program_start.change(hour: 8)
+
+unless Event.exists?
+  Event.create!(summary: 'Kickoff Event',
+                start_at: program_start,
+                end_at: program_start + 2.hours)
+
+  Event.create!(summary: 'First Milestone Event',
+                start_at: program_start + 1.month,
+                end_at: program_start + 1.month + 2.hours)
+
+  Event.create!(summary: 'Second Milestone Event',
+                start_at: program_start + 2.month,
+                end_at: program_start + 2.month + 2.hours)
+
+  Event.create!(summary: 'Grande Finale',
+                start_at: program_start + 3.month,
+                end_at: program_start + 3.month + 2.hours)
+end
+
+Team.all.each_with_index do |team, i|
+  next if team.mentorings.exists?
+  mentoring_at = program_start + rand(1..5).days
+  mentoring_at = mentoring_at.change(hour: rand(8..18))
+  (1..11).each do |i|
+     Mentoring.create!(
+      summary: "Mentoring #{i} Team #{team.name}",
+      start_at: mentoring_at + i.weeks,
+      end_at: mentoring_at + i.weeks + 1.hour,
+      team: team,
+      mentor: team.mentors.first
+     )
+  end
+end
 
 
