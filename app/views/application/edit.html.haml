@@ -1,0 +1,16 @@
+.header
+  %h2= t_model(resource_class)
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal(style="position: absolute")
+      = link_to url_for(resource), class: "btn-floating btn-large green" do
+        %i.large.material-icons launch
+
+      %ul
+        %li
+          = link_to url_for(resource_class), class: "btn-floating yellow darken-1" do
+            %i.material-icons view_list
+        %li
+          = link_to url_for(resource), method: :delete, class: "btn-floating red" do
+            %i.material-icons delete
+
+= render 'form'

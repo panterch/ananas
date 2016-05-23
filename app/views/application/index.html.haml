@@ -1,6 +1,9 @@
-= contextual_links
+.header
+  %h2= t_model(resource_class)
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal(style="position: absolute")
+      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
+        %i.large.material-icons add
 
-= boot_page_title
-
-= render "list"
+= render 'list', collection: collection
 = paginate collection
