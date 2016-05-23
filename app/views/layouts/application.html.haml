@@ -18,6 +18,8 @@
         %li.nav-item
           = link_to t_model(Mentor), :mentors, class: 'nav-link'
         %li.nav-item
+          = link_to t_model(Member), :members, class: 'nav-link'
+        %li.nav-item
           .nav-link= current_user.to_s if user_signed_in?
 
     .container
