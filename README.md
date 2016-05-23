@@ -4,6 +4,7 @@ Coverage](https://codeclimate.com/github/panterch/ananas/badges/coverage.svg)](h
 [![Code
 Climate](https://codeclimate.com/github/panterch/ananas/badges/gpa.svg)](https://codeclimate.com/github/panterch/ananas)
 [![License](http://img.shields.io/badge/license-AGPL-brightgreen.svg?style=flat-square)](http://opensource.org/licenses/AGPL-3.0)
+[![Dependency Status](https://gemnasium.com/panterch/ananas.svg)](https://gemnasium.com/panterch/ananas)
 
 
 # Accelerator Tooling
