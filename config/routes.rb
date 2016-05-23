@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :mentorings
 
   devise_for :users
 
