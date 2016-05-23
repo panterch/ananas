@@ -1,0 +1,13 @@
+= f.simple_fields_for :vcard do |vcard|
+  .row
+    .input-field.col.s6= vcard.input :family_name
+    .input-field.col.s6= vcard.input :given_name
+  = vcard.fields_for :address do |address|
+    .row
+      .input-field.col.s6= vcard.input :extended_address
+      .input-field.col.s6= vcard.input :street_address
+    .row
+      .input-field.col.s2= vcard.input :postal_code
+      .input-field.col.s4= vcard.input :locality
+      .input-field.col.s6= vcard.input :post_office_box
+

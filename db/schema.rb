@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523144901) do
+ActiveRecord::Schema.define(version: 20160523223725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,52 @@ ActiveRecord::Schema.define(version: 20160523144901) do
   add_index "events", ["start_at"], name: "index_events_on_start_at", using: :btree
   add_index "events", ["team_id"], name: "index_events_on_team_id", using: :btree
   add_index "events", ["type"], name: "index_events_on_type", using: :btree
+
+  create_table "has_vcards_addresses", force: :cascade do |t|
+    t.string   "post_office_box"
+    t.string   "extended_address"
+    t.string   "street_address"
+    t.string   "locality"
+    t.string   "region"
+    t.string   "postal_code"
+    t.string   "country_name"
+    t.integer  "vcard_id"
+    t.string   "address_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_vcards_addresses", ["vcard_id"], name: "addresses_vcard_id_index", using: :btree
+
+  create_table "has_vcards_phone_numbers", force: :cascade do |t|
+    t.string   "number"
+    t.string   "phone_number_type"
+    t.integer  "vcard_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_vcards_phone_numbers", ["phone_number_type"], name: "index_has_vcards_phone_numbers_on_phone_number_type", using: :btree
+  add_index "has_vcards_phone_numbers", ["vcard_id"], name: "phone_numbers_vcard_id_index", using: :btree
+
+  create_table "has_vcards_vcards", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "nickname"
+    t.string   "family_name"
+    t.string   "given_name"
+    t.string   "additional_name"
+    t.string   "honorific_prefix"
+    t.string   "honorific_suffix"
+    t.boolean  "active",           default: true
+    t.string   "type"
+    t.integer  "reference_id"
+    t.string   "reference_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "has_vcards_vcards", ["active"], name: "index_has_vcards_vcards_on_active", using: :btree
+  add_index "has_vcards_vcards", ["reference_id", "reference_type"], name: "index_has_vcards_vcards_on_reference_id_and_reference_type", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "name"

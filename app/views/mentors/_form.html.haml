@@ -5,6 +5,8 @@
   = f.input :interests
   = f.input :motivation
 
+  = render 'vcards/form', f: f
+
   = f.button :submit, class: 'btn-primary'
 
 = render 'child_list', association: :teams

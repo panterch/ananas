@@ -29,6 +29,9 @@ gem 'i18n_rails_helpers'
 gem 'kaminari'
 gem 'pg_search'
 
+# Datemodel
+gem 'has_vcards'
+
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
 

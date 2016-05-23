@@ -110,6 +110,12 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    has_vcards (1.1.1)
+      haml
+      i18n_rails_helpers
+      inherited_resources
+      rails (> 3.2.0)
+      simple_form
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -282,6 +288,7 @@ DEPENDENCIES
   font-awesome-rails
   haml-rails
   has_scope
+  has_vcards
   i18n_rails_helpers
   inherited_resources
   jbuilder (~> 2.0)
