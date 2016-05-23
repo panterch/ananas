@@ -1,0 +1,17 @@
+= simple_form_for resource do |f|
+  = f.input :name
+  = f.input :description
+
+  = f.button :submit, class: 'btn-primary'
+
+.contextual.btn-group
+  = icon_link_to :new, new_team_team_member_path(resource), class: 'btn btn-secondary'
+%h3= t_model Member
+
+= render 'list', collection: resource.members, resource_class: Member
+
+.contextual.btn-group
+  = icon_link_to :new, new_team_team_mentor_path(resource), class: 'btn btn-secondary'
+%h3= t_model Mentor
+
+= render 'list', collection: resource.mentors, resource_class: Mentor

@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20160523095038) do
   add_index "team_members", ["member_id"], name: "index_team_members_on_member_id", using: :btree
   add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
 
+  create_table "team_mentors", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "mentor_id"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "team_mentors", ["mentor_id"], name: "index_team_mentors_on_mentor_id", using: :btree
+  add_index "team_mentors", ["team_id"], name: "index_team_mentors_on_team_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -83,4 +94,6 @@ ActiveRecord::Schema.define(version: 20160523095038) do
 
   add_foreign_key "team_members", "members"
   add_foreign_key "team_members", "teams"
+  add_foreign_key "team_mentors", "mentors"
+  add_foreign_key "team_mentors", "teams"
 end

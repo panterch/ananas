@@ -1,8 +1,0 @@
-= render 'application/show'
-
-.contextual.btn-group
-  = icon_link_to :new, new_team_team_member_path(team_id: resource), class: 'btn btn-secondary'
-
-%h3= t_model Member
-
-= render 'list', collection: resource.members

@@ -4,7 +4,8 @@ class TeamMembersController < CrudController
 
     permitted_params.permit([
       :team_id,
-      :member_id
+      :member_id,
+      :active
     ])
   end
 end
