@@ -6,7 +6,7 @@ Faker::Company.name
 Faker::Company.catch_phrase
 
 unless User.exists?(email: 'panter@example.com')
-  User.create!(email: 'panter@example.com', password: 'welcome', password_confirmation: 'welcome')
+  User.create!(email: 'panter@example.com', password: 'welcome', password_confirmation: 'welcome', admin: true)
 end
 
 (10 - User.count).times do
@@ -87,5 +87,3 @@ Team.all.each_with_index do |team, i|
      )
   end
 end
-
-

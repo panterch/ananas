@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require tether
 //= require materialize-sprockets
 //
 //= require materialize-adoptions

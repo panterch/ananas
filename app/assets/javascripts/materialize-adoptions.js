@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('ready page:change',function() {
     $('form.simple_form .datepicker').pickadate();
 
     // collect splitted up date and time values and submit them in one
@@ -14,6 +14,9 @@ $(function() {
             console.log(datetime);
             $wrapper.find('input[type=hidden]').val(datetime);
         });
-}   );
+    });
+
+    $(".dropdown-button").dropdown();
+
 })
 
