@@ -1,7 +1,4 @@
-class MentorsController < InheritedResources::Base
-  # Authorization
-  load_and_authorize_resource
-
+class MentorsController < CrudController
   def mentor_params
     mentor_params = params.require(:mentor)
 
