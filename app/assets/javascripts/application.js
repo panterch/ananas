@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require tether
 //= require materialize-sprockets
+
+$(document).on('ready page:change',function() {
+  $(".dropdown-button").dropdown();
+});
