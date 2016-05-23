@@ -6,6 +6,7 @@ This tool simplifies organization of Accelerator programs.
 
 
 See:
+* Code: https://github.com/panterch/ananas
 * Project Management: https://tree.taiga.io/project/huerlisi-project-ananas
 * Staging App: https://ananas-staging.panter.biz
 
@@ -14,6 +15,19 @@ Development
 
 Ananas is built on [Ruby On Rails](http://www.rubyonrails.org) and
 released as [Open Source](http://www.opensource.org).
+
+To get the application ready to run you need `git`, `ruby` and `postresql`
+installed.
+
+Then check out the code, install dependencies, initialize the datebase and
+start the development server:
+
+``` bash
+git clone https://github.com/panterch/ananas.git
+bundle
+bundle exec rake db:setup
+rails server
+```
 
 Contributors
 ------------
