@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20160523095038) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "team_members", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "member_id"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "team_members", ["member_id"], name: "index_team_members_on_member_id", using: :btree
+  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -70,4 +81,6 @@ ActiveRecord::Schema.define(version: 20160523095038) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "team_members", "members"
+  add_foreign_key "team_members", "teams"
 end
