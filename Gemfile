@@ -17,8 +17,8 @@ gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'bootstrap', '~> 4.0.0.alpha3'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'materialize-sass'
 
 # Views
 gem 'simple_form'
