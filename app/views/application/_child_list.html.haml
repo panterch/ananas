@@ -4,8 +4,11 @@
   - through = reflection.options[:through].to_s
   - through_route = through.singularize
 
-  .contextual.btn-group
-    = icon_link_to :new, polymorphic_url([:new, resource, through_route]), class: 'btn btn-secondary'
-  %h3= t_model klass
+  .header
+    %h4= t_model klass
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal(style="position: absolute")
+        = link_to polymorphic_url([:new, resource, through_route]), class: "btn-floating btn-small blue" do
+          %i.large.material-icons add
 
   = render 'list', collection: resource.send(association), resource_class: klass, no_list_search: true
