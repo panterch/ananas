@@ -10,25 +10,26 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.nav-wrapper
-      = link_to Ananas, :root, class: 'brand-logo'
-      %ul.left
-        - if user_signed_in?
-          %li= link_to t_model(Event), :events
-          %li= link_to t_model(Team), :teams
-          %li= link_to t_model(Member), :members
-          %li= link_to t_model(Mentor), :mentors
-          - if can?(:manage, User)
-            %li= link_to t_model(User), :users
-      %ul.right
-        %li
-          = link_to '#', class: 'dropdown-button', 'data-activates' => 'menu-user-dropdown' do
-            = current_user
-            %span.caret
-          %ul#menu-user-dropdown.dropdown-content
-            %li= link_to t('devise.profile'), current_user
-            .divider
-            %li= link_to t('devise.sign_out'), destroy_user_session_path, method: :delete
+    .navbar-fixed
+      %nav.nav-wrapper
+        = link_to Ananas, :root, class: 'brand-logo'
+        %ul.left
+          - if user_signed_in?
+            %li= link_to t_model(Event), :events
+            %li= link_to t_model(Team), :teams
+            %li= link_to t_model(Member), :members
+            %li= link_to t_model(Mentor), :mentors
+            - if can?(:manage, User)
+              %li= link_to t_model(User), :users
+        %ul.right
+          %li
+            = link_to '#', class: 'dropdown-button', 'data-activates' => 'menu-user-dropdown' do
+              = current_user
+              %span.caret
+            %ul#menu-user-dropdown.dropdown-content
+              %li= link_to t('devise.profile'), current_user
+              .divider
+              %li= link_to t('devise.sign_out'), destroy_user_session_path, method: :delete
 
     .container
       - if notice
