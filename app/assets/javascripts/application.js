@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require tether
 //= require materialize-sprockets
+//
+//= require materialize-adoptions
