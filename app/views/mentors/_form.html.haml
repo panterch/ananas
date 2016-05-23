@@ -7,9 +7,9 @@
 
   = f.button :submit, class: 'btn-primary'
 
-.contextual.btn-group
-  = icon_link_to :new, new_mentor_team_mentor_path(mentor_id: resource), class: 'btn btn-secondary'
+- unless resource.new_record?
+  .contextual.btn-group
+    = icon_link_to :new, new_mentor_team_mentor_path(mentor_id: resource), class: 'btn btn-secondary'
 
-%h3= t_model Team
-
-= render 'list', collection: resource.teams, resource_class: Team
+  %h3= t_model Team
+    = render 'list', collection: resource.teams, resource_class: Team
