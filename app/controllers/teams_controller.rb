@@ -1,0 +1,2 @@
+class TeamsController < CrudController
+end
