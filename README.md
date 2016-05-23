@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/panterch/ananas.svg?branch=master)](http://travis-ci.org/panterch/ananas)
+
 # Accelerator Tooling
 
 This tool simplifies organization of Accelerator programs.
