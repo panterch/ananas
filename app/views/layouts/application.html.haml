@@ -15,13 +15,13 @@
       .nav.navbar-nav
         - if user_signed_in?
           %li.nav-item
-            = link_to t_model(Team), :teams, class: 'nav-link'
+            = link_to t_model(Event), :events, class: 'nav-link'
           %li.nav-item
-            = link_to t_model(Mentor), :mentors, class: 'nav-link'
+            = link_to t_model(Team), :teams, class: 'nav-link'
           %li.nav-item
             = link_to t_model(Member), :members, class: 'nav-link'
           %li.nav-item
-            = link_to t_model(Event), :events, class: 'nav-link'
+            = link_to t_model(Mentor), :mentors, class: 'nav-link'
 
           %li.nav-item.dropdown.pull-xs-right
             = link_to '#', class: 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown' do
