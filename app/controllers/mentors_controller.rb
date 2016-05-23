@@ -1,4 +1,6 @@
 class MentorsController < CrudController
+  has_scope :by_text
+
   def mentor_params
     permitted_params = params.require(:mentor)
 

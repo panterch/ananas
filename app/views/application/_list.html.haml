@@ -1,14 +1,17 @@
-- @attributes ||= resource_class.attribute_names - ['id', 'created_at', 'updated_at']
+- if resource_class.respond_to?(:by_text) && !defined?(no_list_search)
+  = render 'list_search'
+
+- attributes = resource_class.attribute_names - ['id', 'created_at', 'updated_at']
 %table.table.table-striped{:class => "#{resource_class.to_s.downcase.pluralize} collection"}
   %thead
     %tr
-      - @attributes.each do |field|
+      - attributes.each do |field|
         %th= t_attr field, resource_class
       %th.action-links
   %tbody
     - collection.each do |r|
       %tr
-        - @attributes.each do |field|
+        - attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td.action-links
           = list_link_for(:edit, r)
