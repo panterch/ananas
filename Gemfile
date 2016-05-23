@@ -27,6 +27,7 @@ gem 'has_scope'
 gem 'responders'
 gem 'i18n_rails_helpers'
 gem 'kaminari'
+gem 'pg_search'
 
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc

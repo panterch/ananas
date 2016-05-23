@@ -1,0 +1,7 @@
+= form_tag params, method: :get, class: 'form-inline' do
+  .form-group
+    = text_field '', :by_text, value: params[:by_text], autocomplete: 'off', 'data-autofocus' => true, class: 'form-control'
+    %button.btn
+      %i.icon-search
+      = t_action('search')
+
