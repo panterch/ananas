@@ -31,7 +31,7 @@ gem 'kaminari'
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Datebase
+# Database
 gem 'pg'
 
 # Authentication/Authorization
@@ -40,6 +40,7 @@ gem 'cancancan'
 
 # Deployment
 gem 'capistrano-rails', group: :development
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
@@ -57,6 +58,7 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'faker'
 end
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
