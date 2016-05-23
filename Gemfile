@@ -26,6 +26,7 @@ gem 'inherited_resources'
 gem 'has_scope'
 gem 'responders'
 gem 'i18n_rails_helpers'
+gem 'kaminari'
 
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
