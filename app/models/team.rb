@@ -8,6 +8,8 @@ class Team < ActiveRecord::Base
 
   include HasVcard
 
+  mount_uploader :avatar, AvatarUploader
+
   include PgSearch
   pg_search_scope :by_text,
     using: { tsearch: { prefix: true } },

@@ -10,6 +10,7 @@ class MentorsController < CrudController
       :experience,
       :interests,
       :motivation,
+      :avatar,
       HasVcardSupport.permitted_params
     ])
   end

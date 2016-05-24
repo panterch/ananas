@@ -5,6 +5,7 @@ class TeamsController < CrudController
     permitted_params.permit([
       :name,
       :description,
+      :avatar,
       HasVcardSupport.permitted_params
     ])
   end

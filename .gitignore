@@ -24,3 +24,8 @@ doc/app
 
 # IDE
 .idea
+
+# Plugins
+# =======
+# CarrierWave
+public/uploads

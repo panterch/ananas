@@ -31,6 +31,7 @@ gem 'pg_search'
 
 # Datemodel
 gem 'has_vcards'
+gem 'carrierwave'
 
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
