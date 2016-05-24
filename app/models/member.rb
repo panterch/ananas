@@ -5,8 +5,12 @@ class Member < ActiveRecord::Base
   include HasVcard
 
   include PgSearch
-  pg_search_scope :by_text, using: {tsearch: {prefix: true}},
-    against: [:name, :description]
+  pg_search_scope :by_text,
+    using: { tsearch: { prefix: true } },
+    against: [ :name, :description ],
+    associated_against: {
+      vcard: HasVcardSupport.pg_search_against
+    }
 
   def to_s
     name

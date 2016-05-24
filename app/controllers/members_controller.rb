@@ -4,7 +4,8 @@ class MembersController < CrudController
 
     permitted_params.permit([
       :name,
-      :description
+      :description,
+      HasVcardSupport.permitted_params
     ])
   end
 end
