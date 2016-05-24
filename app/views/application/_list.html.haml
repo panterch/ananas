@@ -10,9 +10,10 @@
       %th.action-links
   %tbody
     - collection.each do |r|
-      %tr(onClick="window.location.href='#{url_for(r)}'")
+      %tr
         - attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td.action-links
-          = list_link_for(:edit, r)
+          = list_link_for(:show, r, 'data-href-container' => 'tr')
+          = list_link_for(:edit, r, remote: true)
           = list_link_for(:delete, r)
