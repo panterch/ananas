@@ -8,7 +8,7 @@
     %h4= t_model klass
     %div(style="position: relative")
       .fixed-action-btn.horizontal(style="position: absolute")
-        = link_to polymorphic_url([:new, resource, through_route]), class: "btn-floating btn-small blue" do
+        = link_to polymorphic_url([:new, resource, through_route]), remote: true, class: "btn-floating btn-small blue" do
           %i.large.material-icons add
 
   = render 'list', collection: resource.send(association), resource_class: klass, no_list_search: true
