@@ -2,7 +2,7 @@
   .row= f.input :name
   .row= f.input :description
 
-  .row= f.input :avatar
+  .row= f.input :avatar, label: false, wrapper_html: { class: 'file-field input-field' }
 
   = render 'vcards/form', f: f
 
