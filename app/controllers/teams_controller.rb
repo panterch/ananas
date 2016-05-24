@@ -1,4 +1,6 @@
 class TeamsController < CrudController
+  belongs_to :mentor, optional: true
+
   def team_params
     permitted_params = params.require(:team)
 

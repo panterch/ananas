@@ -11,4 +11,4 @@
         = link_to polymorphic_url([:new, resource, through_route]), remote: true, class: "btn-floating btn-small blue" do
           %i.large.material-icons add
 
-  = render 'list', collection: resource.send(association), resource_class: klass, no_list_search: true
+  = render 'list', collection: resource.send(association), resource_class: klass

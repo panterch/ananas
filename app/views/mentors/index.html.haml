@@ -5,4 +5,12 @@
       = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
         %i.large.material-icons add
 
-= render 'index', collection: collection
+%ul.collection
+  - collection.each do |mentor|
+    %li.collection-item.avatar
+      = image_tag mentor.avatar, class: 'circle'
+      .title= link_to mentor.job_title, mentor
+      %p= mentor.who_i_am
+      %p= mentor.experience
+
+= paginate collection

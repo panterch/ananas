@@ -1,0 +1,6 @@
+<%= render 'create' %>
+
+$('.collection.members').html('<%=j render "list", resource_class: Member, collection: resource.team.members %>')
+$('.collection.teams').html('<%=j render "list", resource_class: Team, collection: resource.member.teams %>')
+
+init();

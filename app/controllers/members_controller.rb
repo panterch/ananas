@@ -1,4 +1,6 @@
 class MembersController < CrudController
+  belongs_to :team, optional: true
+
   def member_params
     permitted_params = params.require(:member)
 

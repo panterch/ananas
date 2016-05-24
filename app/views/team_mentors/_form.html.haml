@@ -1,4 +1,4 @@
-= simple_form_for resource do |f|
+= simple_form_for [parent, resource] do |f|
   .row= f.association :team
   .row= f.association :mentor
   .row= f.input :active

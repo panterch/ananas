@@ -1,0 +1,19 @@
+# TODO
+* destroy reference validation
+* add contact fields to vcards
+* implement modal for new team members
+* create users
+* invite users
+* port devise screens to materialized
+* fix indentation of vcard views
+* add cancan
+* fullname vcards
+* include street etc. to search
+* auto-find search
+* style file input
+* style notifications
+* Menu item hightlighting
+* Embed fonts
+* Error message for selects
+
+# DONE
