@@ -1,2 +1,6 @@
+<%- if resource.errors.present? %>
 $('#modal').html('<%=j render "show_modal" %>');
 modalInit();
+<%- else %>
+$('#modal').closeModal();
+<%- end %>
