@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
   has_many :team_members
   has_many :teams, through: :team_members
+  has_one  :user, as: :profile
 
   include HasVcard
 

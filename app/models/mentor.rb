@@ -2,6 +2,7 @@ class Mentor < ActiveRecord::Base
   has_many :team_mentors
   has_many :teams, through: :team_mentors
   has_many :mentorings
+  has_one  :user, as: :profile
 
   include HasVcard
 

@@ -5,14 +5,6 @@ Faker::Name.title
 Faker::Company.name
 Faker::Company.catch_phrase
 
-unless User.exists?(email: 'panter@example.com')
-  User.create!(email: 'panter@example.com', password: 'welcome', password_confirmation: 'welcome', admin: true)
-end
-
-(10 - User.count).times do
-  User.create!(email: Faker::Internet.safe_email, password: 'welcome', password_confirmation: 'welcome')
-end
-
 (100 - Mentor.count).times do
   Mentor.create!(
     name: Faker::Name.name,
@@ -86,4 +78,25 @@ Team.all.each_with_index do |team, i|
       mentor: team.mentors.first
      )
   end
+end
+
+# create admin user
+unless User.exists?(email: 'panter@example.com')
+  User.create!(
+    email: 'panter@example.com',
+    password: 'welcome',
+    password_confirmation: 'welcome',
+    admin: true,
+    profile: Mentor.first)
+end
+
+# create user for every second mentor and member
+(Mentor.where('MOD(ID, 2) = 0') + Member.where('MOD(ID, 2) = 0')).each do |p|
+  next if p.user
+  User.create!(
+    email: Faker::Internet.safe_email,
+    password: 'welcome',
+    password_confirmation: 'welcome',
+    admin: true,
+    profile: p)
 end

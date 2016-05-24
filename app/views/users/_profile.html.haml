@@ -1,0 +1,7 @@
+%h4 Login
+- if profile.user.present?
+  .row
+    Connected User:
+    = profile.user.email
+- else
+  No login associated - invite.
