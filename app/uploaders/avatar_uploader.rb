@@ -49,7 +49,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   def filename
-    @secure_filename ||= "#{SecureRandom.urlsafe_base64}-#{original_filename}"
+    @secure_filename ||= "#{SecureRandom.urlsafe_base64}-#{original_filename}" if original_filename
   end
 
 end
