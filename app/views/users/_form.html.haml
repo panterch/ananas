@@ -1,13 +1,10 @@
 = simple_form_for resource do |f|
-  .row
-    .col-md-6= f.input :email
-    .col-md-6= f.input :login if @user.respond_to? :login
-  .row
-    .col-md-6= f.input :password, :hint => !f.object.new_record?, :input_html => {:autocomplete => "off"}
-    .col-md-6= f.input :password_confirmation
+  .row= f.input :email
+  .row= f.input :login if @user.respond_to? :login
+  .row= f.input :password, :hint => !f.object.new_record?, :input_html => {:autocomplete => "off"}
+  .row= f.input :password_confirmation
   - unless can?(:manage, User)
-    .row
-      .col-md-6= f.input :current_password, :required => true
+    .row= f.input :current_password, :required => true
 
-  = f.button :submit
-
+  .row
+    .col.s12= f.button :submit

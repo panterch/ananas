@@ -1,12 +1,13 @@
 = simple_form_for resource do |f|
-  = f.input :job_title
-  = f.input :who_i_am
-  = f.input :experience
-  = f.input :interests
-  = f.input :motivation
+  .row= f.input :job_title
+  .row= f.input :who_i_am
+  .row= f.input :experience
+  .row= f.input :interests
+  .row= f.input :motivation
 
   = render 'vcards/form', f: f
 
-  = f.button :submit, class: 'btn-primary'
+  .row
+    .col.s12= f.button :submit
 
 = render 'child_list', association: :teams

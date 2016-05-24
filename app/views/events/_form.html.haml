@@ -1,6 +1,5 @@
 = simple_form_for resource do |f|
-  = render partial: "form_base", locals: {f: f}
+  = render 'form_base', f: f
 
   .row
-    .input-field.col.s12
-      = f.button :submit, class: 'btn-primary'
+    .col.s12= f.button :submit

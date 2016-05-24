@@ -1,8 +1,9 @@
 = simple_form_for resource do |f|
-  = f.input :name
-  = f.input :description
+  .row= f.input :name
+  .row= f.input :description
 
-  = f.button :submit, class: 'btn-primary'
+  .row
+    .col.s12= f.button :submit
 
 = render 'child_list', association: :members
 = render 'child_list', association: :mentors
