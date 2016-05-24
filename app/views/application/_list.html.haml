@@ -10,7 +10,7 @@
       %th.action-links
   %tbody
     - collection.each do |r|
-      %tr
+      %tr(onClick="window.location.href='#{url_for(r)}'")
         - attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td.action-links
