@@ -17,3 +17,4 @@
 //
 //= require materialize-adoptions
 //= require modal
+//= require table-link
