@@ -18,3 +18,9 @@
 //= require materialize-adoptions
 //= require modal
 //= require table-link
+
+function init() {
+  modalInit();
+  initMaterialize();
+  addLinkifyContainersBehaviour();
+}
