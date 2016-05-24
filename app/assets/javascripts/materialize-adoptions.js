@@ -1,4 +1,4 @@
-$(document).on('ready page:change',function() {
+function initMaterialize() {
     $('form .datepicker').pickadate();
 
     // collect splitted up date and time values and submit them in one
@@ -25,6 +25,6 @@ $(document).on('ready page:change',function() {
     $('select').material_select();
 
     Materialize.updateTextFields();
+}
 
-});
-
+$(document).on('ready page:change', initMaterialize);
