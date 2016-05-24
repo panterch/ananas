@@ -14,6 +14,8 @@
         - attributes.each do |field|
           %td= r.send(field) if r.respond_to?(field)
         %td.action-links
-          = list_link_for(:show, r, 'data-href-container' => 'tr')
-          = list_link_for(:edit, r)
-          = list_link_for(:delete, r)
+          - if can? :edit, r
+            = list_link_for(:show, r, 'data-href-container' => 'tr')
+            = list_link_for(:edit, r)
+          - if can? :delete, r
+            = list_link_for(:delete, r)

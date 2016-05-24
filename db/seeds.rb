@@ -97,6 +97,5 @@ end
     email: Faker::Internet.safe_email,
     password: 'welcome',
     password_confirmation: 'welcome',
-    admin: true,
     profile: p)
 end

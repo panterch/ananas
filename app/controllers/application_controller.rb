@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   # Authorization
   before_action :authenticate_user!
   before_action :set_email_host
+  check_authorization unless: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message
