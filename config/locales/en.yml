@@ -37,3 +37,5 @@ en:
   crud:
     action:
       search: Search
+      cancel: Cancel
+      save: Save
