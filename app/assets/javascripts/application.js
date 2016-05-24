@@ -16,3 +16,4 @@
 //= require materialize-sprockets
 //
 //= require materialize-adoptions
+//= require modal
