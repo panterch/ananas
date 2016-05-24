@@ -55,11 +55,9 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
-group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'faker'
-end
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
 
