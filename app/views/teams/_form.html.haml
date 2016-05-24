@@ -2,6 +2,8 @@
   .row= f.input :name
   .row= f.input :description
 
+  = render 'vcards/form', f: f
+
   .row
     .col.s12= f.button :submit
 
