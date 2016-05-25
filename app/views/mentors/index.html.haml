@@ -41,7 +41,7 @@
           .col.s12.field
             .label=Mentor.human_attribute_name(:motivation)
             .value=mentor.motivation
-        = render 'vcards/show', vcard: mentor.vcard
+        = render 'vcards/collapsible', vcard: mentor.vcard
 
 
 = paginate collection
