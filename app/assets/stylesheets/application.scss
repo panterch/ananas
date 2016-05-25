@@ -6,6 +6,10 @@
 @import "timeline";
 @import "collection-actions";
 
+.hidden {
+  position: absolute; left: -9999px; width: 1px; height: 1px;
+}
+
 .input-field.has_error {
   p.error-block {
     font-size: 0.8rem;

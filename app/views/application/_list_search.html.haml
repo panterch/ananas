@@ -1,8 +1,8 @@
 = form_tag params, method: :get do
   .row
-    .input-field.col.s10
+    .input-field.col.s12
+      %i.material-icons.prefix search
       = text_field '', :by_text, value: params[:by_text], autocomplete: 'off'
-      %label= t_action(:search)
-    .col.s2
-      = button_tag type: 'submit', class: "btn" do
-        %i.material-icons search
+      %label(for="_by_text")= t_action(:search)
+      = button_tag 'search', type: 'submit', class: 'hidden'
+
