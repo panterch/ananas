@@ -57,7 +57,11 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-  gem 'web-console', '~> 2.0'
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
   gem 'spring'
   gem 'faker'
 
