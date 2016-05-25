@@ -14,7 +14,7 @@
       .collapsible-header
         .collection-item.avatar
           = image_tag member.avatar_url, class: 'circle'
-          .title= link_to member.to_s, member
+          .title= member.to_s
           %p
             = member.description
           .secondary-content
