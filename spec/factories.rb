@@ -4,6 +4,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "email_#{n}@example.com" }
     password 'welcome'
     password_confirmation 'welcome'
+    association :profile, factory: :mentor
   end
 
   factory :mentor do
