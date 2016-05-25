@@ -6,7 +6,7 @@
 @import "rating";
 @import "collection-actions";
 
-body.events {
+body.events.index {
   @extend .yellow, .lighten-5;
 }
 
