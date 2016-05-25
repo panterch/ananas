@@ -24,4 +24,5 @@ function init() {
   modalInit();
   initMaterialize();
   addLinkifyContainersBehaviour();
+
 }

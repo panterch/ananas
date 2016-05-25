@@ -40,6 +40,12 @@ function initMaterialize() {
         Materialize.toast(message, 3000);
       });
     }
+
+    // when collapbisle contains links, they should be used for navigation
+    // and not trigger an (un)collapse
+    $('ul.collapsible a').click(function(event) {
+        event.stopPropagation();
+    });
 }
 
 $(document).on('ready page:change', initMaterialize);
