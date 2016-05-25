@@ -38,10 +38,17 @@ spec:
         name: ananas-db
         resources: {}
         terminationMessagePath: /dev/termination-log
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: data
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: ananas-db-data
 status: {}
 ----
 apiVersion: v1
@@ -63,3 +70,14 @@ spec:
   type: ClusterIP
 status:
   loadBalancer: {}
+----
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ananas-db-data
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
