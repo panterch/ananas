@@ -55,9 +55,12 @@ group :development, :test do
   gem 'timecop'
 end
 
-  gem 'web-console', '~> 2.0'
+group :development do
   gem 'spring'
   gem 'faker'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
 
