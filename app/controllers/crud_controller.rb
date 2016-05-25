@@ -15,5 +15,10 @@ class CrudController < InheritedResources::Base
 
   # Search
   has_scope :by_text
+
+  # check if this request was a search
+  def by_text?
+    params[:by_text].present?
+  end
 end
 

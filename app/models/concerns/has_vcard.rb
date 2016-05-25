@@ -6,7 +6,7 @@ module HasVcard
     accepts_nested_attributes_for :vcard
 
     alias_method_chain :vcard, :autobuild
-    default_scope { includes(:vcard).order('has_vcards_vcards.family_name') }
+    scope :vcard_default_scope, ->(*) { includes(:vcard).order('has_vcards_vcards.family_name') }
   end
 
   def vcard_with_autobuild
