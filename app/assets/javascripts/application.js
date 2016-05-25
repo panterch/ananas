@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require materialize-sprockets
 //
-//= require materialize-adoptions
+//= require materialize-adaptions
 //= require modal
 //= require table-link
 

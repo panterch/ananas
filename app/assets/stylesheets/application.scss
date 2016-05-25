@@ -1,6 +1,7 @@
 // Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "materialize";
 @import "font-awesome";
+@import "materialize-adaptions";
 
 .contextual {
   float: right;
@@ -13,3 +14,18 @@
     margin-top: 0;
   }
 }
+
+// construct for read-only display of values analogou to forms
+.field {
+
+  .label {
+    font-size: 0.8rem;
+    color: #9e9e9e;
+  }
+
+  .value {
+    min-height: 2.2rem;
+  }
+}
+
+
