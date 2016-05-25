@@ -1,0 +1,24 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "3000:3000"
+    volumes:
+     - .:/code
+    depends_on:
+     - database
+    links:
+     - database
+    environment:
+     - ANANAS_DATABASE_URL=postgres://database 
+     - RAILS_ENV=production
+     - SECRET_KEY_BASE=L0rVN2MMuucMuT1PwXyB2FFKsd4GtENXKXItD8z8p2x2sCMBn9pyRogeWfxn2ffwuqujB1J7DBa4XuC6uS10WByPqTE7UPQ4MQr3
+     - ANANAS_DATABASE_PASSWORD=L99AAUAdMRKP8toqFoqc
+     - RAILS_SERVE_STATIC_FILES="true"
+  database:
+    image: postgres
+    environment:
+     - POSTGRES_USER=ananas
+     - POSTGRES_PASSWORD=L99AAUAdMRKP8toqFoqc
+     - POSTGRES_DB=ananas_production
