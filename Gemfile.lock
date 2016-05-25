@@ -130,6 +130,7 @@ GEM
     i18n (0.7.0)
     i18n_rails_helpers (2.0.1)
       rails (> 3.0.0)
+    icalendar (2.3.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -297,6 +298,7 @@ DEPENDENCIES
   has_scope
   has_vcards
   i18n_rails_helpers
+  icalendar
   inherited_resources
   jbuilder (~> 2.0)
   jquery-rails
