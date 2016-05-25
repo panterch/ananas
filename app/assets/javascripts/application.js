@@ -19,6 +19,7 @@
 //= require table-link
 //= require materialize
 //= require date_scrolling
+//= require rating
 
 function init() {
   modalInit();

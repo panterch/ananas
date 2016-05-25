@@ -1,7 +1,8 @@
 = simple_form_for resource do |f|
-  .row= f.input :comment
   = f.simple_fields_for :votes do |rating_fiels|
-    = rating_fiels.input :progress
-    = rating_fiels.input :team
+    = rating_fiels.input :progress, as: :hidden, input_html: { class: 'js-star-rating' }
+    = rating_fiels.input :team, as: :hidden, input_html: { class: 'js-star-rating' }
+
+  .row= f.input :comment
 
   = f.button :submit
