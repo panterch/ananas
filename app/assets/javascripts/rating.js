@@ -1,5 +1,5 @@
-function initStarRating() {
-  $('.new_rating').find('.js-star-rating').each(function() {
+function initRating() {
+  $('.new_rating').find('.js-rating-input').each(function() {
     var input = $(this);
     var input_wrapper = input.parent('.input-field');
 
@@ -52,4 +52,4 @@ function initStarRating() {
   });
 }
 
-$(document).on('page:change', initStarRating);
+$(document).on('page:change', initRating);

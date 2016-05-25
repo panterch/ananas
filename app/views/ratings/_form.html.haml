@@ -2,7 +2,7 @@
   = f.simple_fields_for :votes do |rating_fiels|
     - Rating.vote_topics.keys.each do |vote_topic|
       = rating_fiels.label vote_topic
-      = rating_fiels.input vote_topic, as: :hidden, input_html: { class: 'js-star-rating' }
+      = rating_fiels.input vote_topic, as: :hidden, input_html: { class: 'js-rating-input' }
 
   .row= f.input :comment
 
