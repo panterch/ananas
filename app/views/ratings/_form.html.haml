@@ -1,0 +1,7 @@
+= simple_form_for resource do |f|
+  .row= f.input :comment
+  = f.simple_fields_for :votes do |rating_fiels|
+    = rating_fiels.input :progress
+    = rating_fiels.input :team
+
+  = f.button :submit
