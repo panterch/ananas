@@ -9,10 +9,6 @@ body.events {
   @extend .yellow, .lighten-5;
 }
 
-.contextual {
-  float: right;
-}
-
 .input-field.has_error {
   p.error-block {
     font-size: 0.8rem;
