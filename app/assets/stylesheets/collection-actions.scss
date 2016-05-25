@@ -1,11 +1,9 @@
 // Support floating buttons in collections
 // as secondary content
 .collection .collection-item.avatar .secondary-content {
-  position: relative;
-
   .fixed-action-btn {
     position: absolute;
-    top: -33px;
+    top: -10px;
     right: -10px;
   }
 }
