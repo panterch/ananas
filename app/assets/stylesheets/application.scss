@@ -2,16 +2,9 @@
 @import "font-awesome";
 @import "material-icons";
 @import "materialize-adaptions";
-@import "events";
 @import "rating";
-
-body.events {
-  @extend .yellow, .lighten-5;
-}
-
-.contextual {
-  float: right;
-}
+@import "timeline";
+@import "collection-actions";
 
 .input-field.has_error {
   p.error-block {

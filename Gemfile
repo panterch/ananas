@@ -52,6 +52,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'quiet_assets'
+  gem 'timecop'
 end
 
   gem 'web-console', '~> 2.0'

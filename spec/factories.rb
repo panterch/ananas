@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :attendance do
+    event nil
+    state "MyString"
+    host nil
+    guest nil
+  end
 
   factory :user do
     sequence(:email) { |n| "email_#{n}@example.com" }
@@ -23,4 +29,9 @@ FactoryGirl.define do
     association :mentor
   end
 
+  factory :event do
+    summary 'An event'
+    start_at Date.parse('2015-11-13 13:00')
+    end_at Date.parse('2015-11-13 14:00')
+  end
 end
