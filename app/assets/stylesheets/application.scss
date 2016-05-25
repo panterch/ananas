@@ -4,7 +4,7 @@
 @import "materialize-adaptions";
 @import "events";
 
-body {
+body.events {
   @extend .yellow, .lighten-5;
 }
 

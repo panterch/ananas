@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+  if (0 == $('#events').length) { return; }
+    
   var dayIndex = 0,
       index = 0,
       months = $('.month'),
