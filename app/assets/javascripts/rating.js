@@ -1,6 +1,7 @@
 function initStarRating() {
   $('.new_rating').find('.js-star-rating').each(function() {
-    var input_wrapper = $(this).parent('.input-field');
+    var input = $(this);
+    var input_wrapper = input.parent('.input-field');
 
     var html = '';
     for(var i = 1; i <= 5; i++) {
@@ -38,6 +39,8 @@ function initStarRating() {
         // keeping the currently selected star
         // difficult
         input_wrapper.off('mouseover');
+
+        input.val(star.data('value'));
       });
 
       // clear the selection when no star has been clicked
