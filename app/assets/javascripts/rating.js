@@ -49,6 +49,9 @@ function initRating() {
           stars.html('star_border');
         }
       });
+
+    var starWithInitialValue = stars.filter('[data-value="' + input.val() + '"]');
+    markStars(starWithInitialValue);
   });
 }
 
