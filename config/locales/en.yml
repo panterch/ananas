@@ -20,14 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  enums:
+    voting_topics: &voting_topics
+      team_vote: team
+      business_idea_vote: business idea
+      progress_vote: progress
+
   activerecord:
     attributes:
       mentor:
       rating:
+        <<: *voting_topics
         topic_enum:
-          team: team
-          business_idea: business idea
-          progress: progress
+          <<: *voting_topics
 
 
     models:
