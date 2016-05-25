@@ -14,6 +14,6 @@ class CrudController < InheritedResources::Base
   has_scope :per, default: Kaminari.config.default_per_page, only: [ :index ]
 
   # Search
-  has_scope :by_text, if: -> (_) { resource_class.respond_to? :by_text}
+  has_scope :by_text
 end
 

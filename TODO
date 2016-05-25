@@ -6,11 +6,9 @@
 * invite users
 * port devise screens to materialized
 * fix indentation of vcard views
-* add cancan
 * fullname vcards
 * include street etc. to search
 * auto-find search
-* style file input
 * style notifications
 * Menu item hightlighting
 * Embed fonts
