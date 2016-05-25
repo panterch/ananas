@@ -1,13 +1,3 @@
-.header
-  %h2= t_model(resource_class)
-  %div(style="position: relative")
-    .fixed-action-btn.horizontal
-      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
-        %i.large.material-icons add
-
-- if resource_class.respond_to?(:by_text)
-  = render 'list_search'
-
 %ul.collection.collapsible
   - collection.each do |mentor|
     %li
@@ -19,11 +9,9 @@
             = mentor.job_title
           .secondary-content
             - if can? :edit, mentor
-              = link_to(edit_mentor_path(mentor)) do
-                %i.material-icons mode_edit
-            - if can? :delete, mentor
-              = link_to mentor, method: :delete, data: { confirm: 'Are you sure?' } do
-                %i.material-icons delete
+              .fixed-action-btn.horizontal
+                = link_to edit_mentor_path(mentor), class: "btn-floating btn-large green" do
+                  %i.large.material-icons mode_edit
       .collapsible-body
         .row
           .col.s12.field
