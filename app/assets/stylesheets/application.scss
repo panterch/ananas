@@ -1,6 +1,12 @@
-// Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "materialize";
 @import "font-awesome";
+@import "material-icons";
+@import "materialize-adaptions";
+@import "events";
+
+body.events {
+  @extend .yellow, .lighten-5;
+}
 
 .contextual {
   float: right;
@@ -11,5 +17,38 @@
     font-size: 0.8rem;
     color: #F44336;
     margin-top: 0;
+  }
+}
+
+// construct for read-only display of values analogou to forms
+.field {
+
+  .label {
+    font-size: 0.8rem;
+    color: #9e9e9e;
+  }
+
+  .value {
+    min-height: 2.2rem;
+  }
+}
+
+.parallax-container {
+  height: 250px;
+}
+
+.toast {
+  p {
+    margin: 0
+  }
+
+  i {
+    margin-right: 1rem;
+    &.alert-danger {
+      @extend .red-text
+    }
+    &.alert-info {
+      @extend .light-green-text
+    }
   }
 }

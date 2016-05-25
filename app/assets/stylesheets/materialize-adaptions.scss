@@ -1,0 +1,12 @@
+// smaller item collection for condesed index lists
+.collection .collection-item.avatar {
+  min-height: 68px;
+}
+
+// not only p but every element in collabsible body should be indented
+.collapsible-body {
+  margin: 0;
+  padding: 2rem;
+
+  p { padding: 0; }
+}

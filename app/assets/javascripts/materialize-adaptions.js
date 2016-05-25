@@ -23,8 +23,29 @@ function initMaterialize() {
     $(".dropdown-button").dropdown();
     $('label.select').addClass('active');
     $('select').material_select();
+    $('.parallax').parallax();
 
     Materialize.updateTextFields();
+
+    if (!!$('.alert').length) {
+      $('.alert').each(function (index, element) {
+        var message = '';
+        if ($(element).hasClass('alert-info')) {
+          message += '<i class="material-icons alert-info">lightbulb_outline</i>';
+        } else if ($(element).hasClass('alert-danger')) {
+          message += '<i class="material-icons alert-danger">warning</i>';
+        }
+        message += $(element).text();
+        element.remove();
+        Materialize.toast(message, 3000);
+      });
+    }
+
+    // when collapbisle contains links, they should be used for navigation
+    // and not trigger an (un)collapse
+    $('ul.collapsible a').click(function(event) {
+        event.stopPropagation();
+    });
 }
 
 $(document).on('ready page:change', initMaterialize);

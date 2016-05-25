@@ -12,15 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require materialize-sprockets
 //
-//= require materialize-adoptions
+//= require materialize-adaptions
 //= require modal
 //= require table-link
+//= require materialize
+//= require date_scrolling
 
 function init() {
   modalInit();
   initMaterialize();
   addLinkifyContainersBehaviour();
+
 }

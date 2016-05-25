@@ -1,0 +1,25 @@
+.row
+  .field.col.s6
+    .label=t_attr(:family_name, HasVcards::Vcard)
+    .value=vcard.family_name
+  .field.col.s6
+    .label=t_attr(:given_name, HasVcards::Vcard)
+    .value=vcard.given_name
+.row
+  .field.col.s6
+    .label=t_attr(:extended_address, HasVcards::Vcard)
+    .value=vcard.extended_address
+  .field.col.s6
+    .label=t_attr(:street_address, HasVcards::Vcard)
+    .value=vcard.street_address
+.row
+  .field.col.s2
+    .label=t_attr(:postal_code, HasVcards::Vcard)
+    .value=vcard.postal_code
+  .field.col.s4
+    .label=t_attr(:locality, HasVcards::Vcard)
+    .value=vcard.locality
+  .field.col.s6
+    .label=t_attr(:post_office_box, HasVcards::Vcard)
+    .value=vcard.post_office_box
+
