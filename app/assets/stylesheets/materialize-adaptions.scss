@@ -10,3 +10,9 @@
 
   p { padding: 0; }
 }
+
+// overwrite the width of buttons in collapsibles. the original with is ment
+// for simple icons, not buttons
+.collapsible-header .secondary-content .fixed-action-btn i {
+  width: inherit;
+}
