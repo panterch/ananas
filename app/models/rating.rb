@@ -9,6 +9,5 @@ class Rating < ActiveRecord::Base
 
   vote_topics.keys.each do |vote_topic|
     store_accessor :votes, vote_topic
-    validates vote_topic, presence: true
   end
 end
