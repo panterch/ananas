@@ -1,7 +1,7 @@
 .header
   %h2= t_model(resource_class)
   %div(style="position: relative")
-    .fixed-action-btn.horizontal(style="position: absolute")
+    .fixed-action-btn.horizontal
       = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
         %i.large.material-icons add
 
@@ -13,7 +13,7 @@
     %li
       .collapsible-header
         .collection-item.avatar
-          = image_tag 'sanctus_pineapple.jpg', class: 'circle'
+          = image_tag mentor.avatar_url, class: 'circle'
           .title= link_to mentor.to_s, mentor
           %p
             = mentor.job_title
