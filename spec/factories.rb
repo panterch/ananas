@@ -23,4 +23,9 @@ FactoryGirl.define do
     association :mentor
   end
 
+  factory :event do
+    summary 'An event'
+    start_at Date.parse('2015-11-13 13:00')
+    end_at Date.parse('2015-11-13 14:00')
+  end
 end

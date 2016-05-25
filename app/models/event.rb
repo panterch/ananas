@@ -8,4 +8,8 @@ class Event < ActiveRecord::Base
   def to_s
     summary
   end
+
+  def overdue?
+    end_at.past?
+  end
 end
