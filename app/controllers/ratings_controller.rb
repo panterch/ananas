@@ -5,7 +5,7 @@ class RatingsController < CrudController
       :event_id,
       :mentor_id,
       :comment,
-      votes: Rating.vote_topics.keys
+      Rating.vote_topics.keys
     )
   end
 end
