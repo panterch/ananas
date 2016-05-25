@@ -55,4 +55,4 @@ function initRating() {
   });
 }
 
-$(document).on('page:change', initRating);
+$(document).on('ready', initRating);
