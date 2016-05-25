@@ -1,6 +1,4 @@
 class MentorsController < CrudController
-  belongs_to :mentor, optional: true
-
   def mentor_params
     permitted_params = params.require(:mentor)
 
