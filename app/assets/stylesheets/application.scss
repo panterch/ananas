@@ -36,3 +36,19 @@ body {
 .parallax-container {
   height: 250px;
 }
+
+.toast {
+  p {
+    margin: 0
+  }
+
+  i {
+    margin-right: 1rem;
+    &.alert-danger {
+      @extend .red-text
+    }
+    &.alert-info {
+      @extend .light-green-text
+    }
+  }
+}
