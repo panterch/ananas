@@ -32,6 +32,9 @@ gem 'pg_search'
 gem 'has_vcards'
 gem 'carrierwave'
 
+# Import/export
+gem 'icalendar'
+
 # Docs
 gem 'sdoc', '~> 0.4.0', group: :doc
 
