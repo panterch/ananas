@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :attendances do
+    member do
+      post :attend
+      post :decline
+    end
+  end
+
   resources :mentorings
   resources :ratings
 
