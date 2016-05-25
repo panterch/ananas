@@ -83,3 +83,4 @@ production:
   database: ananas_production
   username: ananas
   password: <%= ENV['ANANAS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['ANANAS_DATABASE_URL'] %>

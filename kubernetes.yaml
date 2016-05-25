@@ -1,0 +1,73 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "7"
+  creationTimestamp: null
+  generation: 1
+  labels:
+    run: ananas
+  name: ananas
+  selfLink: /apis/extensions/v1beta1/namespaces/deployments/ananas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: ananas
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: ananas
+    spec:
+      containers:
+      - env:
+        - name: RAILS_ENV
+          value: production
+        - name: SECRET_KEY_BASE
+          value: zozEIxAncb95B96pa2NvHXSIPoNPqvcuqVHUE99cLohhomgqFr2DFpNMFCIdo4X6SrrvEmsIRWy2Sq7Nds6QK0pK2T8iAABYVigX
+        - name: ANANAS_DATABASE_PASSWORD
+          value: wVYyVmIiYL
+        - name: ANANAS_DATABASE_URL
+          value: postgres://$(ANANAS_DB_SERVICE_HOST)
+        - name: RAILS_SERVE_STATIC_FILES
+          value: "true"
+        image: registry.lan:5000/ananas:latest
+        imagePullPolicy: Always
+        name: ananas
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
+----
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ananas
+  name: ananas
+  selfLink: /api/v1/namespaces/services/ananas
+spec:
+  deprecatedPublicIPs:
+  - 172.30.0.4
+  externalIPs:
+  - 172.30.0.4
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    run: ananas
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
