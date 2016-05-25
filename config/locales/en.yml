@@ -46,3 +46,7 @@ en:
       search: Search
       cancel: Cancel
       save: Save
+
+  events:
+    timeline:
+      title: Timeline

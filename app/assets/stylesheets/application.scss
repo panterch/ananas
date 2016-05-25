@@ -2,13 +2,9 @@
 @import "font-awesome";
 @import "material-icons";
 @import "materialize-adaptions";
-@import "events";
 @import "rating";
+@import "timeline";
 @import "collection-actions";
-
-body.events.index {
-  @extend .yellow, .lighten-5;
-}
 
 .input-field.has_error {
   p.error-block {

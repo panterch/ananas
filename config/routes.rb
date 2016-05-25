@@ -19,7 +19,12 @@ Rails.application.routes.draw do
     resources :teams
   end
 
-  resources :events
+  resources :events do
+    collection do
+      get :timeline
+    end
+  end
+
   resources :attendances do
     member do
       post :attend
@@ -30,5 +35,5 @@ Rails.application.routes.draw do
   resources :mentorings
   resources :ratings
 
-  root to: "events#index"
+  root to: "events#timeline"
 end

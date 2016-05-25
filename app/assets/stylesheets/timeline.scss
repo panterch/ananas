@@ -1,3 +1,7 @@
+body.events.timeline {
+  @extend .yellow, .lighten-5;
+}
+
 .fixed-month {
   position: fixed;
   top: 79px;
