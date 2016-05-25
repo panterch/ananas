@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :summary, :start_at, :end_at
 
-  default_scope -> () { order(:start_at) }
+  default_scope -> { order(:start_at) }
 
   def to_s
     summary
