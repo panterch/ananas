@@ -4,31 +4,46 @@ function initStarRating() {
 
     var html = '';
     for(var i = 1; i <= 5; i++) {
-      html += '<i class="material-icons js-rating-star" data-value="' + i + '">star_border</i>';
+      html += '<i class="material-icons rating-star js-rating-star" data-value="' + i + '">star_border</i>';
     }
 
     input_wrapper.append($(html));
 
-    input_wrapper.find('.js-rating-star')
-      .mouseover(function() {
-        var value = $(this).data('value');
-        input_wrapper.find('.js-rating-star').removeClass('active').each(function() {
-          if ($(this).data('value') <= value) {
-            $(this).html('star');
-          }
-          else {
-            $(this).html('star_border');
-          }
-        });
+    var stars = input_wrapper.find('.js-rating-star');
+
+    var markStars = function(currentStar) {
+      var value = currentStar.data('value');
+
+      stars.each(function() {
+        var star = $(this);
+        if (star.data('value') <= value) {
+          star.html('star');
+        }
+        else {
+          star.html('star_border');
+        }
+      });
+    };
+
+    input_wrapper
+      .on('mouseover', '.js-rating-star', function() {
+        markStars($(this));
       })
-      .click(function() {
-        input_wrapper.find('.js-rating-star').removeClass('active');
-        $(this).addClass('active');
+      .on('click', '.js-rating-star', function() {
+        var star = $(this);
+        stars.removeClass('active');
+        star.addClass('active');
+        markStars(star);
+        // disable the hover effect, as it makes
+        // keeping the currently selected star
+        // difficult
+        input_wrapper.off('mouseover');
       });
 
+      // clear the selection when no star has been clicked
       input_wrapper.mouseout(function() {
-        if (input_wrapper.find('.js-rating-star.active').length === 0) {
-          input_wrapper.find('.js-rating-star').html('star_border');
+        if (stars.filter('.active').length === 0) {
+          stars.html('star_border');
         }
       });
   });

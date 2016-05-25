@@ -3,6 +3,7 @@
 @import "material-icons";
 @import "materialize-adaptions";
 @import "events";
+@import "rating";
 
 body.events {
   @extend .yellow, .lighten-5;
