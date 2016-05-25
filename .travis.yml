@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 sudo: false
-script: 'bundle exec rake db:migrate spec'
+script: 'bundle exec rake db:drop db:create db:schema:load spec'
 addons:
   postgresql: '9.4'
 before_script:
