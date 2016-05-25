@@ -23,6 +23,7 @@ function initMaterialize() {
     $(".dropdown-button").dropdown();
     $('label.select').addClass('active');
     $('select').material_select();
+    $('.parallax').parallax();
 
     Materialize.updateTextFields();
 }
