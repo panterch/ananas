@@ -1,4 +1,7 @@
 = simple_form_for resource, wrapper: :materialize_form_no_col do |f|
+  = f.input :team_id, as: :hidden
+  = f.input :event_id, as: :hidden
+  = f.input :mentor_id, as: :hidden
   - Rating.vote_topics.keys.each_slice(2) do |vote_topics|
     .row
       - vote_topics.each do |vote_topic|
