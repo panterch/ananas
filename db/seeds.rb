@@ -5,26 +5,32 @@ Faker::Name.title
 Faker::Company.name
 Faker::Company.catch_phrase
 
-(100 - Mentor.count).times do
+(5 - Mentor.count).times do
   Mentor.create!(
     name: Faker::Name.name,
     job_title: Faker::Name.title,
     who_i_am: Faker::Company.bs,
     experience: (3.times.map { Faker::Hacker.ingverb }).join(', '),
     interests:  (3.times.map { Faker::Hacker.ingverb }).join(', '),
-    motivation: Faker::Company.bs)
+    motivation: Faker::Company.bs,
+    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50")
+  )
 end
 
-(150 - Member.count).times do
+(3 - Member.count).times do
   Member.create!(
     name: Faker::Name.name,
-    description: Faker::Name.title)
+    description: Faker::Name.title,
+    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50")
+  )
 end
 
-(40 - Team.count).times do
+(3 - Team.count).times do
   Team.create!(
     name: Faker::App.name,
-    description: "We #{Faker::Company.bs} and #{Faker::Company.bs}.")
+    description: "We #{Faker::Company.bs} and #{Faker::Company.bs}.",
+    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50")
+  )
 end
 
 Team.all.each_with_index do |team, i|
@@ -32,14 +38,16 @@ Team.all.each_with_index do |team, i|
     rand(1..3).times do
       TeamMember.create!(
         team: team,
-        member: Member.includes(:team_members).where( team_members: { id: nil } ).first)
+        member: Member.includes(:team_members).where( team_members: { id: nil } ).first
+      )
     end
   end
 
   unless team.team_mentors.exists?
     TeamMentor.create!(
       team: team,
-      mentor: Mentor.includes(:team_mentors).where( team_mentors: { id: nil } ).first)
+      mentor: Mentor.includes(:team_mentors).where( team_mentors: { id: nil } ).first
+    )
   end
 
 end
