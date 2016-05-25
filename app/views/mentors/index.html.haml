@@ -5,6 +5,9 @@
       = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
         %i.large.material-icons add
 
+- if resource_class.respond_to?(:by_text)
+  = render 'list_search'
+
 %ul.collection
   - collection.each do |mentor|
     %li.collection-item.avatar
