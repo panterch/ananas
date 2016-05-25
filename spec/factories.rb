@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :attendance do
+    event nil
+    state "MyString"
+    host nil
+    guest nil
+  end
 
   factory :user do
     sequence(:email) { |n| "email_#{n}@example.com" }

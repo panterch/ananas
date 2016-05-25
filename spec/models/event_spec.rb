@@ -24,4 +24,11 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  context 'attendances' do
+    it 'starts with no attendances' do
+      event = create :event
+      expect(event.attendances).to be_empty
+    end
+  end
 end

@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525094628) do
+ActiveRecord::Schema.define(version: 20160525113852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "state",      default: 0
+    t.integer  "guest_id"
+    t.string   "guest_type"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "attendances", ["event_id"], name: "index_attendances_on_event_id", using: :btree
+  add_index "attendances", ["guest_type", "guest_id"], name: "index_attendances_on_guest_type_and_guest_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "summary",     null: false
@@ -166,6 +178,7 @@ ActiveRecord::Schema.define(version: 20160525094628) do
   add_index "users", ["profile_id"], name: "index_users_on_profile_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "attendances", "events"
   add_foreign_key "ratings", "events"
   add_foreign_key "ratings", "mentors"
   add_foreign_key "ratings", "teams"
