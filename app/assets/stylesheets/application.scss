@@ -4,6 +4,7 @@
 @import "materialize-adaptions";
 @import "events";
 @import "rating";
+@import "collection-actions";
 
 body.events {
   @extend .yellow, .lighten-5;
