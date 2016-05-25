@@ -1,7 +1,7 @@
 class Mentor < ActiveRecord::Base
-  has_many :team_mentors
-  has_many :teams, through: :team_mentors
-  has_many :mentorings
+  has_many :team_mentors, dependent: :destroy
+  has_many :teams, through: :team_mentors, dependent: :restrict_with_error
+  has_many :mentorings, dependent: :restrict_with_error
   has_many :ratings, dependent: :destroy
   has_one  :user, as: :profile
 
