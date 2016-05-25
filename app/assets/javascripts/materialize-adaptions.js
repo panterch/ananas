@@ -26,6 +26,20 @@ function initMaterialize() {
     $('.parallax').parallax();
 
     Materialize.updateTextFields();
+
+    if (!!$('.alert').length) {
+      $('.alert').each(function (index, element) {
+        var message = '';
+        if ($(element).hasClass('alert-info')) {
+          message += '<i class="material-icons alert-info">lightbulb_outline</i>';
+        } else if ($(element).hasClass('alert-danger')) {
+          message += '<i class="material-icons alert-danger">warning</i>';
+        }
+        message += $(element).text();
+        element.remove();
+        Materialize.toast(message, 3000);
+      });
+    }
 }
 
 $(document).on('ready page:change', initMaterialize);
