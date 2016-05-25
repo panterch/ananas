@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :mentorings
+  resources :ratings
 
   root to: "events#index"
 end

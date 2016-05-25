@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524143634) do
+ActiveRecord::Schema.define(version: 20160525094628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,20 @@ ActiveRecord::Schema.define(version: 20160524143634) do
     t.string   "avatar"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "event_id"
+    t.integer  "mentor_id"
+    t.json     "votes"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["event_id"], name: "index_ratings_on_event_id", using: :btree
+  add_index "ratings", ["mentor_id"], name: "index_ratings_on_mentor_id", using: :btree
+  add_index "ratings", ["team_id"], name: "index_ratings_on_team_id", using: :btree
+
   create_table "team_members", force: :cascade do |t|
     t.integer  "team_id"
     t.integer  "member_id"
@@ -152,6 +166,9 @@ ActiveRecord::Schema.define(version: 20160524143634) do
   add_index "users", ["profile_id"], name: "index_users_on_profile_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "ratings", "events"
+  add_foreign_key "ratings", "mentors"
+  add_foreign_key "ratings", "teams"
   add_foreign_key "team_members", "members"
   add_foreign_key "team_members", "teams"
   add_foreign_key "team_mentors", "mentors"

@@ -66,6 +66,21 @@ SimpleForm.setup do |config|
 
   end
 
+  config.wrappers :materialize_form_no_col, class: 'input-field', error_class: 'has_error' do |b|
+
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label
+    b.use :input
+    b.use :error, wrap_with: { tag: 'p', class: 'error-block', "data-error" => 'wrong' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+
+  end
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :materialize_form
 

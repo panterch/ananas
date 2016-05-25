@@ -23,6 +23,12 @@ en:
   activerecord:
     attributes:
       mentor:
+      rating:
+        topic_enum:
+          team: team
+          business_idea: business idea
+          progress: progress
+
 
     models:
       user: User
@@ -33,6 +39,7 @@ en:
       team_member: Membership
       team_mentor: Mentoring
       mentoring: Mentoring
+      rating: Rating
 
   crud:
     action:
