@@ -7,7 +7,12 @@
             .card
               .card-content
                 = rating_fields.label vote_topic, class: 'card-title'
-                = rating_fields.input vote_topic, as: :hidden, input_html: { class: 'js-rating-input' }
+                = rating_fields.input vote_topic, as: :hidden, input_html: { class: 'js-rating-input' }, wrapper_html: { class: ('has_error' if f.object.errors["votes.#{vote_topic}"].present?)}, label: false
+                %p.error-block
+                  - if f.object.errors["votes.#{vote_topic}"].present?
+                    - f.object.errors["votes.#{vote_topic}"].each do |error_message|
+                      = error_message
+                      %br
 
   .row
     .col.s12
