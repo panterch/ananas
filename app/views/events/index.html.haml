@@ -1,0 +1,10 @@
+.header
+  %h2= t_model(resource_class)
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal(style="position: absolute")
+      = link_to calendar_events_url(current_user.calendar_token), class: "btn-floating btn-large green" do
+        %i.large.material-icons event
+      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
+        %i.large.material-icons add
+
+= render 'index', collection: collection
