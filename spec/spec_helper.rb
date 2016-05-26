@@ -27,6 +27,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.use_transactional_examples = false
   config.expose_current_running_example_as :example
+  config.infer_spec_type_from_file_location!
+  config.filter_rails_from_backtrace!
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:transaction)
