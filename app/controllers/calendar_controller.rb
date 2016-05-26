@@ -8,7 +8,7 @@ class CalendarController < ApplicationController
 
     events = Event.accessible_by(current_ability)
     events.map do |event|
-      calendar.add_event event.to_ical
+      calendar.add_event CalendarConverter.event(event)
     end
 
     render text: calendar.to_ical, content_type: Mime::ICS
