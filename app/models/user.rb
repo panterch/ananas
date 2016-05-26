@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   def self.find_by_calendar_token!(token)
     id = token[40..-1].to_i
     user = User.find(id)
-    unless user.calendar_token == token
+    if user.calendar_token == token
+      user
+    else
       raise ActiveRecord::RecordNotFound
     end
   end
