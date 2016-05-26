@@ -19,25 +19,35 @@
         .row
           .col.s12= f.button :submit
 
-  .divider(style='margin: 20px 0 40px;')
+  - if resource.persisted?
+    .divider(style='margin: 20px 0 40px;')
 
-  .section
-    .header
-      %h4= t_model TeamMember
-      %div(style="position: relative")
-        .fixed-action-btn.horizontal(style="position: absolute")
-          = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
-            %i.large.material-icons add
-      = render 'members/list', collection: resource.members
+    .section
+      .header
+        %h4= t_model TeamMember
+        %div(style="position: relative")
+          .fixed-action-btn.horizontal(style="position: absolute")
+            = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
+              %i.large.material-icons add
+        = render 'members/list', collection: resource.members
 
-  .divider(style='margin: 20px 0 40px;')
+    .divider(style='margin: 20px 0 40px;')
 
-  .section
-    .header
-      %h4= t_model TeamMentor
-      %div(style="position: relative")
-        .fixed-action-btn.horizontal(style="position: absolute")
-          = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do
-            %i.large.material-icons add
-      = render 'mentors/list', collection: resource.mentors
+    .section
+      .header
+        %h4= t_model TeamMentor
+        %div(style="position: relative")
+          .fixed-action-btn.horizontal(style="position: absolute")
+            = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do
+              %i.large.material-icons add
+        = render 'mentors/list', collection: resource.mentors
 
+      .divider(style='margin: 20px 0 40px;')
+      .section
+        .header
+          %h4= t_model TeamMentor
+          %div(style="position: relative")
+            .fixed-action-btn.horizontal(style="position: absolute")
+              = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do
+                %i.large.material-icons add
+          = render 'mentors/list', collection: resource.mentors
