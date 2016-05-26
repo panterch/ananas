@@ -17,10 +17,8 @@ describe User, type: :model do
       end.to raise_error(ActiveRecord::RecordNotFound)
     end
 
-    it 'does not raise an exception for a valid token' do
-      expect do
-        User.find_by_calendar_token! user.calendar_token
-      end.not_to raise_error
+    it 'returns the user for a valid token' do
+      expect(User.find_by_calendar_token! user.calendar_token).to eq user
     end
   end
 
