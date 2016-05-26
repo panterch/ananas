@@ -1,0 +1,8 @@
+var activeCollapsible = $('.collection.collapsible').find('li.active');
+
+<%- if resource.errors.present? %>
+  activeCollapsible.find('.collapsible-body').html('<%=j render 'form' %>');
+  init();
+<%- else %>
+  activeCollapsible.slideUp();
+<%- end %>

@@ -53,6 +53,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'quiet_assets'
   gem 'timecop'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
   gem 'web-console', '~> 2.0'

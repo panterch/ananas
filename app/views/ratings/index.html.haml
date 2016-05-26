@@ -1,0 +1,9 @@
+- if @events_to_rate.present?
+  %ul.collection.collapsible
+    - @events_to_rate.each do |event|
+      %li
+        .collapsible-header
+          .collection-item
+            .title= event.summary
+        .collapsible-body
+          = render 'ratings/form', resource: Rating.new(event: event, team: event.team)

@@ -47,4 +47,44 @@ RSpec.describe Event, type: :model do
       expect(events.second.summary).to eq('Today')
     end
   end
+
+  context '.attended_by' do
+    let(:user) { create :user }
+
+    it 'does include events that the user did attend' do
+      event = create :event
+      create :attendance, event: event, guest: user, state: 'attending'
+
+      expect(Event.attended_by(user)).to include event
+    end
+
+    it 'does not include events that the user did not attend' do
+      event = create :event
+      create :attendance, event: event, guest: user, state: 'declined'
+
+      expect(Event.attended_by(user)).not_to include event
+    end
+
+    it 'does not include events to which the user was not invited' do
+      event = create :event
+
+      expect(Event.attended_by(user)).not_to include event
+    end
+  end
+
+  context '.unrated' do
+    it 'includes events that are not rated yet' do
+      event = create :event
+
+      expect(Event.unrated).to include(event)
+    end
+
+
+    it 'does not include events that the user has rated' do
+      event = create :event
+      create :rating, event: event
+
+      expect(Event.unrated).not_to include event
+    end
+  end
 end
