@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Event, type: :model do
+describe Event, type: :model do
   context 'overdue?' do
     it 'is true if date is past' do
       Timecop.freeze do
