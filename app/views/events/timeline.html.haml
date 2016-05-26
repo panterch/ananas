@@ -4,7 +4,7 @@
     - if event.start_at.strftime("%m") != @events[index - 1].start_at.strftime("%m")
       .parallax-container
         .parallax
-          %img{src: image_path('picture2.jpg')}/
+          %img{src: image_path("background_#{event.start_at.strftime("%m")}.jpg")}/
 
     .row
       / Month section if a new month
