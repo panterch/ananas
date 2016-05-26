@@ -4,7 +4,10 @@
       .collapsible-header
         .collection-item.avatar
           = image_tag team.avatar_url, class: 'circle'
-          .title= team
+          .title
+            = team
+            .collection-item-rating.inline
+              = vote_as_stars(Rating.average_vote(team.ratings))
           %p
             = team.description
           .secondary-content
