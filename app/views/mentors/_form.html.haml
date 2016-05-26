@@ -16,5 +16,6 @@
 .divider
 .section
   = render 'teams/list', collection: resource.teams
-  = render 'users/list', collection: [ resource.user ]
+  - if resource.user
+    = render 'users/list', collection: [ resource.user ]
 
