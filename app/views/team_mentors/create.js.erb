@@ -1,7 +1,8 @@
 <%= render 'create' %>
 
-$('.collection.mentors').html('<%=j render "list", resource_class: Mentor, collection: resource.team.mentors %>')
-$('.collection.teams').html('<%=j render "list", resource_class: Team, collection: resource.mentor.teams %>')
+<%- unless resource.errors.present? %>
+  $('.collection.mentors').html('<%=j render "list", resource_class: Mentor, collection: resource.team.mentors %>')
+  $('.collection.teams').html('<%=j render "list", resource_class: Team, collection: resource.mentor.teams %>')
 
-init();
-
+  init();
+<%- end %>
