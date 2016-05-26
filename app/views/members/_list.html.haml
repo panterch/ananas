@@ -1,13 +1,3 @@
-.header
-  %h2= t_model(resource_class)
-  %div(style="position: relative")
-    .fixed-action-btn.horizontal
-      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
-        %i.large.material-icons add
-
-- if resource_class.respond_to?(:by_text)
-  = render 'list_search'
-
 %ul.collection.collapsible
   - collection.each do |member|
     %li
@@ -26,4 +16,4 @@
         = render 'vcards/collapsible', vcard: member.vcard
 
 
-= paginate collection
+= guarded_paginate collection
