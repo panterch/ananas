@@ -22,9 +22,9 @@
 en:
   enums:
     voting_topics: &voting_topics
-      team_vote: team
-      business_idea_vote: business idea
-      progress_vote: progress
+      team_vote: Team
+      business_idea_vote: Business idea
+      progress_vote: Progress
 
   activerecord:
     attributes:
