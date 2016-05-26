@@ -1,6 +1,13 @@
-body.events.timeline {
-  @extend .yellow, .lighten-5;
+$color-1: #ffdf8c;
+$color-2: #ffbf8c;
+$color-3: #ffa48c;
+$color-4: #ff8c8c;
 
+body.events.timeline {
+
+  nav.nav-wrapper {
+    background-color: #f59871 !important;
+  }
 
   #events {
 
@@ -12,8 +19,20 @@ body.events.timeline {
     left: 5%;
   }
 
-  .day {
+  .day.left {
     clear: both;
+
+    a {
+      background-color: #ffa38a;
+      font-size: 175%;
+      box-shadow: none;
+    }
+  }
+
+  .month {
+    h4 {
+      color: #d4846f;
+    }
   }
 
   .fixed-day {
@@ -24,6 +43,97 @@ body.events.timeline {
 
   .parallax-container {
     height: 250px;
+  }
+
+  .card {
+    border: 2px solid #ffdf8c;
+    box-shadow: none;
+
+    p.datetime {
+      span {
+        display: inline-block;
+        width: 80px;
+      }
+    }
+
+    .card-action {
+      color: #d4846f !important;
+
+      .avatars {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+
+        img {
+          position: absolute;
+          background-color: #d4846f;
+        }
+      }
+    }
+  }
+
+  .card.color-1 {
+    border-color: $color-1;
+
+    .card-action {
+      background-color: $color-1;
+
+      a {
+        color: darken($color-1, 20%) !important;
+      }
+
+      .avatars img {
+        background-color: darken($color-1, 20%);
+      }
+    }
+  }
+
+
+  .card.color-2 {
+    border-color: $color-2;
+
+    .card-action {
+      background-color: $color-2;
+
+      a {
+        color: darken($color-2, 20%) !important;
+      }
+
+      .avatars img {
+        background-color: darken($color-2, 20%);
+      }
+    }
+  }
+
+  .card.color-3 {
+    border-color: $color-3;
+
+    .card-action {
+      background-color: $color-3;
+
+      a {
+        color: darken($color-3, 20%) !important;
+      }
+      .avatars img {
+        background-color: darken($color-3, 20%);
+      }
+    }
+  }
+
+  .card.color-4 {
+    border-color: $color-4;
+
+    .card-action {
+      background-color: $color-4;
+
+      a {
+        color: darken($color-4, 20%) !important;
+      }
+
+      .avatars img {
+        background-color: darken($color-4, 20%);
+      }
+    }
   }
 
 }

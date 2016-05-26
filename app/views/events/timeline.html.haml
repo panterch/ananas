@@ -4,7 +4,7 @@
     - if event.start_at.strftime("%m") != @events[index - 1].start_at.strftime("%m")
       .parallax-container
         .parallax
-          %img{src: image_path("background_#{event.start_at.strftime("%m")}.jpg")}/
+          %img{src: image_path("timeline_#{event.start_at.strftime("%m")}.png")}/
 
     .row
       / Month section if a new month
@@ -14,20 +14,37 @@
             %h4= event.start_at.strftime("%b")
         - if event.start_at.strftime("%d%m") != @events[index - 1].start_at.strftime("%d%m")
           .day.left{id: event.start_at.today? ? 'today' : nil}
-            %a.btn-floating.btn-large.waves-effect.waves-light.light-green.date-circle{id: index}= event.start_at.strftime("%d")
-        &nbsp
+            %a.btn-floating.btn-large.waves-effect.waves-light{id: index}
+              = event.start_at.strftime("%d")
+        &nbsp;
 
       / Add the event cards
       .col.s8.m10.l8.section.event
-        .card.amber{class: colors(index)}
+        .card{class: colors(index)}
           .card-content.black-text
             %span.card-title= event.summary
             %p
               = event.description
-            %p
-              Starting at: <br><i class="fa fa-clock-o"></i> #{event.start_at.strftime("%H:%M") }  <i class="fa fa-calendar"></i> #{event.start_at.strftime("%d.%m") }
-            %p
-              Ending at:<br><i class="fa fa-clock-o"></i> #{event.end_at.strftime("%H:%M") } <i class="fa fa-calendar"></i> #{event.end_at.strftime("%d.%m") }
+            %p.datetime
+              %span
+                Starting at:
+              %i.fa.fa-clock-o
+              = event.start_at.strftime("%H:%M")
+              &nbsp;
+              %i.fa.fa-calendar
+              = event.start_at.strftime("%d.%m")
+            %p.datetime
+              %span
+                Ending at:
+              %i.fa.fa-clock-o
+              = event.end_at.strftime("%H:%M")
+              &nbsp;
+              %i.fa.fa-calendar
+              = event.end_at.strftime("%d.%m")
           .card-action
             - if can?(:edit, event) && event.persisted?
-              %a.indigo-text{ href: edit_event_path(event)} Edit event
+              %a{ href: edit_event_path(event)} Edit event
+            .avatars
+              - event.attendances.each_with_index do |a, i|
+                = image_tag a.guest.avatar_url, class: 'circle', style: "right: #{i*40}px"
+

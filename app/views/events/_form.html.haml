@@ -1,16 +1,22 @@
 = simple_form_for resource do |f|
-  = render 'form_base', f: f
 
-  .row
-    .col.s12= f.button :submit
+  .section
 
-- unless resource.new_record?
-  .header
-    %h4= t_model Attendance
-    %div(style="position: relative")
-      .fixed-action-btn.horizontal(style="position: absolute")
-        = link_to polymorphic_url([:new, resource, :attendance]), remote: true, class: "btn-floating btn-large blue" do
-          %i.large.material-icons add
+    = render 'form_base', f: f
 
-  %ul.collection.attendances
-    = render resource.attendances
+    .row
+      .col.s12= f.button :submit
+
+  .divider(style='margin: 20px 0 40px;')
+  .section
+
+    - unless resource.new_record?
+      .header
+        %h4= t_model Attendance
+        %div(style="position: relative")
+          .fixed-action-btn.horizontal(style="position: absolute")
+            = link_to polymorphic_url([:new, resource, :attendance]), remote: true, class: "btn-floating btn-large blue" do
+              %i.large.material-icons add
+
+      %ul.collection.attendances
+        = render resource.attendances
