@@ -1,4 +1,4 @@
-<%- if resource.errors.present? %>
+<%- if resource.invalid? %>
 $('#modal').html('<%=j render "show_modal" %>');
 modalInit();
 <%- else %>

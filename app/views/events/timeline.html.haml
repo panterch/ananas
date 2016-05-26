@@ -43,8 +43,7 @@
               = event.end_at.strftime("%d.%m")
           .card-action
             - if can?(:edit, event) && event.persisted?
-              %a{ href: edit_event_path(event)} Edit event
+              %a{ href: url_for([:edit, event])} Edit event
             .avatars
               - event.attendances.each_with_index do |a, i|
                 = image_tag a.guest.avatar_url, class: 'circle', style: "right: #{i*40}px"
-

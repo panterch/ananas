@@ -1,5 +1,5 @@
 class AttendancesController < CrudController
-  belongs_to :event, polymorphic: true, optional: true
+  belongs_to :event, :mentoring, polymorphic: true, optional: true
 
   def attend
     resource.state = 'attending'

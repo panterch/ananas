@@ -21,13 +21,23 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :attendances
+    resources :attendances do
+      member do
+        post :attend
+        post :decline
+      end
+    end
     collection do
       get :timeline
     end
   end
   resources :mentorings do
-    resources :attendances
+    resources :attendances do
+      member do
+        post :attend
+        post :decline
+      end
+    end
     collection do
       get :timeline
     end

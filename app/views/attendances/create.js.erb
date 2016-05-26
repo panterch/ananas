@@ -1,5 +1,7 @@
 <%= render 'create' %>
 
+<%- if resource.valid? %>
 $('.collection.attendances').html('<%=j render resource.event.attendances %>')
+<%- end %>
 
 init();
