@@ -25,7 +25,7 @@
         %ul.right
           %li
             = link_to '#', class: 'dropdown-button', 'data-activates' => 'menu-user-dropdown' do
-              = current_user
+              = image_tag current_user.profile.avatar_url, class: 'circle', style: 'padding-top: 5px; width: 50px;'
               %span.caret
             %ul#menu-user-dropdown.dropdown-content
               %li= link_to t('devise.profile'), current_user
