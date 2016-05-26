@@ -1,0 +1,47 @@
+.header
+  %h2= t_model(resource_class)
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal
+      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
+        %i.large.material-icons add
+
+- if resource_class.respond_to?(:by_text)
+  = render 'list_search'
+
+%ul.collection.collapsible
+  - collection.each do |mentor|
+    %li
+      .collapsible-header
+        .collection-item.avatar
+          = image_tag mentor.avatar_url, class: 'circle'
+          .title= link_to mentor.to_s, mentor
+          %p
+            = mentor.job_title
+          .secondary-content
+            - if can? :edit, mentor
+              = link_to(edit_mentor_path(mentor)) do
+                %i.material-icons mode_edit
+            - if can? :delete, mentor
+              = link_to mentor, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.material-icons delete
+      .collapsible-body
+        .row
+          .col.s12.field
+            .label=Mentor.human_attribute_name(:job_title)
+            .value=mentor.job_title
+        .row
+          .col.s12.field
+            .label=Mentor.human_attribute_name(:who_i_am)
+            .value=mentor.who_i_am
+        .row
+          .col.s12.field
+            .label=Mentor.human_attribute_name(:interests)
+            .value=mentor.interests
+        .row
+          .col.s12.field
+            .label=Mentor.human_attribute_name(:motivation)
+            .value=mentor.motivation
+        = render 'vcards/collapsible', vcard: mentor.vcard
+
+
+= paginate collection
