@@ -38,7 +38,6 @@ FactoryGirl.define do
     end_at Date.parse('2015-11-13 14:00')
   end
 
-
   factory :rating do
     association :team
     association :event

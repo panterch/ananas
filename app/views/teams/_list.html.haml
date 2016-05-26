@@ -4,12 +4,17 @@
       .collapsible-header
         .collection-item.avatar
           = image_tag team.avatar_url, class: 'circle'
-          .title= team
+          .title
+            = team
+            .collection-item-rating.inline
+              = vote_as_stars(Rating.average_vote(team.ratings))
           %p
             = team.description
           .secondary-content
             - if can?(:edit, team) && 'teams' == controller_name
               .fixed-action-btn.horizontal
+                = link_to team_ratings_path(team), class: "btn-floating btn-large green" do
+                  %i.large.material-icons.lime star
                 = link_to edit_team_path(team), class: "btn-floating btn-large green" do
                   %i.large.material-icons mode_edit
       .collapsible-body
