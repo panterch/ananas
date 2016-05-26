@@ -2,11 +2,12 @@
   - collection.each do |user|
     %li
       .collapsible-header
-        .collection-item
+        .collection-item.avatar
           .title= user
-          %span= user.profile_type
-        .secondary-content
-          - if can?(:edit, user) && 'users' == controller_name
-            .fixed-action-btn.horizontal
-              = link_to edit_user_path(user), class: "" do
-                %i.tiny.material-icons mode_edit
+          %p
+            = user.profile_type
+          .secondary-content
+            - if can?(:edit, user) && 'users' == controller_name
+              .fixed-action-btn.horizontal
+                = link_to edit_user_path(user), class: "btn-floating btn-large green" do
+                  %i.large.material-icons mode_edit
