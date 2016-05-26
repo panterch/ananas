@@ -36,5 +36,9 @@ Rails.application.routes.draw do
   resources :mentorings
   resources :ratings
 
+  controller :calendar, as: :calendar, path: 'calendar/:token' do
+    get :events
+  end
+
   root to: "events#timeline"
 end

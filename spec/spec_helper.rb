@@ -49,4 +49,6 @@ RSpec.configure do |config|
   # Clear ActionMailer deliveries after each spec.
   config.after(:each) { ActionMailer::Base.deliveries.clear }
 
+  # Don't raise server exceptions in feature specs
+  Capybara.raise_server_errors = false
 end
