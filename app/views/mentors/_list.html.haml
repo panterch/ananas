@@ -8,7 +8,7 @@
           %p
             = mentor.job_title
           .secondary-content
-            - if can? :edit, mentor
+            - if can?(:edit, mentor) && 'mentors' == controller_name
               .fixed-action-btn.horizontal
                 = link_to edit_mentor_path(mentor), class: "btn-floating btn-large green" do
                   %i.large.material-icons mode_edit
