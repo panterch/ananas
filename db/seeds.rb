@@ -13,11 +13,19 @@ Faker::Company.catch_phrase
     experience: (3.times.map { Faker::Hacker.ingverb }).join(', '),
     interests:  (3.times.map { Faker::Hacker.ingverb }).join(', '),
     motivation: Faker::Company.bs,
-    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50")
+    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50"),
+    vcard: HasVcards::Vcard.new(
+      full_name: Faker::Name.title + ' ' + Faker::Name.first_name + ' ' + Faker::Name.last_name,
+      given_name: Faker::Name.first_name,
+      family_name: Faker::Name.last_name,
+      extended_address: Faker::Address.street_address(include_secondary = true),
+      country_name: Faker::Address.country,
+      postal_code: Faker::Address.zip_code
+    )
   )
 end
 
-(3 - Member.count).times do
+(6 - Member.count).times do
   Member.create!(
     name: Faker::Name.name,
     description: Faker::Name.title,
@@ -35,7 +43,7 @@ end
 
 Team.all.each_with_index do |team, i|
   unless team.team_members.exists?
-    rand(1..3).times do
+    rand(1..2).times do
       TeamMember.create!(
         team: team,
         member: Member.includes(:team_members).where( team_members: { id: nil } ).first
