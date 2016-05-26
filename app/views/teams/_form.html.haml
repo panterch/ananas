@@ -10,8 +10,7 @@
     .row
       .col.s12= f.button :submit
 
-  .divider
-
+  .divider(style='margin: 20px 0 40px;')
   .section
     .header
       %h4= t_model TeamMember
@@ -21,8 +20,7 @@
             %i.large.material-icons add
       = render 'members/list', collection: resource.members
 
-  .divider
-
+  .divider(style='margin: 20px 0 40px;')
   .section
     .header
       %h4= t_model TeamMentor
