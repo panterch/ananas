@@ -39,6 +39,9 @@ module EventsHelper
       html << '<i class="material-icons">star_half</i>'
     end
 
+    # fill up remaining empty stars
+    html += (Rating::MAX_VOTE - vote.ceil).times.map { '<i class="material-icons">star_border</i>' }
+
     html.join.html_safe
   end
 end
