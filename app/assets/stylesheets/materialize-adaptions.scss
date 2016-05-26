@@ -16,3 +16,8 @@
 .collapsible-header .secondary-content .fixed-action-btn i {
   width: inherit;
 }
+
+// align icons in link collections
+a.collection-item .material-icons {
+  vertical-align: bottom;
+}
