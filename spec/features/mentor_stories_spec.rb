@@ -43,11 +43,17 @@ feature "Signing in" do
   end
 
 
-  scenario "Rendering the mentor form and displaying team info" do
+  scenario "Rendering the mentor edit form and displaying team info" do
     @mentor = create(:mentor, job_title: "Hacker")
     @team = create(:team, name: 'Team Rocket')
     @team.mentors << @mentor
     visit "/mentors/#{@mentor.id}"
     expect(page).to have_content("Team Rocket")
   end
+
+  scenario "Rendering the mentor new form" do
+    visit "/mentors/new"
+    expect(page).to have_content("Mentor")
+  end
+
 end

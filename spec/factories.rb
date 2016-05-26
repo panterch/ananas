@@ -17,6 +17,10 @@ FactoryGirl.define do
     job_title 'A mentor'
   end
 
+  factory :member do
+    description 'A member'
+  end
+
   factory :team do
     name 'A team'
   end
