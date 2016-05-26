@@ -1,4 +1,4 @@
-class MentoringsController < CrudController
+class MentoringsController < EventsController
   def mentoring_params
     permitted_params = params.require(:mentoring)
 

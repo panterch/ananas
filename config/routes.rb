@@ -26,6 +26,12 @@ Rails.application.routes.draw do
       get :timeline
     end
   end
+  resources :mentorings do
+    resources :attendances
+    collection do
+      get :timeline
+    end
+  end
 
   resources :attendances do
     member do
@@ -34,7 +40,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mentorings
   resources :ratings, except: :new
 
   root to: "events#timeline"

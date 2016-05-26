@@ -19,7 +19,7 @@ feature "Mentoring events" do
     create :mentoring, summary: 'First Mentoring'
     visit '/events/timeline'
     click_link 'Edit event'
-    # FIXME add an expectation as soon as mentoring#edit fixed
+    expect(page).to have_field 'Summary'
   end
 
 end
