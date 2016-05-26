@@ -5,4 +5,4 @@
         .collection-item
           .title= event.summary
       .collapsible-body
-        = render 'ratings/form', rating: Rating.new(event: event, team: event.team)
+        = render 'ratings/form', resource: Rating.new(event: event, team: event.team)

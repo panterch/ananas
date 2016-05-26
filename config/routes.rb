@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :mentors do
     resources :team_mentors
     resources :teams
+    resources :ratings
   end
 
   resources :events do
