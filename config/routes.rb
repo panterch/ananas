@@ -10,8 +10,16 @@ Rails.application.routes.draw do
     resources :teams
   end
   resources :teams do
-    resources :team_members
-    resources :team_mentors
+    resources :team_members do
+      collection do
+        get :new_form
+      end
+    end
+    resources :team_mentors do
+      collection do
+        get :new_form
+      end
+    end
     resources :members
   end
   resources :mentors do

@@ -1,6 +1,8 @@
 = simple_form_for [parent, resource] do |f|
   .row= f.association :team
   .row= f.association :mentor
+  = link_to 'create new mentor', new_form_team_team_mentors_path, remote: true
+
   .row= f.input :active
 
   = f.button :submit

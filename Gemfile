@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'phantomjs'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'quiet_assets'
@@ -57,11 +58,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-end
-
+  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'faker'
 

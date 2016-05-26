@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'codeclimate-test-reporter'
+require 'capybara/poltergeist'
 
 CodeClimate::TestReporter.start
 
@@ -45,8 +46,17 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-
   # Clear ActionMailer deliveries after each spec.
   config.after(:each) { ActionMailer::Base.deliveries.clear }
-
 end
+
+Capybara.register_driver :poltergeist do |app|
+  options = {
+    phantomjs: Phantomjs.path,
+    timeout: 60,
+    js_errors: false,
+    poltergeist_extensions: [Rails.root.join('spec/support/ga_events_extension.js')]
+  }
+  Capybara::Poltergeist::Driver.new app, options
+end
+Capybara.javascript_driver = :poltergeist
