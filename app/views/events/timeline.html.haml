@@ -4,7 +4,8 @@
     - if event.start_at.strftime("%m") != @events[index - 1].start_at.strftime("%m")
       .parallax-container
         .parallax
-          %img{src: image_path("timeline_#{event.start_at.strftime("%m")}.png")}/
+          = event.start_at.strftime("%B")
+          %img{src: image_path("timeline_month.png")}/
 
     .row
       / Month section if a new month
@@ -19,7 +20,7 @@
         &nbsp;
 
       / Add the event cards
-      .col.s8.m10.l8.section.event
+      .col.s8.m10.l10.section.event
         .card{class: colors(index)}
           .card-content.black-text
             %span.card-title= event.summary
