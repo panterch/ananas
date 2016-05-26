@@ -9,6 +9,8 @@
   .row
     .col.s12= f.button :submit
 
-= render 'child_list', association: :teams
+.divider
+.section
+  = render 'teams/list', collection: resource.teams
+  = render 'users/list', collection: [ resource.user ]
 
-= render 'users/profile', profile: resource
