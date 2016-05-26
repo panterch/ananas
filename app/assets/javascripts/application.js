@@ -20,6 +20,7 @@
 //= require materialize
 //= require date_scrolling
 //= require rating
+//= require file-preview
 
 function init() {
   modalInit();

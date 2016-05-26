@@ -50,3 +50,23 @@
   position: absolute;
   z-index: initial;
 }
+
+.image_preview {
+  margin-top: 2rem;
+
+  label.image_preview {
+    @extend .btn;
+    z-index: 990;
+    width: 13rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+}
+
+#img_prev {
+  margin-top: 3rem;
+}
