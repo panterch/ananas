@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   end
 
   resources :ratings, except: :new
-  resources :mentorings
+  resources :dashboard, only: :index
 
   controller :calendar, as: :calendar, path: 'calendar/:token' do
     get :events
