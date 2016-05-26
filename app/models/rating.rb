@@ -11,4 +11,10 @@ class Rating < ActiveRecord::Base
     store_accessor :votes, vote_topic
     validates vote_topic, presence: true
   end
+
+  def average_vote
+    average = votes.values.map(&:to_i).sum / votes.keys.length.to_f
+    # round to nearest 0.5
+    (average * 2).round / 2.0
+  end
 end
