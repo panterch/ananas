@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :mentors do
     resources :team_mentors
     resources :teams
+    resources :ratings, except: :new
   end
 
   resources :events do
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :mentorings
-  resources :ratings
+  resources :ratings, except: :new
 
   root to: "events#timeline"
 end

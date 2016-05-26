@@ -8,6 +8,9 @@ class Event < ActiveRecord::Base
   validates_presence_of :summary, :start_at, :end_at
 
   default_scope -> { order(:start_at) }
+  scope :passed, -> { where('start_at < ?', Time.zone.now)}
+  scope :attended_by, -> (user) { joins(:attendances).where('attendances.state = ? AND attendances.guest_id = ?', Attendance.states['attending'], user.id) }
+  scope :unrated, -> { joins('LEFT JOIN ratings ON events.id = ratings.event_id').where('ratings.event_id IS NULL') }
 
   def to_s
     summary
