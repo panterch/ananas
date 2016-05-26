@@ -1,4 +1,4 @@
-- unless resource.new_record?
+- if resource.persisted?
   - reflection = resource_class.reflect_on_association(association)
   - klass = reflection.klass
   - through = reflection.options[:through].to_s

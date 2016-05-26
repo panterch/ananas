@@ -1,4 +1,6 @@
 = simple_form_for resource do |f|
+  - if defined?(team_id) && team_id.present?
+    = hidden_field_tag :team_id, team_id
   .row= f.input :name
   .row= f.input :description
 

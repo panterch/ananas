@@ -16,4 +16,14 @@ class MentorsController < CrudController
       HasVcardSupport.permitted_params
     ])
   end
+
+  def create
+    create! do |format|
+      format.html
+
+      format.js do
+        resource.team_mentors.create(team_id: params[:team_id]) if params[:team_id].present?
+      end
+    end
+  end
 end

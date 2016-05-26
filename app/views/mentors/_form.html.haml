@@ -1,5 +1,7 @@
 .section
   = simple_form_for resource do |f|
+    - if defined?(team_id) && team_id.present?
+      = hidden_field_tag :team_id, team_id
     .row= f.input :job_title
     .row= f.input :who_i_am
     .row= f.input :experience
@@ -22,4 +24,3 @@
   = render 'teams/list', collection: resource.teams
   - if resource.user
     = render 'users/list', collection: [ resource.user ]
-
