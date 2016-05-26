@@ -11,4 +11,7 @@
         = link_to polymorphic_url([:new, resource, through_route]), remote: true, class: "btn-floating btn-large blue" do
           %i.large.material-icons add
 
-  = render 'list', collection: resource.send(association), resource_class: klass
+  -# FIXME partial rendering was broken when instances of the partials were available
+  -#       in other directories. e.g. we were rendering the teams of a mentor: the
+  -#       partial mentos/list was used instead of the fallback partial
+  = render 'application/list', collection: resource.send(association), resource_class: klass
