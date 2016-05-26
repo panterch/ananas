@@ -24,7 +24,12 @@ Faker::Company.catch_phrase
       locality: Faker::Address.city,
       post_office_box: Faker::Address.building_number,
       region: Faker::Address.state,
-      street_address: Faker::Address.street_address
+      street_address: Faker::Address.street_address,
+      honorific_prefix: Faker::Name.prefix,
+      honorific_suffix: Faker::Name.suffix,
+      nickname: Faker::Name.prefix,
+      number: Faker::PhoneNumber.cell_phone,
+      phone_number_type: Faker::PhoneNumber.area_code
     )
   )
 end
@@ -44,7 +49,12 @@ end
       locality: Faker::Address.city,
       post_office_box: Faker::Address.building_number,
       region: Faker::Address.state,
-      street_address: Faker::Address.street_address
+      street_address: Faker::Address.street_address,
+      honorific_prefix: Faker::Name.prefix,
+      honorific_suffix: Faker::Name.suffix,
+      nickname: Faker::Name.prefix,
+      number: Faker::PhoneNumber.cell_phone,
+      phone_number_type: Faker::PhoneNumber.area_code
     )
   )
 end
