@@ -1,0 +1,37 @@
+%ul.collection.collapsible
+  - collection.each do |team|
+    %li
+      .collapsible-header
+        .collection-item.avatar
+          = image_tag team.avatar_url, class: 'circle'
+          .title= link_to team.to_s, team
+          %p
+            = team.description
+          .secondary-content
+            - if can? :edit, team
+              = link_to(edit_team_path(team)) do
+                %i.material-icons mode_edit
+            - if can? :delete, team
+              = link_to team, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.material-icons delete
+      .collapsible-body
+        .row
+          .col.s12.field
+            .label=t_attr(:extended_address, HasVcards::Vcard)
+            .value=vcard.extended_address
+          .field.col.s6
+            .label=t_attr(:street_address, HasVcards::Vcard)
+            .value=vcard.street_address
+        .row
+          .col.s12.field
+            .label=t_attr(:postal_code, HasVcards::Vcard)
+            .value=vcard.postal_code
+          .field.col.s4
+            .label=t_attr(:locality, HasVcards::Vcard)
+            .value=vcard.locality
+          .field.col.s6
+            .label=t_attr(:post_office_box, HasVcards::Vcard)
+            .value=vcard.post_office_box
+
+
+= guarded_paginate collection
