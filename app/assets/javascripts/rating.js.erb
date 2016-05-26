@@ -4,7 +4,7 @@ function initRating() {
     var input_wrapper = input.parent('.input-field');
 
     var html = '';
-    for(var i = 1; i <= 5; i++) {
+    for(var i = 1; i <= <%= Rating::MAX_VOTE %>; i++) {
       html += '<i class="material-icons rating-star js-rating-star" data-value="' + i + '">star_border</i>';
     }
 

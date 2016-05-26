@@ -1,4 +1,6 @@
 class Rating < ActiveRecord::Base
+  MAX_VOTE = 5
+
   belongs_to :team
   belongs_to :event
   belongs_to :mentor
