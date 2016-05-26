@@ -1,0 +1,6 @@
+= simple_form_for [parent, resource] do |f|
+  = f.hidden_field :guest_type, value: 'Mentor'
+  .row= f.association :guest, collection: Mentor.all
+
+  .row
+    .col.s12= f.button :submit

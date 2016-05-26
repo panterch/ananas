@@ -10,4 +10,8 @@ class EventsController < CrudController
       :url
     ])
   end
+
+  def timeline
+    @events = Event.add_today(@events)
+  end
 end
