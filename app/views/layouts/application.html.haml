@@ -24,8 +24,9 @@
               %li= link_to t_model(User), :users
         %ul.right
           %li
-            = link_to '#', class: 'dropdown-button', 'data-activates' => 'menu-user-dropdown' do
-              = image_tag current_user.profile.avatar_url, class: 'circle', style: 'padding-top: 5px; width: 50px;'
+            = link_to '#', class: 'dropdown-button', style: 'padding-right: 60px', 'data-activates' => 'menu-user-dropdown' do
+              = current_user.email
+              = image_tag current_user.profile.avatar_url, class: 'circle', style: "width: 40px; right: 10px; top: 10px; position: absolute;"
               %span.caret
             %ul#menu-user-dropdown.dropdown-content
               %li= link_to t('devise.profile'), current_user
