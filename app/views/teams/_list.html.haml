@@ -4,7 +4,7 @@
       .collapsible-header
         .collection-item.avatar
           = image_tag team.avatar_url, class: 'circle'
-          .title= link_to team.to_s, team
+          .title= team
           %p
             = team.description
           .secondary-content
