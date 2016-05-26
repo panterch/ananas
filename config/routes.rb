@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    resources :attendances
     collection do
       get :timeline
     end
