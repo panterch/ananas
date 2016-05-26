@@ -8,30 +8,32 @@
           %p
             = team.description
           .secondary-content
-            - if can? :edit, team
-              = link_to(edit_team_path(team)) do
-                %i.material-icons mode_edit
-            - if can? :delete, team
-              = link_to team, method: :delete, data: { confirm: 'Are you sure?' } do
-                %i.material-icons delete
+            - if can?(:edit, team) && 'teams' == controller_name
+              .fixed-action-btn.horizontal
+                = link_to edit_team_path(team), class: "btn-floating btn-large green" do
+                  %i.large.material-icons mode_edit
       .collapsible-body
         .row
           .col.s12.field
+            .label=t_attr(:full_name, HasVcards::Vcard)
+            .value=team.vcard.full_name
+        .row
+          .col.s12.field
             .label=t_attr(:extended_address, HasVcards::Vcard)
-            .value=vcard.extended_address
+            .value=team.vcard.extended_address
           .field.col.s6
             .label=t_attr(:street_address, HasVcards::Vcard)
-            .value=vcard.street_address
+            .value=team.vcard.street_address
         .row
           .col.s12.field
             .label=t_attr(:postal_code, HasVcards::Vcard)
-            .value=vcard.postal_code
+            .value=team.vcard.postal_code
           .field.col.s4
             .label=t_attr(:locality, HasVcards::Vcard)
-            .value=vcard.locality
+            .value=team.vcard.locality
           .field.col.s6
             .label=t_attr(:post_office_box, HasVcards::Vcard)
-            .value=vcard.post_office_box
+            .value=team.vcard.post_office_box
 
 
 = guarded_paginate collection
