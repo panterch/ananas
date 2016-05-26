@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :team_members
     resources :team_mentors
     resources :members
+    resources :ratings, only: [:index]
   end
   resources :mentors do
     resources :team_mentors
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
   end
 
   resources :ratings, except: :new
+  resources :mentorings
 
   root to: "events#timeline"
 end

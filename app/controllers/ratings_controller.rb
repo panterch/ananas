@@ -1,5 +1,5 @@
 class RatingsController < CrudController
-  belongs_to :mentor, optional: true
+  belongs_to :mentor, :team, optional: true
 
   def index
     @events_to_rate = Event.attended_by(current_user).passed.unrated
