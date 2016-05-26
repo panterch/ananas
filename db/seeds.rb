@@ -27,9 +27,7 @@ Faker::Company.catch_phrase
       street_address: Faker::Address.street_address,
       honorific_prefix: Faker::Name.prefix,
       honorific_suffix: Faker::Name.suffix,
-      nickname: Faker::Name.prefix,
-      number: Faker::PhoneNumber.cell_phone,
-      phone_number_type: Faker::PhoneNumber.area_code
+      nickname: Faker::Name.prefix
     )
   )
 end
@@ -52,9 +50,7 @@ end
       street_address: Faker::Address.street_address,
       honorific_prefix: Faker::Name.prefix,
       honorific_suffix: Faker::Name.suffix,
-      nickname: Faker::Name.prefix,
-      number: Faker::PhoneNumber.cell_phone,
-      phone_number_type: Faker::PhoneNumber.area_code
+      nickname: Faker::Name.prefix
     )
   )
 end
