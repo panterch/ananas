@@ -1,3 +1,17 @@
 .rating-star {
   cursor: default;
 }
+
+.collapsible-header {
+  .collection-item-rating {
+    overflow: hidden;
+
+    i {
+      margin-right: 0;
+      font-size: 1rem;
+      line-height: 2rem;
+      width: 1.2rem;
+      text-align: left;
+    }
+  }
+}

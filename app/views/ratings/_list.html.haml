@@ -1,0 +1,23 @@
+%ul.collection.collapsible
+  - collection.each do |rating|
+    %li
+      .collapsible-header
+        .collection-item
+          .title= rating.mentor.to_s
+          .collection-item-rating
+            = vote_as_stars(rating.average_vote)
+      .collapsible-body
+        - Rating.vote_topics.keys.each_slice(2) do |vote_topics|
+          .row
+            - vote_topics.each do |vote_topic|
+              .col.s6.field
+                .card
+                  .card-content
+                    %label.card-title= Rating.vote_topics[vote_topic]
+                    %div= vote_as_stars(rating.send(vote_topic).to_i)
+        .row
+          .col.s12.field
+            .label= Rating.human_attribute_name(:comment)
+            .value= rating.comment
+
+= paginate collection
