@@ -1,4 +1,6 @@
 class DashboardController  < InheritedResources::Base
+  belongs_to :mentor
+
   # Authorization
   load_and_authorize_resource :rating
 

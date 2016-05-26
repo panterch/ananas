@@ -1,4 +1,4 @@
-= simple_form_for [current_user.profile, resource], remote: true, wrapper: :materialize_form_no_col do |f|
+= simple_form_for [parent, resource], remote: true, wrapper: :materialize_form_no_col do |f|
   = f.input :team_id, as: :hidden
   = f.input :event_id, as: :hidden
   - Rating.vote_topics.keys.each_slice(2) do |vote_topics|
