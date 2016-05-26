@@ -1,4 +1,4 @@
-feature "Signing in" do
+feature "Member management" do
   background do
     @user = create(:user, email: 'user@example.com', password: 'welcome', password_confirmation: 'welcome', admin: true)
     visit '/users/sign_in'

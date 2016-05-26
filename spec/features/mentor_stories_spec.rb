@@ -1,4 +1,4 @@
-feature "Signing in" do
+feature "Mentor management" do
   background do
     @user = create(:user, email: 'user@example.com', password: 'welcome', password_confirmation: 'welcome')
     visit '/users/sign_in'
