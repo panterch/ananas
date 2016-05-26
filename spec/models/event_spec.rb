@@ -31,4 +31,20 @@ RSpec.describe Event, type: :model do
       expect(event.attendances).to be_empty
     end
   end
+
+  context 'today' do
+    it 'builds an event for today' do
+      @today = Event.today
+      expect(@today.new_record?).to be_truthy
+      expect(@today.start_at).to eq(Date.today)
+    end
+    it 'adds today to an event list' do
+      create :event, start_at: Date.today - 2.days, end_at: Date.today - 2.days
+      create :event, start_at: Date.today + 2.days, end_at: Date.today + 2.days
+
+      events = Event.add_today(Event.all)
+      expect(events.size).to eq(3)
+      expect(events.second.summary).to eq('Today')
+    end
+  end
 end

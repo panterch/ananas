@@ -1,19 +1,30 @@
 body.events.timeline {
   @extend .yellow, .lighten-5;
+
+
+  #events {
+
+  }
+
+  .fixed-month {
+    position: fixed;
+    top: 79px;
+    left: 5%;
+  }
+
+  .day {
+    clear: both;
+  }
+
+  .fixed-day {
+    position: fixed;
+    top: 150px;
+    left: 5%;
+  }
+
+  .parallax-container {
+    height: 250px;
+  }
+
 }
 
-.fixed-month {
-  position: fixed;
-  top: 79px;
-  left: 5%;
-}
-
-.day {
-  clear: both;
-}
-
-.fixed-day {
-  position: fixed;
-  top: 150px;
-  left: 5%;
-}

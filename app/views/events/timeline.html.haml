@@ -13,7 +13,7 @@
           .month.left
             %h4= event.start_at.strftime("%b")
         - if event.start_at.strftime("%d%m") != @events[index - 1].start_at.strftime("%d%m")
-          .day.left
+          .day.left{id: event.start_at.today? ? 'today' : nil}
             %a.btn-floating.btn-large.waves-effect.waves-light.light-green.date-circle{id: index}= event.start_at.strftime("%d")
         &nbsp
 
@@ -29,4 +29,5 @@
             %p
               Ending at:<br><i class="fa fa-clock-o"></i> #{event.end_at.strftime("%H:%M") } <i class="fa fa-calendar"></i> #{event.end_at.strftime("%d.%m") }
           .card-action
-            %a.indigo-text{ href: edit_event_path(event)} Edit event
+            - if can?(:edit, event) && event.persisted?
+              %a.indigo-text{ href: edit_event_path(event)} Edit event
