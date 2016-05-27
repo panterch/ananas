@@ -29,10 +29,13 @@ feature 'Startup creation' do
     fill_in 'member[vcard_attributes][family_name]', with: 'Adam'
     fill_in 'member[vcard_attributes][given_name]', with: 'Alexander'
 
+    team = Team.where(name: startup_name).first
+    expect(team.members).to be_empty
+
     find('a', text: 'SAVE').click
     expect(page).to have_content 'Alexander Adam'
 
     team = Team.where(name: startup_name).first
-    expect(team.members.count).to be_one
+    expect(team.members.uniq).to be_one
   end
 end
