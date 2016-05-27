@@ -17,10 +17,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV['ANANAS_DATABASE_USER'] || 'ananas' %>
-  password: <%= ENV['ANANAS_DATABASE_PASSWORD'] || '' %>
-  host: <%= ENV['ANANAS_DATABASE_HOST'] || 'localhost' %>
-  port: <%= ENV['ANANAS_DATABASE_PORT'] || 5432 %>
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -33,7 +29,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: ananas
+  #username: ananas 
 
   # The password associated with the postgres role (username).
   #password:
