@@ -119,13 +119,29 @@ Team.all.each_with_index do |team, i|
 end
 
 # create admin user
-unless User.exists?(email: 'panter@example.com')
+unless User.exists?(email: 'admin@example.com')
   User.create!(
-    email: 'panter@example.com',
+    email: 'admin@example.com',
     password: 'welcome',
     password_confirmation: 'welcome',
     admin: true,
     profile: Mentor.first)
+end
+
+unless User.exists?(email: 'mentor@example.com')
+  User.create!(
+    email: 'mentor@example.com',
+    password: 'welcome',
+    password_confirmation: 'welcome',
+    profile: Mentor.first)
+end
+
+unless User.exists?(email: 'member@example.com')
+  User.create!(
+    email: 'member@example.com',
+    password: 'welcome',
+    password_confirmation: 'welcome',
+    profile: Member.first)
 end
 
 # create user for every second mentor and member
