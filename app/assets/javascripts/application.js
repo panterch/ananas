@@ -18,7 +18,7 @@
 //= require modal
 //= require table-link
 //= require materialize
-//= require date_scrolling
+//= require timeline
 //= require rating
 //= require file-preview
 //= require showpw
