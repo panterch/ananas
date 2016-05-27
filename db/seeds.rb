@@ -56,10 +56,21 @@ end
 end
 
 (3 - Team.count).times do
+  app_name = Faker::App.name
   Team.create!(
-    name: Faker::App.name,
+    name: app_name,
     description: "We #{Faker::Company.bs} and #{Faker::Company.bs}.",
-    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50")
+    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50"),
+    vcard: HasVcards::Vcard.new(
+      full_name: app_name,
+      extended_address: Faker::Address.street_address(include_secondary = true),
+      country_name: Faker::Address.country,
+      postal_code: Faker::Address.zip_code,
+      locality: Faker::Address.city,
+      post_office_box: Faker::Address.building_number,
+      region: Faker::Address.state,
+      street_address: Faker::Address.street_address,
+    )
   )
 end
 
