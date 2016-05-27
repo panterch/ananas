@@ -1,0 +1,19 @@
+%ul.collection
+  - collection.each do |event|
+    %li.collection-item.avatar
+      %i.material-icons.circle today
+      .title= event.summary
+      %p
+        = event.start_at.strftime("%d.%m.%Y %H:%M")
+        —
+        = event.end_at.strftime("%d.%m.%Y %H:%M")
+        %br
+        = event.description
+
+      .secondary-content
+        - if can?(:edit, event) && 'events' == controller_name
+          .fixed-action-btn.horizontal
+            = link_to edit_event_path(event), class: "btn-floating btn-large green" do
+              %i.large.material-icons mode_edit
+
+= guarded_paginate collection
