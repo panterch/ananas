@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'phantomjs'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'quiet_assets'

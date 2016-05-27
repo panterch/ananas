@@ -12,6 +12,8 @@ function modalInit() {
 
   $form.data('remote', true);
   $modal.find('.modal-submit').on('click', function() {
-    $form.submit();
+    if ($form.data('remote')) {
+      $form.submit();
+    }
   });
 }
