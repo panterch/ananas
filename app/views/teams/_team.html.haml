@@ -1,0 +1,40 @@
+%li
+  .collapsible-header
+    .collection-item.avatar
+      = image_tag team.avatar_url, class: 'circle'
+      .title
+        = team
+        .collection-item-rating.inline
+          = vote_as_stars(Rating.average_vote(team.ratings))
+      %p
+        = team.description
+      .secondary-content
+        - if can?(:edit, team) && 'teams' == controller_name
+          .fixed-action-btn.horizontal
+            = link_to team_ratings_path(team), class: "btn-floating btn-large green" do
+              %i.large.material-icons.lime star
+            = link_to edit_team_path(team), class: "btn-floating btn-large green" do
+              %i.large.material-icons mode_edit
+  .collapsible-body
+    .row
+      .col.s12.field
+        .label=t_attr(:full_name, HasVcards::Vcard)
+        .value=team.vcard.full_name
+    .row
+      .col.s12.field
+        .label=t_attr(:extended_address, HasVcards::Vcard)
+        .value=team.vcard.extended_address
+      .field.col.s6
+        .label=t_attr(:street_address, HasVcards::Vcard)
+        .value=team.vcard.street_address
+    .row
+      .col.s12.field
+        .label=t_attr(:postal_code, HasVcards::Vcard)
+        .value=team.vcard.postal_code
+      .field.col.s4
+        .label=t_attr(:locality, HasVcards::Vcard)
+        .value=team.vcard.locality
+      .field.col.s6
+        .label=t_attr(:post_office_box, HasVcards::Vcard)
+        .value=team.vcard.post_office_box
+
