@@ -56,3 +56,24 @@ en:
   dashboard:
     index:
       no_events_to_rate: No events to rate
+
+  application:
+    explore: Explore
+
+  events:
+    index:
+      title: Events
+    timeline:
+      title: Timeline
+
+  members:
+    index:
+      title: Founders
+
+  teams:
+    index:
+      title: Teams
+
+  mentors:
+    index:
+      title: Mentors
