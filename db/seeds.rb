@@ -68,7 +68,7 @@ Team.all.each_with_index do |team, i|
     rand(1..2).times do
       TeamMember.create!(
         team: team,
-        member: Member.includes(:team_members).where( team_members: { id: nil } ).first
+        member: Member.includes(:team_member).where( team_members: { id: nil } ).first
       )
     end
   end
