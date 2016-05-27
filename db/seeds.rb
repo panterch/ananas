@@ -86,28 +86,26 @@ program_start = DateTime.now.beginning_of_week
 program_start = program_start.change(hour: 8)
 
 unless Event.exists?
-  Event.create!(summary: Faker::Book.title,
-                description: Faker::Lorem.sentence,
+  Event.create!(summary: 'Kickoff Event',
+                description: Faker::Hacker.say_something_smart,
                 url: Faker::Internet.url,
                 start_at: program_start,
-                end_at: program_start + 2.hours
-                )
+                end_at: program_start + 2.hours)
 
-
-  Event.create!(summary: Faker::Book.title,
-                description: Faker::Lorem.sentence,
+  Event.create!(summary: 'First Milestone Event',
+                description: Faker::Hacker.say_something_smart,
                 url: Faker::Internet.url,
                 start_at: program_start + 1.month,
                 end_at: program_start + 1.month + 2.hours)
 
-  Event.create!(summary: Faker::Book.title,
-                description: Faker::Lorem.sentence,
+  Event.create!(summary: 'Second Milestone Event',
+                description: Faker::Hacker.say_something_smart,
                 url: Faker::Internet.url,
                 start_at: program_start + 2.month,
                 end_at: program_start + 2.month + 2.hours)
 
-  Event.create!(summary: Faker::Book.title,
-                description: Faker::Lorem.sentence,
+  Event.create!(summary: 'Grande Finale',
+                description: Faker::Hacker.say_something_smart,
                 url: Faker::Internet.url,
                 start_at: program_start + 3.month,
                 end_at: program_start + 3.month + 2.hours)
