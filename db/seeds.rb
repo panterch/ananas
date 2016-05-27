@@ -127,12 +127,21 @@ Team.all.each_with_index do |team, i|
   mentoring_at = program_start + rand(1..5).days
   mentoring_at = mentoring_at.change(hour: rand(8..18))
   (1..11).each do |i|
-     Mentoring.create!(
+     monitoring = Mentoring.create!(
       summary: "Mentoring #{i} Team #{team.name}",
       start_at: mentoring_at + i.weeks,
       end_at: mentoring_at + i.weeks + 1.hour,
       team: team,
       mentor: team.mentors.first
+     )
+
+     Rating.create!(
+       team: team,
+       event: monitoring,
+       mentor: team.mentors.first,
+       team_vote: rand(1..Rating::MAX_VOTE),
+       business_idea_vote: Random.rand(1..Rating::MAX_VOTE),
+       progress_vote: Random.rand(1..Rating::MAX_VOTE)
      )
   end
 end
