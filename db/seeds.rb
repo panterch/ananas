@@ -93,7 +93,7 @@ Team.all.each_with_index do |team, i|
 
 end
 
-program_start = DateTime.now.beginning_of_week
+program_start = (DateTime.now - 1.month).beginning_of_week
 program_start = program_start.change(hour: 8)
 
 unless Event.exists?

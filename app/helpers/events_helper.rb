@@ -26,4 +26,11 @@ module EventsHelper
       'event_busy'
     end
   end
+
+  # is the event in the past, today or in the future?
+  def epoch_class(event)
+    return 'today' if event.start_at.today?
+    return 'past' if event.start_at < Date.today
+    return 'future'
+  end
 end

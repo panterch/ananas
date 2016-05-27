@@ -1,3 +1,12 @@
+$color-1: #ffdf8c;
+$color-2: #ffbf8c;
+$color-3: #ffa48c;
+$color-4: #ff8c8c;
+
+body nav.nav-wrapper {
+  background: linear-gradient(135deg, $color-4, $color-2)
+}
+
 // smaller item collection for condesed index lists
 .collection .collection-item.avatar {
   min-height: 68px;
