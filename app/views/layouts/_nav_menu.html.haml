@@ -4,6 +4,8 @@
   %li= link_to t_title(:index, Team), :teams
   %li= link_to t_title(:index, Member), :members
   %li= link_to t_title(:index, Mentor), :mentors
+  - if current_user.member?
+    %li= link_to t_title(:index, Rating), [current_user.profile.team, :ratings]
   - if current_user.admin?
     %li= link_to t_title(:index, Event), :events
   - if can?(:manage, User)

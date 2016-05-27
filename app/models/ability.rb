@@ -25,6 +25,7 @@ class Ability
         can :manage, Member, id: member_id
         can :manage, Event, team: { team_members: { member_id: member_id } }
         can :manage, Team, team_members: { member_id: member_id }
+        can :read, Rating, team: { team_members: { member_id: member_id } }
       end
     end
   end
