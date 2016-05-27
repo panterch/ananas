@@ -32,7 +32,7 @@
             %li= link_to t_title(:index, Team), :teams
             %li= link_to t_title(:index, Member), :members
             %li= link_to t_title(:index, Mentor), :mentors
-            %li= link_to t_title(:index, Event), :events
+            %li= link_to t_title(:index, Event), :events if current_user.admin?
             - if can?(:manage, User)
               %li= link_to t_model(User), :users
           %li= link_to t('devise.profile'), current_user
