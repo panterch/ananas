@@ -46,6 +46,9 @@ function initMaterialize() {
     $('ul.collapsible a').click(function(event) {
         event.stopPropagation();
     });
+
+    $(".button-collapse").sideNav();
+
 }
 
 $(document).on('ready page:change', initMaterialize);

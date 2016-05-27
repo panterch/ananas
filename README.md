@@ -46,6 +46,11 @@ You're help is very appreciated! Thank you!
 * Beat Seeliger
 * Dominique Schuwey
 * Simon Hürlimann
+* Alexis Reigel
+* Andreas Brönnimann
+* Kaspar Vollenweider
+* Sarah Siegrist
+* Andreas König
 
 License
 -------
