@@ -30,16 +30,6 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 68px;
 }
 
-.collection {
-  border-width: $collection-border-width;
-
-  .collapsible-header,
-  .collapsible-body,
-  .collection-item {
-    border-width: $collection-border-width;
-  }
-}
-
 .collection.collapsible {
   border-bottom-width: 0;
 }
