@@ -1,9 +1,6 @@
 .divider(style='margin: .7rem 0')
 .row
   .col.s6
-    - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-      = link_to "Password?", new_password_path(resource_name), class: "waves-effect waves-light btn orange lighten-3"
-  .col.s6
     - if controller_name != 'sessions'
       = link_to "Log in", new_session_path(resource_name), class: "waves-effect waves-light btn lime lighten-3"
   .col.s6
