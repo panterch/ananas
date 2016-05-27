@@ -6,10 +6,16 @@ $color-2: #ffbf8c;
 $color-3: #ffa48c;
 $color-4: #ff8c8c;
 
+$color-dark: #d4846f;
+$color-dark-violet: rgba(66, 11, 83, 0.87);
+
 // Materialize overrides
 $primary-color: $color-1;
 $secondary-color: $color-4;
-$link-color: $color-1;
+$link-color: $color-3;
+
+$collapsible-border-color: $color-1;
+$collapsible-border-width: 2px;
 
 $button-radius: 0;
 

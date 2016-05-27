@@ -13,10 +13,6 @@
 
 body.events.timeline {
 
-  #events {
-
-  }
-
   .fixed-month {
     position: fixed;
     top: 79px;
@@ -29,17 +25,12 @@ body.events.timeline {
     a {
       background-color: #ffa38a;
       font-size: 175%;
-      box-shadow: none;
     }
   }
 
   .day.left.past a
   {
     background-color: lightgrey;
-  }
-
-  .month h4 {
-    color: #d4846f;
   }
 
   .fixed-day {
@@ -63,8 +54,7 @@ body.events.timeline {
   }
 
   .card {
-    border: 2px solid #ffdf8c;
-    box-shadow: none;
+    border: 2px solid $color-1;
 
     p.datetime {
       span {
@@ -74,7 +64,7 @@ body.events.timeline {
     }
 
     .card-action {
-      color: #d4846f !important;
+      color: $color-dark !important;
 
       .avatars {
         position: absolute;
@@ -85,7 +75,7 @@ body.events.timeline {
           width: 42px;
           height: 42px;
           position: absolute;
-          background-color: #d4846f;
+          background-color: $color-dark;
         }
       }
     }

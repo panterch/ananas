@@ -16,9 +16,27 @@ body nav.nav-wrapper {
   background: linear-gradient(135deg, $color-4, $color-2)
 }
 
+html {
+  color: $color-dark-violet;
+}
+
+// Header styles
+h1, h2, h3, h4, h5, h6 {
+  color: $color-dark;
+}
+
 // smaller item collection for condensed index lists
 .collection .collection-item.avatar {
   min-height: 68px;
+}
+
+.collection {
+  border-width: $collapsible-border-width;
+  border-bottom-width: 0;
+
+  .collapsible-header {
+    border-width: $collapsible-border-width;
+  }
 }
 
 // not only p but every element in collabsible body should be indented
