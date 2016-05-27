@@ -31,12 +31,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .collection {
-  border-width: $collapsible-border-width;
-  border-bottom-width: 0;
+  border-width: $collection-border-width;
 
-  .collapsible-header {
-    border-width: $collapsible-border-width;
+  .collapsible-header,
+  .collection-item {
+    border-width: $collection-border-width;
   }
+}
+
+.collection.collapsible {
+  border-bottom-width: 0;
 }
 
 // not only p but every element in collabsible body should be indented
