@@ -1,15 +1,14 @@
-%ul.collection.collapsible
+%ul.collection
   - collection.each do |user|
-    %li
-      .collapsible-header
-        .collection-item.avatar(style='padding-left:0;')
-          .title= user
-          %p
-            = user.profile_type
-          .secondary-content
-            - if can?(:edit, user) && 'users' == controller_name
-              .fixed-action-btn.horizontal
-                = link_to edit_user_path(user), class: "btn-floating btn-large green" do
-                  %i.large.material-icons mode_edit
+    %li.collection-item.avatar
+      %i.material-icons.circle perm_identity
+      .title= user
+      %p
+        = user.profile_type
+      .secondary-content
+        - if can?(:edit, user) && 'users' == controller_name
+          .fixed-action-btn.horizontal
+            = link_to edit_user_path(user), class: "btn-floating btn-large green" do
+              %i.large.material-icons mode_edit
 
 = guarded_paginate collection
