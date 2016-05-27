@@ -1,7 +1,7 @@
 default: &default
   topics:
     team_vote: Team
-    business_idea_vote: Business idea
+    business_idea_vote: Business Idea
     progress_vote: Progress
 production:
   <<: *default
