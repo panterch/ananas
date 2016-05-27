@@ -22,6 +22,7 @@ class Ability
       if user.member?
         member_id = user.profile_id
 
+        can [:read, :edit], User, id: user.id
         can :manage, Member, id: member_id
         can :manage, Event, team: { team_members: { member_id: member_id } }
         can :manage, Team, team_members: { member_id: member_id }
