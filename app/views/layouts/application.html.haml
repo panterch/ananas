@@ -27,14 +27,7 @@
                 %li= link_to t('devise.sign_out'), destroy_user_session_path, method: :delete
         %ul#slide-out.side-nav
           - if user_signed_in?
-            %li= link_to t_title(:timeline, Event), timeline_events_path
-            %li= link_to t_title(:dashboard, Rating), mentor_dashboard_index_path(current_user) if can? :manage, Rating
-            %li= link_to t_title(:index, Team), :teams
-            %li= link_to t_title(:index, Member), :members
-            %li= link_to t_title(:index, Mentor), :mentors
-            %li= link_to t_title(:index, Event), :events if current_user.admin?
-            - if can?(:manage, User)
-              %li= link_to t_model(User), :users
+            = render 'layouts/nav_menu'
           %li= link_to t('devise.profile'), current_user
           %li= link_to t('devise.sign_out'), destroy_user_session_path, method: :delete
         %a(href="#" data-activates="slide-out" class="button-collapse")

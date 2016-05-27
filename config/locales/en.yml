@@ -77,3 +77,7 @@ en:
   mentors:
     index:
       title: Mentors
+
+  users:
+    index:
+      title: Users
