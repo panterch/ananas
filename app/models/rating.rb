@@ -8,7 +8,7 @@ class Rating < ActiveRecord::Base
   validates :team, :event, :mentor, presence: true
 
   def self.vote_topics
-    I18n.t('activerecord.attributes.rating.topic_enum').stringify_keys
+    Rails.application.config_for(:ratings)['topics']
   end
 
   vote_topics.keys.each do |vote_topic|
