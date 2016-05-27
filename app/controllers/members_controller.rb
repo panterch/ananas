@@ -17,7 +17,8 @@ class MembersController < CrudController
       format.html
 
       format.js do
-        resource.team_members.create(team_id: params[:team_id]) if params[:team_id].present?
+        # FIXME add security
+        TeamMember.create!(team_id: params[:team_id], member_id: resource.id) if params[:team_id].present?
       end
     end
   end

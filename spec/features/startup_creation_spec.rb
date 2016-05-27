@@ -33,6 +33,6 @@ feature 'Startup creation' do
     expect(page).to have_content 'Alexander Adam'
 
     team = Team.where(name: startup_name).first
-    expect(team.members).to be_one
+    expect(team.members.count).to be_one
   end
 end
