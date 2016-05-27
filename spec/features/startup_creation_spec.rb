@@ -4,7 +4,7 @@ feature 'Startup creation' do
 
   scenario 'implicit member creation', js: true do
     expect(Team.exists?(name: startup_name)).to be_falsy
-    first(:link, 'Startup').click
+    visit '/teams'
 
     click_link 'add'
     expect(page).not_to have_content 'You are not authorized to access this page'
@@ -30,7 +30,7 @@ feature 'Startup creation' do
     fill_in 'member[vcard_attributes][given_name]', with: 'Alexander'
 
     find('a', text: 'SAVE').click
-    expect(page.has_css?('.title', text: 'Alexander Adam')).to be_truthy
+    expect(page).to have_content 'Alexander Adam'
 
     team = Team.where(name: startup_name).first
     expect(team.members).to be_one
