@@ -22,3 +22,8 @@
     }
   }
 }
+
+// align icons in link collections
+a.collection-item .material-icons {
+  vertical-align: bottom;
+}

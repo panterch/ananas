@@ -54,5 +54,9 @@ Rails.application.routes.draw do
   resources :ratings, except: :new
   resources :mentorings
 
+  controller :calendar, as: :calendar, path: 'calendar/:token' do
+    get :events
+  end
+
   root to: "events#timeline"
 end
