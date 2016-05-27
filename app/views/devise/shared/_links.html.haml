@@ -8,7 +8,7 @@
       = link_to "Log in", new_session_path(resource_name), class: "waves-effect waves-light btn lime lighten-3"
   .col.s6
     - if devise_mapping.registerable? && controller_name != 'registrations'
-      = link_to "Sign up", new_registration_path(resource_name), class: "waves-effect waves-light btn lime lighten-1"
+      = link_to "Sign up", new_registration_path(resource_name), class: "waves-effect waves-light btn amber lighten-3"
   .col.s6
     - if devise_mapping.confirmable? && controller_name != 'confirmations'
       = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
