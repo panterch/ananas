@@ -52,6 +52,8 @@ en:
   ratings:
     dashboard:
       title: Dashboard
+    index:
+      title: Ratings
 
   dashboard:
     index:
@@ -81,7 +83,3 @@ en:
   users:
     index:
       title: Users
-
-  ratings:
-    index:
-      title: Ratings
