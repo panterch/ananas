@@ -2,7 +2,7 @@
 
 <%- unless resource.errors.present? %>
   $('.collection.members').html('<%=j render "list", resource_class: Member, collection: resource.team.members %>')
-  $('.collection.teams').html('<%=j render "list", resource_class: Team, collection: resource.member.teams %>')
+  $('.collection.teams').html('<%=j render "show", resource_class: Team, collection: resource.member.team %>')
 
   init();
 <%- end %>
