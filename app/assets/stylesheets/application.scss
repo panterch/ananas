@@ -1,19 +1,26 @@
+@import "materialize/components/color";
+
+// Our colors
+$color-1: #ffdf8c;
+$color-2: #ffbf8c;
+$color-3: #ffa48c;
+$color-4: #ff8c8c;
+
+// Materialize overrides
+$primary-color: $color-1;
+$secondary-color: $color-4;
+$link-color: $color-1;
+
+$button-radius: 0;
+
 @import "materialize";
 @import "font-awesome";
 @import "material-icons";
 @import "materialize-adaptions";
+
 @import "rating";
 @import "timeline";
 @import "collection-actions";
-
-// Drop all shadow for a flat design
-* {
-  box-shadow: none !important;
-}
-
-.navbar-fixed nav {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
-}
 
 // Helper
 .hide {
