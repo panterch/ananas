@@ -1,5 +1,6 @@
 - if user_signed_in?
   %li= link_to t_title(:timeline, Event), timeline_events_path
+  %li= link_to t_title(:dashboard, Rating), mentor_dashboard_index_path(current_user) if can? :manage, Rating
   %li= link_to t_model(Event), :events
   %li= link_to t_model(Team), :teams
   %li= link_to t_model(Member), :members

@@ -31,6 +31,7 @@ en:
       team_mentor: Mentoring
       mentoring: Mentoring
       rating: Rating
+      dashboard: Dashboard
 
   crud:
     action:
@@ -47,3 +48,11 @@ en:
       add_to_google: Add to Google Calendar
       webcal: Open with your calendar app
       download: Download iCalendar file
+
+  ratings:
+    dashboard:
+      title: Dashboard
+
+  dashboard:
+    index:
+      no_events_to_rate: No events to rate
