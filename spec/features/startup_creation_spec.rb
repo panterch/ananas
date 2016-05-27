@@ -31,11 +31,13 @@ feature 'Startup creation' do
 
     team = Team.where(name: startup_name).first
     expect(team.members).to be_empty
+    expect(team.team_members).to be_empty
 
     find('a', text: 'SAVE').click
     expect(page).to have_content 'Alexander Adam'
 
     team = Team.where(name: startup_name).first
+    expect(team.team_members).to be_one
     expect(team.members.uniq).to be_one
   end
 end
