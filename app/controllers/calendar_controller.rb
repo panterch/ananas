@@ -6,7 +6,7 @@ class CalendarController < ApplicationController
     calendar = Icalendar::Calendar.new
     calendar.publish
 
-    events = Event.accessible_by(current_ability)
+    events = Event.accessible_by(current_ability).includes(attendances: { guest: :user })
     events.map do |event|
       calendar.add_event CalendarConverter.event(event)
     end
