@@ -1,5 +1,6 @@
 function initMaterialize() {
     $('form .datepicker').pickadate();
+    $('.modal-trigger').leanModal();
 
     // collect splitted up date and time values and submit them in one
     // datetime field

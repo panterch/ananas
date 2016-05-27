@@ -1,8 +1,13 @@
 - if user_signed_in?
   %li= link_to t_title(:timeline, Event), timeline_events_path
-  %li= link_to t_model(Event), :events
-  %li= link_to t_model(Team), :teams
-  %li= link_to t_model(Member), :members
-  %li= link_to t_model(Mentor), :mentors
+  %li= link_to t_title(:dashboard, Rating), mentor_dashboard_index_path(current_user) if can? :manage, Rating
+  %li
+    = link_to '#', class: 'dropdown-button', 'data-activates' => 'menu-explore-dropdown' do
+      = t('application.explore')
+    %ul#menu-explore-dropdown.dropdown-content
+      %li= link_to t_title(:index, Team), :teams
+      %li= link_to t_title(:index, Member), :members
+      %li= link_to t_title(:index, Mentor), :mentors
+  %li= link_to t_title(:index, Event), :events
   - if can?(:manage, User)
     %li= link_to t_model(User), :users

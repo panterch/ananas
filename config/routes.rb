@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :team_mentors
     resources :teams
     resources :ratings, except: :new
+    resources :dashboard, only: :index
   end
 
   resources :events do
@@ -52,7 +53,10 @@ Rails.application.routes.draw do
   end
 
   resources :ratings, except: :new
-  resources :mentorings
+
+  controller :calendar, as: :calendar, path: 'calendar/:token' do
+    get :events
+  end
 
   root to: "events#timeline"
 end

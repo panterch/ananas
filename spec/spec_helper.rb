@@ -31,7 +31,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:transaction)
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
@@ -51,4 +51,6 @@ RSpec.configure do |config|
   # Clear ActionMailer deliveries after each spec.
   config.after(:each) { ActionMailer::Base.deliveries.clear }
 
+  # Don't raise server exceptions in feature specs
+  Capybara.raise_server_errors = false
 end

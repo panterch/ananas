@@ -1,0 +1,11 @@
+default: &default
+  topics:
+    team_vote: Team
+    business_idea_vote: Business idea
+    progress_vote: Progress
+production:
+  <<: *default
+development:
+  <<: *default
+test:
+  <<: *default

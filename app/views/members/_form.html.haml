@@ -16,7 +16,9 @@
 
 .divider
 .section
-  = render 'teams/list', collection: resource.teams
+
+  %ul.collection.collapsible
+    = render resource.team if resource.team
+
   - if resource.user
     = render 'users/list', collection: [ resource.user ]
-

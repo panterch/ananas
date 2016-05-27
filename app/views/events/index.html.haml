@@ -1,0 +1,26 @@
+.header
+  %h2= t_model(resource_class)
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal(style="position: absolute")
+      = link_to '#calendar-modal', class: "btn-floating btn-large green modal-trigger" do
+        %i.large.material-icons event
+      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
+        %i.large.material-icons add
+
+= render 'index', collection: collection
+
+#calendar-modal.modal
+  .modal-content
+    %h4= t('events.calendar.export')
+    %div.collection
+      = link_to "http://www.google.com/calendar/render?cid=#{CGI.escape calendar_events_url(current_user.calendar_token)}", class: 'collection-item', target: '_blank' do
+        %i.material-icons event
+        = t('events.calendar.add_to_google')
+      = link_to calendar_events_url(current_user.calendar_token, protocol: 'webcal'), class: 'collection-item' do
+        %i.material-icons open_in_browser
+        = t('events.calendar.webcal')
+      = link_to calendar_events_url(current_user.calendar_token), class: 'collection-item' do
+        %i.material-icons file_download
+        = t('events.calendar.download')
+  .modal-footer
+    = link_to t('crud.action.close'), '#', class: 'modal-action modal-close btn-flat waves-effect'

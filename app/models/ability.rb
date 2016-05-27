@@ -16,6 +16,7 @@ class Ability
         can :manage, Mentor, id: mentor_id
         can :manage, Event, mentor_id: mentor_id
         can :manage, Team, team_mentors: { mentor_id: mentor_id }
+        can :manage, Rating, mentor_id: mentor_id
       end
 
       if user.member?

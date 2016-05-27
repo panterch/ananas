@@ -20,21 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  enums:
-    voting_topics: &voting_topics
-      team_vote: Team
-      business_idea_vote: Business idea
-      progress_vote: Progress
-
   activerecord:
-    attributes:
-      mentor:
-      rating:
-        <<: *voting_topics
-        topic_enum:
-          <<: *voting_topics
-
-
     models:
       user: User
       mentor: Mentor
@@ -45,13 +31,49 @@ en:
       team_mentor: Mentoring
       mentoring: Mentoring
       rating: Rating
+      dashboard: Dashboard
 
   crud:
     action:
       search: Search
       cancel: Cancel
       save: Save
+      close: Close
 
   events:
     timeline:
       title: Timeline
+    calendar:
+      export: Export calendar
+      add_to_google: Add to Google Calendar
+      webcal: Open with your calendar app
+      download: Download iCalendar file
+
+  ratings:
+    dashboard:
+      title: Dashboard
+
+  dashboard:
+    index:
+      no_events_to_rate: No events to rate
+
+  application:
+    explore: Explore
+
+  events:
+    index:
+      title: Events
+    timeline:
+      title: Timeline
+
+  members:
+    index:
+      title: Founders
+
+  teams:
+    index:
+      title: Teams
+
+  mentors:
+    index:
+      title: Mentors
