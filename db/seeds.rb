@@ -13,7 +13,7 @@ Faker::Company.catch_phrase
     experience: (3.times.map { Faker::Hacker.ingverb }).join(', '),
     interests:  (3.times.map { Faker::Hacker.ingverb }).join(', '),
     motivation: Faker::Company.bs,
-    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50"),
+    avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
       full_name: Faker::Name.title + ' ' + Faker::Name.first_name + ' ' + Faker::Name.last_name,
       given_name: Faker::Name.first_name,
@@ -36,7 +36,7 @@ end
   Member.create!(
     name: Faker::Name.name,
     description: Faker::Name.title,
-    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50"),
+    avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
       full_name: Faker::Name.title + ' ' + Faker::Name.first_name + ' ' + Faker::Name.last_name,
       given_name: Faker::Name.first_name,
@@ -59,7 +59,7 @@ end
   Team.create!(
     name: Faker::App.name,
     description: "We #{Faker::Company.bs} and #{Faker::Company.bs}.",
-    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50")
+    avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png")
   )
 end
 
