@@ -2,6 +2,8 @@
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   = f.input :email, :input_html => {'data-autofocus' => true}
   = f.input :password, :hint => false
+  .col.s12.show-pw
+    %i.material-icons
   - if devise_mapping.rememberable?
     = f.input :remember_me, :as => :boolean
 

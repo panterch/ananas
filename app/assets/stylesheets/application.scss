@@ -50,6 +50,15 @@
   position: absolute;
   z-index: initial;
 }
+// Show password button
+#new_user {
+  i.material-icons::after {
+    content: 'visibility';
+  }
+  i.material-icons.show-pw::after {
+    content: 'visibility_off';
+  }
+}
 
 .image_preview {
   margin-top: 2rem;

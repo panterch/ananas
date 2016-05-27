@@ -21,6 +21,7 @@
 //= require date_scrolling
 //= require rating
 //= require file-preview
+//= require showpw
 
 function init() {
   modalInit();
