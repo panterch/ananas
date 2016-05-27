@@ -7,6 +7,6 @@
   - if devise_mapping.rememberable?
     = f.input :remember_me, :as => :boolean
 
-  = f.button :submit, "Log in"
+  = f.button :submit, "Log in", name: "commit", class: "waves-effect waves-light btn green lighten-3"
 
 = render "devise/shared/links"
