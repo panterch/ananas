@@ -1,4 +1,6 @@
 #events
+
+
   - @events.each_with_index do |event, index|
     / Add a paralax container if there is a new month
     - if event.start_at.strftime("%m") != @events[index - 1].start_at.strftime("%m")
@@ -48,3 +50,8 @@
             .avatars
               - event.attendances.each_with_index do |a, i|
                 = image_tag a.guest.avatar_url, class: 'circle', style: "right: #{i*40}px"
+
+  .fixed-action-btn.horizontal(style="position: fixed; z-index: 2;")
+    = link_to new_event_path, class: "btn-floating btn-large blue" do
+      %i.large.material-icons add
+
