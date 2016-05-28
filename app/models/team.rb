@@ -19,6 +19,10 @@ class Team < ActiveRecord::Base
       vcard: HasVcardSupport.pg_search_against
     }
 
+  def mentor
+    mentors.first
+  end
+
   def to_s
     name
   end

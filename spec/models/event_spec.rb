@@ -36,7 +36,7 @@ describe Event, type: :model do
     it 'builds an event for today' do
       @today = Event.today
       expect(@today.new_record?).to be_truthy
-      expect(@today.start_at).to eq(Date.today)
+      expect(@today.start_at).to eq(Date.today.beginning_of_day)
     end
     it 'adds today to an event list' do
       create :event, start_at: Date.today - 2.days, end_at: Date.today - 2.days

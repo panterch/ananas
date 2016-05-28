@@ -25,10 +25,19 @@
 
   - if resource.persisted?
     .divider(style='margin: 20px 0 40px;')
-
     .section
       .header
-        %h4= t_model TeamMember
+        %h4= t_title(:index, Mentoring)
+        %div(style="position: relative")
+          .fixed-action-btn.horizontal(style="position: absolute")
+            = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-large blue" do
+              %i.large.material-icons add
+        = render 'events/list', collection: resource.mentorings.upcoming, resource_class: Mentoring
+
+    .divider(style='margin: 20px 0 40px;')
+    .section
+      .header
+        %h4= t_title(:index, Member)
         %div(style="position: relative")
           .fixed-action-btn.horizontal(style="position: absolute")
             = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
@@ -39,7 +48,7 @@
 
     .section
       .header
-        %h4= t_model TeamMentor
+        %h4= t_model Mentor
         %div(style="position: relative")
           .fixed-action-btn.horizontal(style="position: absolute")
             = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do

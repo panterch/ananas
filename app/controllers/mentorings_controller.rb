@@ -1,4 +1,13 @@
 class MentoringsController < EventsController
+
+  defaults resource_class: Mentoring
+  belongs_to :team, optional: true
+
+  def new
+    @mentoring.prefill(@team)
+    new!
+  end
+
   def mentoring_params
     permitted_params = params.require(:mentoring)
 

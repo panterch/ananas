@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   scope :passed, -> { where('start_at < ?', Time.zone.now)}
   scope :attended_by, -> (user) { joins(:attendances).where('attendances.state = ? AND attendances.guest_id = ?', Attendance.states['attending'], user.id) }
   scope :unrated, -> { joins('LEFT JOIN ratings ON events.id = ratings.event_id').where('ratings.event_id IS NULL') }
+  scope :upcoming, -> { where('start_at >= ?', Date.today.beginning_of_day)}
 
   def to_s
     summary

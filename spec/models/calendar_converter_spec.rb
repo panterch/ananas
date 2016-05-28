@@ -26,11 +26,11 @@ describe CalendarConverter, type: :model do
     it 'returns an icalendar event' do
       expect(ical_event.summary).to eq 'summary'
       expect(ical_event.description).to eq 'description'
-      expect(ical_event.dtstart.to_s).to eq '2001-02-03T06:00:00+00:00'
-      expect(ical_event.dtend.to_s).to eq '2001-02-03T18:00:00+00:00'
+      expect(ical_event.dtstart.to_s).to eq '2001-02-03T07:00:00+01:00'
+      expect(ical_event.dtend.to_s).to eq '2001-02-03T19:00:00+01:00'
       expect(ical_event.url.to_s).to eq 'url'
-      expect(ical_event.created.to_s).to eq '2001-01-01T12:00:00+00:00'
-      expect(ical_event.last_modified.to_s).to eq '2001-01-01T13:00:00+00:00'
+      expect(ical_event.created.to_s).to eq '2001-01-01T13:00:00+01:00'
+      expect(ical_event.last_modified.to_s).to eq '2001-01-01T14:00:00+01:00'
     end
 
     it 'appends attendances of the event' do

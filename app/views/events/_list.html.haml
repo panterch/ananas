@@ -1,4 +1,4 @@
-%ul.collection
+%ul.collection{class: resource_class&.name&.tableize}
   - collection.each do |event|
     %li.collection-item.avatar
       %i.material-icons.circle today

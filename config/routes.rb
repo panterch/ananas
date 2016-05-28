@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
     resources :members
     resources :ratings, only: [:index]
+    resources :mentorings
   end
   resources :mentors do
     resources :team_mentors
