@@ -60,7 +60,7 @@ end
   Team.create!(
     name: app_name,
     description: "We #{Faker::Company.bs} and #{Faker::Company.bs}.",
-    remote_avatar_url: Faker::Avatar.image(Faker::Name.title, "50x50"),
+    avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
       full_name: app_name,
       extended_address: Faker::Address.street_address(include_secondary = true),
