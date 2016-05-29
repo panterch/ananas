@@ -11,7 +11,7 @@
 
     .row
       / Month section if a new month
-      .col.s4.m2.l2
+      .col.s2.m2.l2
         - if event.start_at.strftime("%m") != @events[index - 1].start_at.strftime("%m") || index == 0
           .month.left{class: epoch_class(event) }
             %h4= event.start_at.strftime("%b")
@@ -22,7 +22,7 @@
         &nbsp;
 
       / Add the event cards
-      .col.s8.m10.l10.section.event
+      .col.s10.m10.l10.section.event
         .card{class: colors(index)}
           .card-content.black-text
             %span.card-title= event.summary

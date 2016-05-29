@@ -29,16 +29,17 @@ body.events.timeline {
       width: 70%;
       margin-left: 15%;
 
-      @media #{$small-and-down} {
-        width: 100%;
+      @media #{$large-and-up} {
+        width: 60%;
+        margin-left: 20%;
       }
       @media #{$medium-and-down} {
         width: 80%;
         margin-left: 10%;
       }
-      @media #{$large-and-up} {
-        width: 70%;
-        margin-left: 15%;
+      @media #{$small-and-down} {
+        width: 100%;
+        margin-left: 0;
       }
     }
   }
