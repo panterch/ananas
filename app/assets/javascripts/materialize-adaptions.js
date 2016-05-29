@@ -50,6 +50,9 @@ function initMaterialize() {
 
     $(".button-collapse").sideNav();
 
+    $('.timepicker').pickatime({
+      twelvehour: false
+    });
 }
 
 $(document).on('ready page:change', initMaterialize);

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //
+//= require materialize-clockpicker
 //= require materialize-adaptions
 //= require modal
 //= require table-link
