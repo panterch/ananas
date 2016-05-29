@@ -28,7 +28,7 @@ function initMaterialize() {
 
     Materialize.updateTextFields();
 
-    if (!!$('.alert').length) {
+    if ($('.alert').length) {
       $('.alert').each(function (index, element) {
         var message = '';
         if ($(element).hasClass('alert-info')) {
@@ -50,6 +50,9 @@ function initMaterialize() {
 
     $(".button-collapse").sideNav();
 
+    $('.timepicker').pickatime({
+      twelvehour: false
+    });
 }
 
 $(document).on('ready page:change', initMaterialize);

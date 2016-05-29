@@ -29,23 +29,24 @@ body.events.timeline {
       width: 70%;
       margin-left: 15%;
 
-      @media #{$small-and-down} {
-        width: 100%;
+      @media #{$large-and-up} {
+        width: 60%;
+        margin-left: 20%;
       }
       @media #{$medium-and-down} {
         width: 80%;
         margin-left: 10%;
       }
-      @media #{$large-and-up} {
-        width: 70%;
-        margin-left: 15%;
+      @media #{$small-and-down} {
+        width: 100%;
+        margin-left: 0;
       }
     }
   }
 
   .fixed-month {
     position: fixed;
-    top: 79px;
+    top: 81px;
     left: 5%;
   }
 
@@ -56,21 +57,29 @@ body.events.timeline {
       background-color: #ffa38a;
       font-size: 175%;
     }
+
+    &.past a {
+      background-color: lightgrey;
+    }
+
+    &.future a {
+      background-color: $color-2;
+    }
   }
 
-  .day.left.past a
-  {
-    background-color: lightgrey;
-  }
-
-  .month.past h4 {
-    color: lightgrey;
+  .month {
+    &.past h4 {
+      color: lightgrey;
+    }
+    &.future h4 {
+      color: $color-2;
+    }
   }
 
 
   .fixed-day {
     position: fixed;
-    top: 150px;
+    top: 146px;
     left: 5%;
   }
 

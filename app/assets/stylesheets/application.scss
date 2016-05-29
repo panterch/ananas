@@ -16,6 +16,18 @@ $link-color: $color-3;
 
 $button-radius: 0;
 
+// Timepicker overrides
+$clockpicker-picker-box-date-display-background-color: $color-4;
+$clockpicker-primary-color: #fff;
+//tick
+$clockpicker-tick-background-color-active: $color-4;
+//canvas
+$clockpicker-canvas-bearing-fill: rgba($color-4, 0.9);
+$clockpicker-canvas-fg-fill: $color-4;
+$clockpicker-canvas-bg-fill: rgba($color-4, 0.75);
+//buttons
+$clockpicker-button-background-color: $color-4;
+
 @import "materialize";
 @import "font-awesome";
 @import "material-icons";
@@ -24,6 +36,7 @@ $button-radius: 0;
 @import "rating";
 @import "timeline";
 @import "collection-actions";
+@import "clockpicker";
 
 // Helper
 .hide {

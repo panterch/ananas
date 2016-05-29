@@ -40,15 +40,6 @@ en:
       save: Save
       close: Close
 
-  events:
-    timeline:
-      title: Timeline
-    calendar:
-      export: Export calendar
-      add_to_google: Add to Google Calendar
-      webcal: Open with your calendar app
-      download: Download iCalendar file
-
   ratings:
     dashboard:
       title: Dashboard
@@ -67,6 +58,11 @@ en:
       title: Events
     timeline:
       title: Timeline
+    calendar:
+      export: Export calendar
+      add_to_google: Add to Google Calendar
+      webcal: Open with your calendar app
+      download: Download iCalendar file
 
   members:
     index:

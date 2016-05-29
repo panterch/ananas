@@ -6,17 +6,18 @@ $(document).ready(function(){
       monthIndex = 0,
       months = $('.month'),
       days = $('.day'),
-      previousPositons = [],
+      previousPositonsMonths = [],
       previousPositonsDays = [],
-      leftMarginMonth = $('.month').position().left;
-      leftMarginDay = $('.day').position().left
-      currentPosition = $(window).scrollTop();
+      leftMarginMonth = $('.month').position().left,
+      leftMarginDay = $('.day').position().left,
+      firstTrigger = 190;
 
-  checkTime();
+  // Always start from top so that you get the correct element positions
+  $(window).scrollTop(0);
 
   $(window).resize(function() {
-    leftMarginMonth = $('.month').last().position().left;
-    leftMarginDay = $('.day').last().position().left;
+    leftMarginMonth = $('.month').removeClass('fixed-month').position().left;
+    leftMarginDay = $('.day').removeClass('fixed-day').position().left;
 
     months.each(function(index, element) {
       $(element).css('left', leftMarginMonth + 'px');
@@ -25,14 +26,19 @@ $(document).ready(function(){
     days.each(function(index, element) {
       $(element).css('left', leftMarginDay + 'px');
     });
+
+    fixMonth();
+    fixDay();
   });
 
-  $('html, body').animate({
-    scrollTop: $("#today").offset().top + 140
-  }, 1000);
+  if ($("#today")) {
+    $('html, body').animate({
+      scrollTop: $("#today").offset().top + 130
+    }, 1000);
+  }
 
   months.each(function(index, element) {
-    previousPositons[index] = $(element).offset().top;
+    previousPositonsMonths[index] = $(element).offset().top;
     $(element).css('left', leftMarginMonth + 'px');
   });
 
@@ -41,72 +47,78 @@ $(document).ready(function(){
     $(element).css('left', leftMarginDay + 'px');
   });
 
-  previousPositons.forEach(function(position, index) {
-    if (position >= $(window).scrollTop() && monthIndex === 0) {
-      monthIndex = (index - 1);
-      months.eq(monthIndex).addClass('fixed-month');
-    }
-  });
-
-  previousPositonsDays.forEach(function(position, index) {
-    if (position >= $(window).scrollTop() && dayIndex === 0) {
-      dayIndex = (index - 1);
-      days.eq(dayIndex).addClass('fixed-day');
-    }
-  });
-
   // Month scroll function;
   $(window).scroll(function() {
     var currentElement = calculateDistance(months.eq(monthIndex)),
-        nextElement = calculateDistance(months.eq(monthIndex + 1)),
-        previousElement = calculateDistance(months.eq(monthIndex - 1));
+        nextElement = calculateDistance(months.eq(monthIndex + 1));
 
-    if (currentElement < 80 && monthIndex === 0) {
-      months.eq(monthIndex).addClass('fixed-month').css('left', leftMarginMonth + 'px');
+    if ($(window).scrollTop() > firstTrigger) {
+      fixMonth();
+      fixDay();
     }
 
-    if ($(window).scrollTop() < previousPositons[monthIndex-1]) {
-      months.eq(monthIndex).removeClass('fixed-month');
+    if ($(window).scrollTop() < previousPositonsMonths[monthIndex-1]) {
+      unFixMonth();
       monthIndex -= 1;
-      months.eq(monthIndex).addClass('fixed-month').css('left', leftMarginMonth + 'px');
+      // The index can be negative if you scroll upwards too fast, so wa have to fix it
+      if (monthIndex < 0) {
+        monthIndex = 0;
+      }
+      fixMonth();
     }
 
     if (nextElement < 110) {
-      previousPositons[monthIndex] = $(window).scrollTop();
-      months.eq(monthIndex).removeClass('fixed-month');
+      previousPositonsMonths[monthIndex] = $(window).scrollTop();
+      unFixMonth();
       monthIndex += 1;
-      months.eq(monthIndex).addClass('fixed-month').css('left', leftMarginMonth + 'px');
-    }
-
-    if ($(window).scrollTop() <= 224) {
-      months.eq(monthIndex).removeClass('fixed-month');
-      days.eq(monthIndex).removeClass('fixed-day');
+      fixMonth();
     }
 
     // Day scrolling function
     var currentDayElement = calculateDistance(days.eq(dayIndex)),
         nextDayElement = calculateDistance(days.eq(dayIndex + 1));
 
-    if (currentDayElement < 80 && dayIndex === 0) {
-      days.eq(dayIndex).addClass('fixed-day').css('left', leftMarginDay + 'px');
-      checkTime();
-    }
-
     if ($(window).scrollTop() < previousPositonsDays[dayIndex-1]) {
-      days.eq(dayIndex).removeClass('fixed-day');
+      unFixDay();
       dayIndex -= 1;
-      days.eq(dayIndex).addClass('fixed-day').css('left', leftMarginDay + 'px');
-      checkTime();
+      // The index can be negative if you scroll upwards too fast, so wa have to fix it
+      if (dayIndex < 0) {
+        dayIndex = 0;
+      }
+      fixDay();
     }
 
     if (nextDayElement <= 151) {
       previousPositonsDays[dayIndex] = $(window).scrollTop();
-      days.eq(dayIndex).removeClass('fixed-day');
+      unFixDay();
       dayIndex += 1;
-      days.eq(dayIndex).addClass('fixed-day').css('left', leftMarginDay + 'px');
-      checkTime();
+      fixDay();
+    }
+
+    // Remove the fixed class if you arrive a the top
+    if ($(window).scrollTop() < firstTrigger) {
+      unFixMonth();
+      unFixDay();
     }
   });
+
+  function fixMonth() {
+    months.eq(monthIndex).addClass('fixed-month');
+  };
+
+  function unFixMonth () {
+    months.eq(monthIndex).removeClass('fixed-month');
+  };
+
+  function fixDay() {
+    days.eq(dayIndex).addClass('fixed-day');
+    checkTime();
+  };
+
+  function unFixDay() {
+    days.eq(dayIndex).removeClass('fixed-day');
+    checkTime();
+  };
 
   function checkTime() {
     if (days.eq(dayIndex).hasClass('today')) {
@@ -124,14 +136,14 @@ $(document).ready(function(){
       months.eq(monthIndex).removeClass('today');
       months.eq(monthIndex).addClass('future');
     }
-  }
+  };
 
   function calculateDistance(element) {
-    if (!element) { return $(window).scrollTop(); }
+    if (!element.length) { return $(document).height(); }
     var scrollTop     = $(window).scrollTop(),
         elementOffset = element.offset().top,
         distance      = (elementOffset - scrollTop);
 
     return distance;
-  }
+  };
 });
