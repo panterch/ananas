@@ -28,7 +28,7 @@ function initMaterialize() {
 
     Materialize.updateTextFields();
 
-    if (!!$('.alert').length) {
+    if ($('.alert').length) {
       $('.alert').each(function (index, element) {
         var message = '';
         if ($(element).hasClass('alert-info')) {
