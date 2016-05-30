@@ -1,2 +1,2 @@
-$("[data-refresh-on=<%= resource_class.table_name %>]").html('<%=j render "list" %>');
+$(".collection.<%= resource_class.table_name %>").html('<%=j render "list" %>');
 initMaterialize();
