@@ -1,5 +1,5 @@
 - attributes ||= resource_class.attribute_names - ['id', 'created_at', 'updated_at']
-%div{"data-refresh-on" => "#{resource_class.table_name}", "data-refresh-href" => url_for(resource_class)}
+%div
   = paginate collection if collection.respond_to? :total_pages
 
   %table.striped.collection{:class => resource_class.table_name}
