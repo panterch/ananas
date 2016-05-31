@@ -64,6 +64,10 @@ en:
       webcal: Open with your calendar app
       download: Download iCalendar file
 
+  mentorings:
+    index:
+      title: Mentoring Events
+
   members:
     index:
       title: Founders
