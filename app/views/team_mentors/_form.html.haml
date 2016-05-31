@@ -3,7 +3,7 @@
     = hidden_field_tag :team, resource.team_id
   - else
     .row= f.association :team
-  .row= f.association :mentor
+  .row= f.association :mentor, label_method: :to_s
   = link_to 'create new mentor', new_form_team_team_mentors_path, remote: true
 
   .row= f.input :active
