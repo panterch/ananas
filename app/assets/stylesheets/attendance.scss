@@ -1,0 +1,15 @@
+$attendance-state-color-invited: $color-gray-dark;
+$attendance-state-color-attending: $color-green-dark;
+$attendance-state-color-declined: $color-red-dark;
+
+img.circle.attendance-state-invited {
+  border-color: $attendance-state-color-invited;
+}
+
+img.circle.attendance-state-attending {
+  border-color: $attendance-state-color-attending;
+}
+
+img.circle.attendance-state-declined {
+  border-color: $attendance-state-color-declined;
+}
