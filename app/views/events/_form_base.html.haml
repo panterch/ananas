@@ -5,7 +5,7 @@
 .row.datetime
   .input-field.col.s6.date
     = f.date_field :start_at, class: 'datepicker'
-    = f.label :start_at, class: 'active'
+    = f.label :start_at, value: f.object.start_at&.to_s(:time), class: 'active'
   .input-field.col.s6.time
     = f.time_field :start_at, class: 'timepicker'
     = f.label :start_at, class: 'active'
@@ -15,7 +15,7 @@
     = f.date_field :end_at, class: 'datepicker'
     = f.label :end_at, class: 'active'
   .input-field.col.s6.time
-    = f.time_field :end_at, class: 'timepicker'
+    = f.time_field :end_at, value: f.object.end_at&.to_s(:time), class: 'timepicker'
     = f.label :end_at, class: 'active'
   = f.hidden_field :end_at
 .row
