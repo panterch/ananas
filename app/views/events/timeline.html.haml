@@ -29,21 +29,17 @@
             %p
               = event.description
             %p.datetime
-              %span
-                Starting at:
-              %i.fa.fa-clock-o
-              = event.start_at.strftime("%H:%M")
-              &nbsp;
-              %i.fa.fa-calendar
-              = event.start_at.strftime("%d.%m")
+              Starting at:&ensp;
+              %span.time
+                = event.start_at.to_s(:time)
+              %span.date
+                = event.start_at.strftime("%d.%m")
             %p.datetime
-              %span
-                Ending at:
-              %i.fa.fa-clock-o
-              = event.end_at.strftime("%H:%M")
-              &nbsp;
-              %i.fa.fa-calendar
-              = event.end_at.strftime("%d.%m")
+              Ending at:&emsp;
+              %span.time
+                = event.end_at.to_s(:time)
+              %span.date
+                = event.end_at.strftime("%d.%m")
           .card-action
             - if can?(:edit, event) && event.persisted?
               %a{ href: url_for([:edit, event])} Edit event
