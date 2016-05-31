@@ -4,13 +4,13 @@ feature "Mentor management" do
   end
 
   scenario "Displaying without any mentors" do
-    visit '/mentors'
+    visit mentors_path
     expect(page).to have_content 'Mentor'
   end
 
   scenario "Displaying a single mentors" do
     create(:mentor, job_title: "The mentor's occupation")
-    visit '/mentors'
+    visit mentors_path
     expect(page).to have_content 'occupation'
   end
 
@@ -18,7 +18,7 @@ feature "Mentor management" do
     30.times do |i|
       create(:mentor, job_title: "The #{i.ordinalize} mentor's occupation")
     end
-    visit '/mentors'
+    visit mentors_path
     expect(page).to have_content '1st mentor'
     expect(page).to have_content '20th mentor'
 
@@ -29,7 +29,7 @@ feature "Mentor management" do
   scenario "Search on mentors" do
     create(:mentor, job_title: "Hacker")
     create(:mentor, job_title: "Designer")
-    visit '/mentors'
+    visit mentors_path
     fill_in '[by_text]', with: 'Designer'
     click_button 'search'
     expect(page).to have_content 'Designer'
@@ -41,12 +41,12 @@ feature "Mentor management" do
     @mentor = create(:mentor, job_title: "Hacker")
     @team = create(:team, name: 'Team Rocket')
     @team.mentors << @mentor
-    visit "/mentors/#{@mentor.id}"
+    visit mentor_path(@mentor)
     expect(page).to have_content("Team Rocket")
   end
 
   scenario "Rendering the mentor new form" do
-    visit "/mentors/new"
+    visit new_mentor_path
     expect(page).to have_content("Mentor")
   end
 
