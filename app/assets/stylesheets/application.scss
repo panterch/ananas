@@ -93,6 +93,21 @@ $clockpicker-button-background-color: $color-4;
   }
 }
 
+// Symbols for date and time forms
+.datetime .date label.datetime::before,
+.datetime .time label.datetime::before,  {
+  font-family:'FontAwesome';
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  color: black;
+}
+.datetime .date label.datetime::before {
+  content: '\f073';
+}
+.datetime .time label.datetime::before {
+  content: '\f017';
+}
+
 .image_preview {
   margin-top: 2rem;
 
