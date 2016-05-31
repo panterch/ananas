@@ -42,7 +42,9 @@ function initMaterialize() {
       });
     }
 
-    // when collapbisle contains links, they should be used for navigation
+    $('.collapsible').collapsible();
+
+    // when collapsible contains links, they should be used for navigation
     // and not trigger an (un)collapse
     $('ul.collapsible a').click(function(event) {
         event.stopPropagation();
