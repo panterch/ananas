@@ -111,50 +111,71 @@ form[class$='_mentor'] label::before,
 form[class$='_user'] label::before,
 form[class$='_event'] label::before,
 form[class$='_team'] label::before,
-form[class$='_member'] label::before
+form[class$='_member'] label::before,
+form[class$='_mentoring'] label::before,
+p.datetime span.time::before, p.datetime span.date::before
 {
-  font-family:'FontAwesome';
-  font-size: 1.2rem;
-  margin-right: 1rem;
+  font-family: 'Material Icons';
+  font-size: 1rem;
+  line-height: 1;
+  margin-right: .2rem;
   color: black;
 }
-.datetime .date label.datetime::before {
-  content: '\f073';
+.datetime .date label.datetime::before,
+p.datetime span.date::before {
+  content: '\E24F';
 }
-.datetime .time label.datetime::before {
-  content: '\f017';
+.datetime .time label.datetime::before,
+p.datetime span.time::before {
+  content: '\E192';
 }
 .mentor_experience label::before {
-  content: '\f19d';
+  content: '\E80C';
 }
 .mentor_job_title label::before {
-  content: '\f0b1';
+  content: '\EB3F';
 }
 .mentor_interests label::before {
   content: '\f21e';
 }
 .mentor_who_i_am label::before {
-  content: '\f21e';
+  content: '\E55A';
 }
-.mentor_motivation label::before {
-  content: '\f255';
+label[for$='_motivation']::before {
+  content: '\EB43';
+}
+label[for$='_summary']::before {
+  content: '\E261'
+}
+label[for$='_description']::before {
+  content: '\E873'
+}
+label[for$='_locality']::before {
+  content: '\E7F1'
+}
+label[for$='_street_address']::before,
+label[for$='_extended_address']::before {
+  content: '\E0C8'
+}
+label[for$='_given_name']::before,
+label[for$='_family_name']::before {
+  content: '\E7FD'
 }
 label.input-field[for$='_avatar']::before {
-  content: '\f1c5'
+  content: '\E416'
 }
-.mentor_motivation label::before {
-  content: '\f255';
-}
-.event_url label::before {
-  content: '\f0c1';
+
+.url label.url::before {
+  content: '\E157';
 }
 .user_email label::before {
-  content: '\f003';
+  content: '\E0BE';
 }
 .user_password label::before,
 .user_password_confirmation label::before {
-  content: '\f023';
+  content: '\E899';
 }
+
 .image_preview {
   margin-top: 2rem;
 
