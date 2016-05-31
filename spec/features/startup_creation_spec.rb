@@ -7,7 +7,7 @@ feature 'Startup creation' do
 
   scenario 'implicit member creation', js: true do
     expect(Team.exists?(name: startup_name)).to be_falsy
-    visit '/teams'
+    visit teams_path
 
     click_link 'add'
     expect(page).not_to have_content 'You are not authorized to access this page'

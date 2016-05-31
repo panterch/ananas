@@ -8,7 +8,7 @@ feature "Calendars", type: :feature do
   end
 
   scenario "Accessing a valid calendar URL renders an iCalendar file with the user's visible events" do
-    visit "/calendar/#{@user.calendar_token}/events"
+    visit calendar_events_path(@user.calendar_token)
 
     expect(page.body).to start_with "BEGIN:VCALENDAR\r\nVERSION:2.0"
     expect(page.body).to include 'SUMMARY:visible event'
@@ -20,7 +20,7 @@ feature "Calendars", type: :feature do
   # instead of the exception, investigate why this doesn't work
   scenario "Accessing an invalid calendar URL renders a 404" do
     expect do
-      visit '/calendar/invalid/events'
+      visit calendar_events_path('invalid')
     end.to raise_error(ActiveRecord::RecordNotFound)
   end
 end
