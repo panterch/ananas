@@ -1,13 +1,17 @@
 = f.simple_fields_for :vcard do |vcard|
-  .row
-    .input-field.col.s6= vcard.input :family_name
-    .input-field.col.s6= vcard.input :given_name
+  - if defined?(full_name)
+    .row
+      = vcard.input :full_name
+  - else
+    .row
+      = vcard.input :family_name, wrapper: :halve
+      = vcard.input :given_name, wrapper: :halve
   = vcard.fields_for :address do |address|
     .row
-      .input-field.col.s6= address.input :extended_address
-      .input-field.col.s6= address.input :street_address
+      = address.input :extended_address, wrapper: :halve
+      = address.input :street_address, wrapper: :halve
     .row
-      .input-field.col.s2= address.input :postal_code
-      .input-field.col.s4= address.input :locality
-      .input-field.col.s6= address.input :post_office_box
+      = address.input :postal_code, wrapper_class: 'input-field col s2'
+      = address.input :locality, wrapper_class: 'input-field col s4'
+      = address.input :post_office_box, wrapper: :halve
 

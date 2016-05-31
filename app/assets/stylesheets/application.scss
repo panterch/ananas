@@ -9,6 +9,10 @@ $color-4: #ff8c8c;
 $color-dark: #d4846f;
 $color-dark-violet: rgba(66, 11, 83, 0.87);
 
+$color-red-dark: hsl(0, 90%, 50%);
+$color-green-dark: hsl(84, 90%, 25%);
+$color-gray-dark: hsl(0, 0, 50%);
+
 // Materialize overrides
 $primary-color: $color-1;
 $secondary-color: $color-4;
@@ -34,9 +38,16 @@ $clockpicker-button-background-color: $color-4;
 @import "materialize-adaptions";
 
 @import "rating";
+@import "attendance";
 @import "timeline";
 @import "collection-actions";
 @import "clockpicker";
+
+// Layout
+.section-divider {
+  @extend .divider;
+  margin: 20px 0 40px;
+}
 
 // Helper
 .hide {

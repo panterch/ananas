@@ -51,7 +51,7 @@ SimpleForm.setup do |config|
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
-  config.wrappers :materialize_form, class: 'input-field col s12', error_class: 'has_error' do |b|
+  config.wrappers :full, class: 'input-field col s12', error_class: 'has_error' do |b|
 
     b.use :html5
     b.use :placeholder
@@ -66,7 +66,22 @@ SimpleForm.setup do |config|
 
   end
 
-  config.wrappers :materialize_form_no_col, class: 'input-field', error_class: 'has_error' do |b|
+  config.wrappers :halve, class: 'input-field col s6', error_class: 'has_error' do |b|
+
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label
+    b.use :input
+    b.use :error, wrap_with: { tag: 'p', class: 'error-block', "data-error" => 'wrong' }
+    b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+
+  end
+
+  config.wrappers :no_col, class: 'input-field', error_class: 'has_error' do |b|
 
     b.use :html5
     b.use :placeholder
@@ -82,7 +97,7 @@ SimpleForm.setup do |config|
   end
 
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :materialize_form
+  config.default_wrapper = :full
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.

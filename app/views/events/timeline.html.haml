@@ -49,7 +49,7 @@
               %a{ href: url_for([:edit, event])} Edit event
             .avatars
               - event.attendances.each_with_index do |a, i|
-                = image_tag a.guest.avatar_url, class: 'circle', style: "right: #{i*40}px"
+                = image_tag a.guest.avatar_url, class: ['circle', "attendance-state-#{a.state}"], style: "right: #{i*40}px"
 
   .fixed-action-btn.horizontal(style="position: fixed; z-index: 2;")
     = link_to new_event_path, class: "btn-floating btn-large blue" do

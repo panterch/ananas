@@ -15,7 +15,6 @@ Faker::Company.catch_phrase
     motivation: Faker::Company.bs,
     avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
-      full_name: Faker::Name.title + ' ' + Faker::Name.first_name + ' ' + Faker::Name.last_name,
       given_name: Faker::Name.first_name,
       family_name: Faker::Name.last_name,
       extended_address: Faker::Address.street_address(include_secondary = true),
@@ -26,8 +25,7 @@ Faker::Company.catch_phrase
       region: Faker::Address.state,
       street_address: Faker::Address.street_address,
       honorific_prefix: Faker::Name.prefix,
-      honorific_suffix: Faker::Name.suffix,
-      nickname: Faker::Name.prefix
+      honorific_suffix: Faker::Name.suffix
     )
   )
 end
@@ -38,7 +36,6 @@ end
     description: Faker::Name.title,
     avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
-      full_name: Faker::Name.title + ' ' + Faker::Name.first_name + ' ' + Faker::Name.last_name,
       given_name: Faker::Name.first_name,
       family_name: Faker::Name.last_name,
       extended_address: Faker::Address.street_address(include_secondary = true),
@@ -49,8 +46,7 @@ end
       region: Faker::Address.state,
       street_address: Faker::Address.street_address,
       honorific_prefix: Faker::Name.prefix,
-      honorific_suffix: Faker::Name.suffix,
-      nickname: Faker::Name.prefix
+      honorific_suffix: Faker::Name.suffix
     )
   )
 end
