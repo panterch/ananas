@@ -1,12 +1,6 @@
 feature "Mentor management" do
   background do
-    @user = create(:user, email: 'user@example.com', password: 'welcome', password_confirmation: 'welcome')
-    visit '/users/sign_in'
-
-    fill_in 'Email', :with => 'user@example.com'
-    fill_in 'Password', :with => 'welcome'
-    click_button 'Log in'
-    expect(page).to have_content 'Signed in successfully'
+    sign_in_admin
   end
 
   scenario "Displaying without any mentors" do

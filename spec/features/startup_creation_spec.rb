@@ -1,5 +1,8 @@
 feature 'Startup creation' do
-  before { sign_in_admin }
+  background do
+    sign_in_admin
+  end
+
   let(:startup_name) { 'Randensalat Inc.' }
 
   scenario 'implicit member creation', js: true do
