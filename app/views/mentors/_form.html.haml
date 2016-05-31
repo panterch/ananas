@@ -21,6 +21,11 @@
 
 .divider
 .section
+  %h4= t_title(:index, Team)
   = render 'teams/list', collection: resource.teams
-  - if resource.user
+
+- if resource.user
+  .divider
+  .section
+    %h4= t_model(User)
     = render 'users/list', collection: [ resource.user ]
