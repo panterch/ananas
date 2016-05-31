@@ -1,7 +1,11 @@
 = f.simple_fields_for :vcard do |vcard|
-  .row
-    .input-field.col.s6= vcard.input :family_name
-    .input-field.col.s6= vcard.input :given_name
+  - if defined?(full_name)
+    .row
+      .input-field.col.s12= vcard.input :full_name
+  - else
+    .row
+      .input-field.col.s6= vcard.input :family_name
+      .input-field.col.s6= vcard.input :given_name
   = vcard.fields_for :address do |address|
     .row
       .input-field.col.s6= address.input :extended_address

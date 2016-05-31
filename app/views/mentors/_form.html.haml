@@ -2,6 +2,7 @@
   = simple_form_for resource do |f|
     - if defined?(team_id) && team_id.present?
       = hidden_field_tag :team_id, team_id
+
     .row= f.input :job_title
     .row= f.input :who_i_am
     .row= f.input :experience
@@ -19,13 +20,13 @@
     .row
       .col.s12= f.button :submit
 
-.divider
+.section_divider
 .section
   %h4= t_title(:index, Team)
   = render 'teams/list', collection: resource.teams
 
 - if resource.user
-  .divider
+  .section_divider
   .section
     %h4= t_model(User)
     = render 'users/list', collection: [ resource.user ]

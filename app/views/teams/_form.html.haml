@@ -9,48 +9,38 @@
     .row
       %img.col.s3#img_prev{alt: "no avatar uploaded yet", src: resource.avatar.url }/
 
-    = f.simple_fields_for :vcard do |vcard|
-      .row
-        .input-field.col.s12= vcard.input :full_name
-      = vcard.fields_for :address do |address|
-        .row
-          .input-field.col.s6= address.input :extended_address
-          .input-field.col.s6= address.input :street_address
-        .row
-          .input-field.col.s2= address.input :postal_code
-          .input-field.col.s4= address.input :locality
-          .input-field.col.s6= address.input :post_office_box
-        .row
-          .col.s12= f.button :submit
+    = render 'vcards/form', f: f, full_name: true
 
-  - if resource.persisted?
-    .divider(style='margin: 20px 0 40px;')
-    .section
-      .header
-        %h4= t_title(:index, Mentoring)
-        %div(style="position: relative")
-          .fixed-action-btn.horizontal(style="position: absolute")
-            = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-large blue" do
-              %i.large.material-icons add
-        = render 'events/list', collection: resource.mentorings.upcoming, resource_class: Mentoring
+    .row
+      .col.s12= f.button :submit
 
-    .divider(style='margin: 20px 0 40px;')
-    .section
-      .header
-        %h4= t_title(:index, Member)
-        %div(style="position: relative")
-          .fixed-action-btn.horizontal(style="position: absolute")
-            = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
-              %i.large.material-icons add
-        = render 'members/list', collection: resource.members
+- if resource.persisted?
+  .section_divider
+  .section
+    .header
+      %h4= t_title(:index, Mentoring)
+      %div(style="position: relative")
+        .fixed-action-btn.horizontal(style="position: absolute")
+          = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-large blue" do
+            %i.large.material-icons add
+      = render 'events/list', collection: resource.mentorings.upcoming, resource_class: Mentoring
 
-    .divider(style='margin: 20px 0 40px;')
+  .section_divider
+  .section
+    .header
+      %h4= t_title(:index, Member)
+      %div(style="position: relative")
+        .fixed-action-btn.horizontal(style="position: absolute")
+          = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
+            %i.large.material-icons add
+      = render 'members/list', collection: resource.members
 
-    .section
-      .header
-        %h4= t_model Mentor
-        %div(style="position: relative")
-          .fixed-action-btn.horizontal(style="position: absolute")
-            = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do
-              %i.large.material-icons add
-        = render 'mentors/list', collection: resource.mentors
+  .section_divider
+  .section
+    .header
+      %h4= t_model Mentor
+      %div(style="position: relative")
+        .fixed-action-btn.horizontal(style="position: absolute")
+          = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do
+            %i.large.material-icons add
+      = render 'mentors/list', collection: resource.mentors

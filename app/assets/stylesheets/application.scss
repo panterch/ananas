@@ -43,6 +43,12 @@ $clockpicker-button-background-color: $color-4;
 @import "collection-actions";
 @import "clockpicker";
 
+// Layout
+.section-divider {
+  @extend .divider;
+  margin: 20px 0 40px;
+}
+
 // Helper
 .hide {
   position: absolute; left: -9999px; width: 1px; height: 1px;
