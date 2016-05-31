@@ -95,7 +95,13 @@ $clockpicker-button-background-color: $color-4;
 
 // Symbols for date and time forms
 .datetime .date label.datetime::before,
-.datetime .time label.datetime::before,  {
+.datetime .time label.datetime::before,
+form[class$='_mentor'] label::before,
+form[class$='_user'] label::before,
+form[class$='_event'] label::before,
+form[class$='_team'] label::before,
+form[class$='_member'] label::before
+{
   font-family:'FontAwesome';
   font-size: 1.2rem;
   margin-right: 1rem;
@@ -107,7 +113,37 @@ $clockpicker-button-background-color: $color-4;
 .datetime .time label.datetime::before {
   content: '\f017';
 }
-
+.mentor_experience label::before {
+  content: '\f19d';
+}
+.mentor_job_title label::before {
+  content: '\f0b1';
+}
+.mentor_interests label::before {
+  content: '\f21e';
+}
+.mentor_who_i_am label::before {
+  content: '\f21e';
+}
+.mentor_motivation label::before {
+  content: '\f255';
+}
+label.input-field[for$='_avatar']::before {
+  content: '\f1c5'
+}
+.mentor_motivation label::before {
+  content: '\f255';
+}
+.event_url label::before {
+  content: '\f0c1';
+}
+.user_email label::before {
+  content: '\f003';
+}
+.user_password label::before,
+.user_password_confirmation label::before {
+  content: '\f023';
+}
 .image_preview {
   margin-top: 2rem;
 
