@@ -1,9 +1,7 @@
 = simple_form_for resource do |f|
   .section
-    - if resource.id != nil
-      = render 'form_edit', f: f
-    - else
-      = render 'form_base', f: f
+    = render 'form_base', f: f
+
     .row
       .col.s12= f.button :submit
 
