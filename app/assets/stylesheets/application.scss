@@ -104,6 +104,78 @@ $clockpicker-button-background-color: $color-4;
   }
 }
 
+// Symbols for date and time forms
+.datetime .date label.datetime::before,
+.datetime .time label.datetime::before,
+form[class$='_mentor'] label::before,
+form[class$='_user'] label::before,
+form[class$='_event'] label::before,
+form[class$='_team'] label::before,
+form[class$='_member'] label::before,
+form[class$='_mentoring'] label::before,
+p.datetime span.time::before, p.datetime span.date::before
+{
+  font-family: 'Material Icons';
+  font-size: 1rem;
+  line-height: 1;
+  margin-right: .2rem;
+  color: black;
+}
+.datetime .date label.datetime::before,
+p.datetime span.date::before {
+  content: '\E24F';
+}
+.datetime .time label.datetime::before,
+p.datetime span.time::before {
+  content: '\E192';
+}
+.mentor_experience label::before {
+  content: '\E80C';
+}
+.mentor_job_title label::before {
+  content: '\EB3F';
+}
+.mentor_interests label::before {
+  content: '\f21e';
+}
+.mentor_who_i_am label::before {
+  content: '\E55A';
+}
+label[for$='_motivation']::before {
+  content: '\EB43';
+}
+label[for$='_summary']::before {
+  content: '\E261'
+}
+label[for$='_description']::before {
+  content: '\E873'
+}
+label[for$='_locality']::before {
+  content: '\E7F1'
+}
+label[for$='_street_address']::before,
+label[for$='_extended_address']::before {
+  content: '\E0C8'
+}
+label[for$='_given_name']::before,
+label[for$='_family_name']::before {
+  content: '\E7FD'
+}
+label.input-field[for$='_avatar']::before {
+  content: '\E416'
+}
+
+.url label.url::before {
+  content: '\E157';
+}
+.user_email label::before {
+  content: '\E0BE';
+}
+.user_password label::before,
+.user_password_confirmation label::before {
+  content: '\E899';
+}
+
 .image_preview {
   margin-top: 2rem;
 
