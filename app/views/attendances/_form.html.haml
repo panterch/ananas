@@ -1,6 +1,14 @@
-= simple_form_for [parent, resource] do |f|
-  = f.hidden_field :guest_type, value: 'Mentor'
-  .row= f.association :guest, collection: Mentor.all
+= form_tag [@parent, :attendances] do |f|
+  .row
+    .input-field.col.s12
+      = select 'attendance', 'guest_ident' do
+        %optgroup{label: t_title(:index, Mentor)}
+          = options_for_select Mentor.all.map { |m| [m.to_s, "Mentor:#{m.id}"] }
+        %optgroup{label: t_title(:index, Team)}
+          -# TODO: should only show teams that have members
+          = options_for_select Team.all.map { |m| [m.to_s, "Team:#{m.id}"] }
+        %optgroup{label: t_title(:index, Member)}
+          = options_for_select Member.all.map { |m| [m.to_s, "Member:#{m.id}"] }
 
   .row
-    .col.s12= f.button :submit
+    .col.s12= button_tag :submit
