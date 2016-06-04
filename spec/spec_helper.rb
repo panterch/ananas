@@ -52,8 +52,9 @@ RSpec.configure do |config|
   config.after(:each) { ActionMailer::Base.deliveries.clear }
 end
 
-  # Don't raise server exceptions in feature specs
-  Capybara.raise_server_errors = false
+# Don't raise server exceptions in feature specs
+Capybara.raise_server_errors = false
+
 Capybara.register_driver :poltergeist do |app|
   options = {
     phantomjs: Phantomjs.path,
