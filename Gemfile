@@ -45,7 +45,7 @@ gem 'devise'
 gem 'cancancan'
 
 # Deployment
-gem 'capistrano-rails', group: :development
+gem 'panter-rails-deploy'
 
 group :development, :test do
   gem 'byebug'
