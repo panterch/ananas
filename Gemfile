@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'jbuilder'
 gem 'font-awesome-rails'
 gem 'materialize-sass'
+gem 'therubyracer', platforms: :ruby
 
 # Views
 gem 'simple_form'

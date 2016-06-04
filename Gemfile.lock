@@ -358,6 +358,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   spring
+  therubyracer
   timecop
   uglifier
   unicorn
