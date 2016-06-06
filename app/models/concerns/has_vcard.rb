@@ -2,7 +2,7 @@ module HasVcard
   extend ActiveSupport::Concern
 
   included do
-    has_one :vcard, as: :reference, class_name: 'HasVcards::Vcard', autosave: true
+    has_one :vcard, as: :reference, class_name: 'HasVcards::Vcard', autosave: true, dependent: :destroy
     accepts_nested_attributes_for :vcard
 
     alias_method_chain :vcard, :autobuild
