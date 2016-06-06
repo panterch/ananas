@@ -1,7 +1,7 @@
 class Member < ActiveRecord::Base
   has_one :team_member, dependent: :destroy
   has_one :team, through: :team_member
-  has_one  :user, as: :profile
+  has_one :user, as: :profile
 
   include HasVcard
 
