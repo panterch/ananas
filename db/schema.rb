@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525113852) do
+ActiveRecord::Schema.define(version: 20160606063633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160525113852) do
   add_index "has_vcards_vcards", ["reference_id", "reference_type"], name: "index_has_vcards_vcards_on_reference_id_and_reference_type", using: :btree
 
   create_table "members", force: :cascade do |t|
-    t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
