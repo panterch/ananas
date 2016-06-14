@@ -34,6 +34,7 @@ feature "Attendance of Events" do
     find('.select-wrapper input').click #open the dropdown
     find('.select-wrapper li', text: 'Member One').click #select the option wanted
 
+    sleep 1
     click_link 'Save'
 
     within '.attendances' do
