@@ -5,12 +5,20 @@ class Member < ActiveRecord::Base
 
   include HasVcard
 
+  def name
+    vcard.full_name
+  end
+
+  def name=(value)
+    vcard.full_name = value
+  end
+
   mount_uploader :avatar, AvatarUploader
 
   include PgSearch
   pg_search_scope :by_text,
     using: { tsearch: { prefix: true } },
-    against: [ :name, :description ],
+    against: [ :description ],
     associated_against: {
       vcard: HasVcardSupport.pg_search_against
     }
