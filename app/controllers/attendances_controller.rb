@@ -23,6 +23,7 @@ class AttendancesController < ApplicationController
   def create
     attendance_params = params[:attendance]
 
+    puts('ATTENDANCE: ', attendance_params)
     result = Attendance.build_with_guest_ident(parent, attendance_params[:guest_ident])
     if result.is_a? Array
       result.each(&:save)

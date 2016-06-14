@@ -37,6 +37,7 @@ feature "Attendance of Events" do
     sleep 1
     click_link 'Save'
 
+    sleep 1
     within '.attendances' do
       expect(page).to have_content('Member One')
     end
