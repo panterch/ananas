@@ -64,6 +64,10 @@ en:
       webcal: Open with your calendar app
       download: Download iCalendar file
 
+  expert_sessions:
+    index:
+      title: Expert Sessions
+
   mentorings:
     index:
       title: Mentoring Events

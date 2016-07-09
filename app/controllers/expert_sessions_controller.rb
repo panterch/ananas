@@ -1,15 +1,15 @@
-class MentoringsController < EventsController
+class ExpertSessionsController < EventsController
 
-  defaults resource_class: Mentoring
-  belongs_to :team, optional: true
+  defaults resource_class: ExpertSession
+  belongs_to :mentor, optional: true
 
   def new
     resource.prefill(parent)
     new!
   end
 
-  def mentoring_params
-    permitted_params = params.require(:mentoring)
+  def expert_session_params
+    permitted_params = params.require(:expert_session)
 
     permitted_params.permit([
       :summary,

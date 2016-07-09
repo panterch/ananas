@@ -11,9 +11,9 @@
         = event.description
 
       .secondary-content
-        - if can?(:edit, event) && 'events' == controller_name
+        - if can?(:edit, event)
           .fixed-action-btn.horizontal
-            = link_to edit_event_path(event), class: "btn-floating btn-large green" do
+            = link_to [:edit, event], class: "btn-floating btn-large green" do
               %i.large.material-icons mode_edit
 
 = guarded_paginate collection

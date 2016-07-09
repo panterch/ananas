@@ -1,0 +1,9 @@
+= simple_form_for [parent, resource].compact do |f|
+  = render 'form_base', f: f
+
+  = f.hidden_field :mentor_id
+
+  .row
+    .col.s12= f.button :submit
+
+= render 'attendances_form'
