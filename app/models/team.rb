@@ -7,6 +7,8 @@ class Team < ActiveRecord::Base
   has_many :team_mentors, dependent: :destroy
   has_many :mentors, through: :team_mentors
 
+  has_one  :user, as: :profile
+
   include HasVcard
 
   mount_uploader :avatar, AvatarUploader

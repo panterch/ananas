@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     'Mentor' == self.profile_type
   end
 
+  def team?
+    'Mentor' == self.profile_type
+  end
+
   def to_s
     self.email
   end
