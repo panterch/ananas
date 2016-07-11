@@ -23,23 +23,21 @@
 - if resource.persisted?
   .section_divider
   .section
-    .header
-      %h4= t_title(:index, ExpertSession)
-      %div(style="position: relative")
-        .fixed-action-btn.horizontal(style="position: absolute")
-          = link_to new_mentor_expert_session_path(resource), remote: true, class: "btn-floating btn-large blue" do
-            %i.large.material-icons add
-      = render 'events/list', collection: resource.expert_sessions.upcoming, resource_class: ExpertSession
+    %h4= t_title(:index, ExpertSession)
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal(style="position: absolute")
+        = link_to new_mentor_expert_session_path(resource), remote: true, class: "btn-floating btn-large blue" do
+          %i.large.material-icons add
+    = render 'events/list', collection: resource.expert_sessions.upcoming, resource_class: ExpertSession
 
   .section_divider
   .section
-    .header
-      %h4= t_title(:index, Mentoring)
-      %div(style="position: relative")
-        .fixed-action-btn.horizontal(style="position: absolute")
-          = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-large blue" do
-            %i.large.material-icons add
-      = render 'events/list', collection: resource.mentorings.upcoming, resource_class: Mentoring
+    %h4= t_title(:index, Mentoring)
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal(style="position: absolute")
+        = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-large blue" do
+          %i.large.material-icons add
+    = render 'events/list', collection: resource.mentorings.upcoming, resource_class: Mentoring
 
   .section_divider
   .section
