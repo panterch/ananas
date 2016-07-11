@@ -16,13 +16,14 @@
   .row
     .col.s12= f.button :submit
 
-.section_divider
-.section
-  %h4= t_model(Team)
-  = render 'teams/list', collection: resource.team || []
-
-- if resource.user
+- if resource.persisted?
   .section_divider
   .section
-    %h4= t_model(User)
-    = render 'users/list', collection: [ resource.user ]
+    %h4= t_model(Team)
+    = render 'teams/list', collection: resource.team || []
+
+  - if resource.user
+    .section_divider
+    .section
+      %h4= t_model(User)
+      = render 'users/list', collection: [ resource.user ]
