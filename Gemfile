@@ -54,7 +54,6 @@ group :development, :test do
   gem 'phantomjs'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'quiet_assets'
   gem 'timecop'
   gem 'poltergeist'
   gem 'selenium-webdriver'
