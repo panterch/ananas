@@ -1,4 +1,4 @@
-- if resource.user.nil?
+- if resource.user.nil? && can?(:create, User)
   .section_divider
   .section
     %h4= t_model(User)
