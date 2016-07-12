@@ -4,9 +4,7 @@
       %i.material-icons.circle today
       .title= event.summary
       %p
-        = event.start_at.strftime("%d.%m.%Y %H:%M")
-        —
-        = event.end_at.strftime("%d.%m.%Y %H:%M")
+        = duration_to_s(event)
         %br
         = event.description
 
