@@ -1,7 +1,5 @@
 .row
   = f.input :summary
-.row
-  = f.input :description
 .row.datetime
   .input-field.col.s6.date
     = f.date_field :start_at, class: 'datepicker'
@@ -18,6 +16,8 @@
     = f.time_field :end_at, value: f.object.end_at&.to_s(:time), class: 'timepicker'
     = f.label :end_at, class: 'active'
   = f.hidden_field :end_at
+.row
+  = f.input :description
 .row
   = f.input :url
 

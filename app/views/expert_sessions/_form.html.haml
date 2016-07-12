@@ -1,8 +1,6 @@
 = simple_form_for [parent, resource].compact do |f|
   = f.hidden_field :mentor_id
 
-  .row
-    = f.input :description
   .row.datetime
     .input-field.col.s6.date
       = f.date_field :start_at, class: 'datepicker'
@@ -11,6 +9,8 @@
       = f.time_field :start_at, class: 'timepicker'
       = f.label :start_at, class: 'active'
     = f.hidden_field :start_at
+  .row
+    = f.input :description
   .row
     .col.s12= f.button :submit
 
