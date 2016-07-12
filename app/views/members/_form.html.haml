@@ -22,8 +22,4 @@
     %h4= t_model(Team)
     = render 'teams/list', collection: resource.team || []
 
-  - if resource.user
-    .section_divider
-    .section
-      %h4= t_model(User)
-      = render 'users/list', collection: [ resource.user ]
+  = render 'users/profile'

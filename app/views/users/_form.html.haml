@@ -1,4 +1,7 @@
 = simple_form_for resource do |f|
+  = f.input :profile_id, as: :hidden
+  = f.input :profile_type, as: :hidden
+
   .row= f.input :email
   .row= f.input :login if @user.respond_to? :login
   .row= f.input :password, :hint => !f.object.new_record?, :input_html => {:autocomplete => "off"}

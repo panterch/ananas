@@ -1,7 +1,13 @@
-%h4 Login
-- if profile.user.present?
-  .row
-    Connected User:
-    = profile.user.email
-- else
-  No login associated - invite.
+- if resource.user.nil?
+  .section_divider
+  .section
+    %h4= t_model(User)
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal(style="position: absolute")
+        = link_to [:new, :user, user: {profile_id: resource.id, profile_type: resource.class}], remote: true, class: "btn-floating btn-large blue" do
+          %i.large.material-icons add
+- if resource.user
+  .section_divider
+  .section
+    %h4= t_model(User)
+    = render 'users/list', collection: [ resource.user ]

@@ -23,14 +23,28 @@ class UsersController < CrudController
   end
 
   def user_params
-    permitted_params = params.require(:user)
-
-    permitted_params.permit([
-      :email,
-      :login,
-      :password,
-      :password_confirmation,
-      :current_password
-    ])
+    if current_user.admin?
+      params
+      .require(:user)
+      .permit([
+        :email,
+        :login,
+        :password,
+        :password_confirmation,
+        :current_password,
+        :profile_id,
+        :profile_type
+      ])
+    else
+      params
+      .require(:user)
+      .permit([
+        :email,
+        :login,
+        :password,
+        :password_confirmation,
+        :current_password
+      ])
+    end
   end
 end
