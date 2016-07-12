@@ -9,9 +9,11 @@
 
       %ul
         %li
-          = link_to [:attend, attendance.event, attendance], method: :post, remote: true, class: "btn-floating green" do
-            %i.material-icons event_available
+          - if can? :attend, attendance
+            = link_to [:attend, attendance.event, attendance], method: :post, remote: true, class: "btn-floating green" do
+              %i.material-icons event_available
         %li
-          = link_to [:decline, attendance.event, attendance], method: :post, remote: true, class: "btn-floating red" do
-            %i.material-icons event_busy
+          - if can? :decline, attendance
+            = link_to [:decline, attendance.event, attendance], method: :post, remote: true, class: "btn-floating red" do
+              %i.material-icons event_busy
 

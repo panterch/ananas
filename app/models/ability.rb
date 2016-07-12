@@ -7,6 +7,7 @@ class Ability
     can :read, Event, mentor_id: nil, team_id: nil
     can :read, Team
     can [:read, :update], User, id: user.id
+    can [:attend, :decline], Attendance, guest: user.profile
 
     if user.admin?
       can :manage, :all
