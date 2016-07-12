@@ -7,7 +7,6 @@ Faker::Company.catch_phrase
 
 (5 - Mentor.count).times do
   Mentor.create!(
-    name: Faker::Name.name,
     job_title: Faker::Name.title,
     who_i_am: Faker::Company.bs,
     experience: (3.times.map { Faker::Hacker.ingverb }).join(', '),
@@ -32,7 +31,6 @@ end
 
 (6 - Member.count).times do
   Member.create!(
-    name: Faker::Name.name,
     description: Faker::Name.title,
     avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
@@ -54,7 +52,6 @@ end
 (3 - Team.count).times do
   app_name = Faker::App.name
   Team.create!(
-    name: app_name,
     description: "We #{Faker::Company.bs} and #{Faker::Company.bs}.",
     avatar: File.new("db/seeds/avatar_#{Random.rand(5) + 1}.png"),
     vcard: HasVcards::Vcard.new(
