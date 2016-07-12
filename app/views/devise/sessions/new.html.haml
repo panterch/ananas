@@ -8,9 +8,9 @@
     = f.input :remember_me, :as => :boolean
   .row
     .col.s6
-      = f.button :submit, "Log in", name: "commit", class: "waves-effect waves-light btn light-green lighten-3"
+      = f.button :submit, "Log in", name: "commit", class: "waves-effect waves-light btn light-green"
     - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
       .col.s6.right-align
-        = link_to "Password?", new_password_path(resource_name), class: "waves-effect waves-light btn orange lighten-3"
+        = link_to "Password?", new_password_path(resource_name), class: "waves-effect waves-light btn orange"
 
 = render "devise/shared/links"
