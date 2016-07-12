@@ -19,6 +19,6 @@ class Mentor < ActiveRecord::Base
     }
 
   def to_s
-    vcard.full_name.blank? ? 'Anonymous Mentor' : vcard.full_name
+    name
   end
 end

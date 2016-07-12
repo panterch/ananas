@@ -16,7 +16,7 @@ class Team < ActiveRecord::Base
   include PgSearch
   pg_search_scope :by_text,
     using: { tsearch: { prefix: true } },
-    against: [ :name, :description ],
+    against: [ :description ],
     associated_against: {
       vcard: HasVcardSupport.pg_search_against
     }

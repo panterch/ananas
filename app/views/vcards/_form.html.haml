@@ -2,7 +2,7 @@
   - if defined?(full_name)
     .row
       = vcard.input :full_name
-  - else
+  - elsif !defined?(address_only)
     .row
       = vcard.input :family_name, wrapper: :halve
       = vcard.input :given_name, wrapper: :halve

@@ -13,4 +13,11 @@ module HasVcard
     vcard_without_autobuild || build_vcard
   end
 
+  def name
+    vcard.full_name
+  end
+
+  def name=(value)
+    vcard.full_name = value
+  end
 end

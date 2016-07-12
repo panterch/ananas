@@ -9,7 +9,7 @@
     .row
       %img.col.s3#img_prev{alt: "no avatar uploaded yet", src: resource.avatar.url }/
 
-    = render 'vcards/form', f: f, full_name: true
+    = render 'vcards/form', f: f, address_only: true
 
     .row
       .col.s12= f.button :submit
