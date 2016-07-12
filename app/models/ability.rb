@@ -19,6 +19,8 @@ class Ability
         can :manage, Event, mentor_id: mentor_id
         can :manage, Team, team_mentors: { mentor_id: mentor_id }
         can :manage, Rating, mentor_id: mentor_id
+        cannot :create_attendance, ExpertSession
+        can [:accept, :reject], ExpertSessionAttendance, guest_type: 'Team', event: { mentor_id: mentor_id }
       end
 
       if user.member?

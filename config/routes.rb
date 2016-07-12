@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     resources :teams
     resources :ratings, except: :new
     resources :dashboard, only: :index
-    resources :expert_sessions
+    resources :expert_sessions do
+      member do
+        post :book
+      end
+    end
   end
 
   resources :events do
@@ -54,13 +58,13 @@ Rails.application.routes.draw do
       get :timeline
     end
   end
+
   resources :expert_sessions do
-    resources :attendances do
-      member do
-        post :attend
-        post :decline
-      end
+    member do
+      post :accept
+      post :reject
     end
+    resources :attendances
   end
 
   resources :attendances do
