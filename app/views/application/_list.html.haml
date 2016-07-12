@@ -1,4 +1,5 @@
-%ul.collection.collapsible{class: resource_class&.name&.tableize}
-  = render collection
+.list{class: resource_class&.name&.tableize}
+  %ul.collection.collapsible{class: resource_class&.name&.tableize}
+    = render collection
 
-= guarded_paginate collection
+  = guarded_paginate collection
