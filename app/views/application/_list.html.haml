@@ -1,23 +1,4 @@
-- attributes ||= resource_class.attribute_names - ['id', 'created_at', 'updated_at']
-%div
-  = paginate collection if collection.respond_to? :total_pages
+%ul.collection.collapsible{class: resource_class&.name&.tableize}
+  = render collection
 
-  %table.striped.collection{:class => resource_class.table_name}
-    %thead
-      %tr
-        - attributes.each do |field|
-          %th= t_attr field, resource_class
-        %th.action-links
-    %tbody
-      - collection.each do |r|
-        %tr
-          - attributes.each do |field|
-            %td= r.send(field) if r.respond_to?(field)
-          %td.action-links
-            - if can? :edit, r
-              = list_link_for(:show, r, 'data-href-container' => 'tr')
-              = list_link_for(:edit, r)
-            - if can? :delete, r
-              = list_link_for(:delete, r)
-
-  = paginate collection if collection.respond_to? :total_pages
+= guarded_paginate collection

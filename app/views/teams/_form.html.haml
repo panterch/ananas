@@ -22,7 +22,7 @@
       .fixed-action-btn.horizontal(style="position: absolute")
         = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-large blue" do
           %i.large.material-icons add
-    = render 'events/list', collection: resource.mentorings.upcoming, resource_class: Mentoring
+    = render 'list', collection: resource.mentorings.upcoming, resource_class: Mentoring
 
   .section_divider
   .section
@@ -31,7 +31,7 @@
       .fixed-action-btn.horizontal(style="position: absolute")
         = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
           %i.large.material-icons add
-    = render 'members/list', collection: resource.members
+    = render 'list', collection: resource.members, resource_class: Member
 
   .section_divider
   .section
@@ -40,6 +40,6 @@
       .fixed-action-btn.horizontal(style="position: absolute")
         = link_to new_team_team_mentor_path(resource), remote: true, class: "btn-floating btn-large blue" do
           %i.large.material-icons add
-    = render 'mentors/list', collection: resource.mentors
+    = render 'list', collection: resource.mentors, resource_class: Mentor
 
   = render 'users/profile'

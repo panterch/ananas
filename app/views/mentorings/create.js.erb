@@ -1,6 +1,6 @@
 <%= render 'create' %>
 
 <%- unless resource.errors.present? %>
-  $('.collection.mentorings').replaceWith('<%=j render "events/list", resource_class: Mentoring, collection: resource.team.mentorings.upcoming %>')
+  $('.collection.mentorings').replaceWith('<%=j render "list", resource_class: Mentoring, collection: resource.team.mentorings.upcoming %>')
   init();
 <%- end %>

@@ -1,0 +1,13 @@
+%li.collection-item.avatar
+  %i.material-icons.circle today
+  .title= expert_session.summary
+  %p
+    = duration_to_s(expert_session)
+    %br
+    = expert_session.description
+
+  .secondary-content
+    - if can?(:edit, expert_session)
+      .fixed-action-btn.horizontal
+        = link_to [:edit, expert_session], class: "btn-floating btn-large green" do
+          %i.large.material-icons mode_edit

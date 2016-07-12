@@ -1,0 +1,13 @@
+%li.collection-item.avatar
+  %i.material-icons.circle today
+  .title= mentoring.summary
+  %p
+    = duration_to_s(mentoring)
+    %br
+    = mentoring.description
+
+  .secondary-content
+    - if can?(:edit, mentoring)
+      .fixed-action-btn.horizontal
+        = link_to [:edit, mentoring], class: "btn-floating btn-large green" do
+          %i.large.material-icons mode_edit

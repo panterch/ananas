@@ -1,0 +1,31 @@
+%li
+  .collapsible-header
+    .collection-item.avatar
+      = image_tag mentor.avatar_url, class: 'circle'
+      .title= mentor.to_s
+      %p
+        = mentor.job_title
+      .secondary-content
+        - if can?(:edit, mentor) && 'mentors' == controller_name
+          .fixed-action-btn.horizontal
+            = link_to edit_mentor_path(mentor), class: "btn-floating btn-large green" do
+              %i.large.material-icons mode_edit
+  .collapsible-body
+    .row
+      .col.s12.field
+        .label=Mentor.human_attribute_name(:job_title)
+        .value=mentor.job_title
+    .row
+      .col.s12.field
+        .label=Mentor.human_attribute_name(:who_i_am)
+        .value=mentor.who_i_am
+    .row
+      .col.s12.field
+        .label=Mentor.human_attribute_name(:interests)
+        .value=mentor.interests
+    .row
+      .col.s12.field
+        .label=Mentor.human_attribute_name(:motivation)
+        .value=mentor.motivation
+    = render 'vcards/collapsible', vcard: mentor.vcard
+
