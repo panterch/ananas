@@ -1,4 +1,4 @@
-= form_tag params, method: :get, remote: true do
+= form_tag params.permit(:by_text), method: :get, remote: true do
   .row
     .input-field.col.s12
       %i.material-icons.prefix search

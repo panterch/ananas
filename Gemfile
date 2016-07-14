@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 # Rails
 # =====
-gem 'rails', '~> 4.2'
+gem 'rails'
 gem 'bcrypt'
 
 gem 'unicorn'
@@ -20,7 +20,7 @@ gem 'materialize-sass'
 
 # Views
 gem 'simple_form'
-gem 'inherited_resources'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'has_scope'
 gem 'responders'
 gem 'i18n_rails_helpers'
