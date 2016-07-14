@@ -16,7 +16,7 @@
       %p
         = mentor.interests
     .card-action
-      = link_to 'edit', edit_mentor_path(mentor)
+      = link_to 'edit', edit_mentor_path(mentor) if can? :edit, mentor
       %i.material-icons.activator.right more_vert
     .card-reveal
       %span.card-title.grey-text.text-darken-4
