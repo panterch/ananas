@@ -2,4 +2,8 @@
   - if resource_class.respond_to?(:by_text)
     = render 'list_search'
 
-  = render 'list'
+  .list
+    .row
+      = render collection
+
+    = guarded_paginate collection
