@@ -1,7 +1,7 @@
 .col.s12.m6.l4
   .card.large.z-depth-2
     .card-image.waves-effect.waves-block.waves-light
-      - if mentor.avatar_url.present?
+      - if mentor.avatar_url
         = image_tag mentor.avatar_url, class: :activator
       - else
         %i.material-icons.img-placeholder person_outline
