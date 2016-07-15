@@ -5,9 +5,7 @@ class ExpertSessionsController < EventsController
   custom_actions resource: :book
 
   def book
-    resource.attendances.build(guest: current_user.profile, state: :invited)
-
-    resource.save
+    resource.attendances.create(guest: current_user.profile, state: :invited)
 
     redirect_to resource
   end
