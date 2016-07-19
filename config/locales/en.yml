@@ -23,7 +23,7 @@ en:
   activerecord:
     models:
       user: User
-      mentor: Mentor
+      mentor: Expert
       team: Startup
       member: Founder
       event: Event
@@ -82,7 +82,7 @@ en:
 
   mentors:
     index:
-      title: Mentors
+      title: Experts
 
   users:
     index:

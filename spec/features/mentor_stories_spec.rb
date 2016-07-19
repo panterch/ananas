@@ -5,7 +5,7 @@ feature "Mentor management" do
 
   scenario "Displaying without any mentors" do
     visit mentors_path
-    expect(page).to have_content 'Mentor'
+    expect(page).to have_content 'Expert'
   end
 
   scenario "Displaying a single mentors" do
@@ -47,7 +47,7 @@ feature "Mentor management" do
 
   scenario "Rendering the mentor new form" do
     visit new_mentor_path
-    expect(page).to have_content("Mentor")
+    expect(page).to have_content("Expert")
   end
 
 end
