@@ -76,8 +76,10 @@ Rails.application.routes.draw do
 
   resources :ratings, except: :new
 
-  controller :calendar, as: :calendar, path: 'calendar/:token' do
-    get :events
+  scope as: :calendar, path: 'calendar/:token' do
+    controller :calendar do
+      get :events
+    end
   end
 
   root to: "events#timeline"
