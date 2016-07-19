@@ -176,6 +176,15 @@ label.input-field[for$='_avatar']::before {
   content: '\E899';
 }
 
+.card {
+  .card-image.full {
+    max-height: 100% !important;
+
+    img {
+      height: inherit !important;
+    }
+  }
+}
 $card-image-factor: 0.3;
 
 .card {
@@ -196,12 +205,6 @@ $card-image-factor: 0.3;
       img {
         object-fit: cover;
       }
-
-      .material-icons.img-placeholder {
-        color: $color-dark;
-        width: 100%;
-        text-align: center;
-      }
     }
 
     .card-content {
@@ -212,11 +215,7 @@ $card-image-factor: 0.3;
   &.small {
     .card-image {
       img {
-        height: $card-image-factor * 300;
-      }
-
-      .material-icons.img-placeholder {
-        font-size: $card-image-factor * 300px;
+        height: $card-image-factor * 300px;
       }
     }
   }
@@ -226,10 +225,6 @@ $card-image-factor: 0.3;
       img {
         height: $card-image-factor * 400px;
       }
-
-      .material-icons.img-placeholder {
-        font-size: $card-image-factor * 400px;
-      }
     }
   }
 
@@ -238,31 +233,20 @@ $card-image-factor: 0.3;
       img {
         height: $card-image-factor * 500px;
       }
-
-      .material-icons.img-placeholder {
-        font-size: $card-image-factor * 500px;
-      }
     }
   }
 }
 
 
 .image_preview {
-  margin-top: 2rem;
-
   label.image_preview {
-    @extend .btn;
     z-index: 990;
-    width: 13rem;
     cursor: pointer;
     color: white;
+    font-size: inherit;
   }
 
   input[type="file"] {
     display: none;
   }
-}
-
-#img_prev {
-  margin-top: 3rem;
 }

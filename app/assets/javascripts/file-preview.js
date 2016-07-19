@@ -1,9 +1,10 @@
 function readURL(input) {
   if (input.files && input.files[0]) {
+    var name = input.name;
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      $('#img_prev')
+      $('img[name="' + name + '"]')
         .attr('src', e.target.result);
     };
 
