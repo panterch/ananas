@@ -82,5 +82,9 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "events#timeline"
+  authenticated :user, -> (user) { user.profile.present? } do
+    root to: "events#timeline"
+  end
+
+  root to: "users#index"
 end
