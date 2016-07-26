@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'jbuilder'
 gem 'font-awesome-rails'
 gem 'materialize-sass'
+gem 'therubyracer', platforms: :ruby
 
 # Views
 gem 'simple_form'
@@ -45,7 +46,8 @@ gem 'devise'
 gem 'cancancan'
 
 # Deployment
-gem 'capistrano-rails', group: :development
+gem 'panter-rails-deploy'
+gem 'highline'
 
 group :development, :test do
   gem 'byebug'

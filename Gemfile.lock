@@ -69,6 +69,12 @@ GEM
     capistrano-rails (1.1.7)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.0.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+    capistrano-rbenv-install (1.2.0)
+      capistrano (>= 3.0)
+      capistrano-rbenv (>= 2.0)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -98,6 +104,10 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -130,6 +140,7 @@ GEM
       mime-types (< 3)
       rails (> 3.2.0)
       simple_form
+    highline (1.7.8)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -151,6 +162,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -171,6 +183,15 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
+    panter-rails-deploy (1.2.0)
+      capistrano
+      capistrano-bundler
+      capistrano-rails
+      capistrano-rbenv
+      capistrano-rbenv-install
+      dotenv-rails
+      therubyracer
+      unicorn-rails
     pg (0.18.4)
     pg_search (1.0.6)
       activerecord (>= 3.1)
@@ -212,6 +233,7 @@ GEM
     rake (11.2.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.1)
@@ -268,6 +290,9 @@ GEM
     sshkit (1.11.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -279,6 +304,9 @@ GEM
     unicorn (5.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    unicorn-rails (2.2.0)
+      rack
+      unicorn
     warden (1.2.6)
       rack (>= 1.0)
     web-console (3.3.1)
@@ -300,7 +328,6 @@ DEPENDENCIES
   bcrypt
   byebug
   cancancan
-  capistrano-rails
   capybara
   carrierwave
   codeclimate-test-reporter
@@ -312,6 +339,7 @@ DEPENDENCIES
   haml-rails
   has_scope
   has_vcards
+  highline
   i18n_rails_helpers
   icalendar
   inherited_resources!
@@ -319,6 +347,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   materialize-sass
+  panter-rails-deploy
   pg
   pg_search
   phantomjs
@@ -331,6 +360,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   spring
+  therubyracer
   timecop
   uglifier
   unicorn
