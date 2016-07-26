@@ -1,4 +1,6 @@
 = simple_form_for [parent, resource].compact do |f|
+  = hidden_field_tag :redirect_location, params[:redirect_location]
+
   = f.hidden_field :mentor_id
 
   .row.datetime

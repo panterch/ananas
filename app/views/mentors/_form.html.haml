@@ -35,6 +35,7 @@
         %i.large.material-icons add
   = render 'list', collection: resource.expert_sessions.upcoming, resource_class: ExpertSession
 
+- if resource.has_mentoring?
   %h4= t_title(:index, Mentoring)
   %div(style="position: relative")
     .fixed-action-btn.horizontal(style="position: absolute")

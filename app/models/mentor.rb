@@ -18,6 +18,12 @@ class Mentor < ActiveRecord::Base
       vcard: HasVcardSupport.pg_search_against
     }
 
+  # a mentor may be an lone expert or may have teams associated which makes him
+  # to a real mentor
+  def has_mentoring?
+    0 < self.team_mentors_count
+  end
+
   def to_s
     name
   end

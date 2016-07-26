@@ -9,5 +9,5 @@
   .secondary-content
     - if can?(:edit, expert_session)
       .fixed-action-btn.horizontal
-        = link_to [:edit, expert_session], class: "btn-floating btn-medium green" do
+        = link_to edit_expert_session_path(expert_session, redirect_location: request.path), class: "btn-floating btn-medium green" do
           %i.material-icons mode_edit

@@ -9,5 +9,5 @@
   .secondary-content
     - if can?(:edit, mentoring)
       .fixed-action-btn.horizontal
-        = link_to [:edit, mentoring], class: "btn-floating btn-large green" do
-          %i.large.material-icons mode_edit
+        = link_to edit_mentoring_path(mentoring, redirect_location: request.path), class: "btn-floating btn-medium green" do
+          %i.material-icons mode_edit
