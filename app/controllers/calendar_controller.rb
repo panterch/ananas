@@ -11,7 +11,7 @@ class CalendarController < ApplicationController
       calendar.add_event CalendarConverter.event(event)
     end
 
-    render text: calendar.to_ical, content_type: Mime::ICS
+    render body: calendar.to_ical, content_type: Mime[:ics]
   end
 
   private

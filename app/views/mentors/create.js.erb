@@ -1,5 +1,5 @@
 <%= render 'create' %>
 
-$('.collection.mentors').html('<%=j render "mentors/list", resource_class: Mentor, collection: resource.teams.first.mentors %>')
+$('.collection.mentors').html('<%=j render "list", resource_class: Mentor, collection: resource.teams.first.mentors %>')
 
 init();

@@ -1,0 +1,20 @@
+- attendance = expert_session_attendance
+- guest = attendance.guest
+%li.collection-item.avatar[attendance]
+  = image_tag guest.avatar_url, class: 'circle'
+  .title= link_to guest, guest
+  .secondary-content
+    .fixed-action-btn.horizontal
+      .btn-floating.btn-large{class: state_color(attendance.state)}
+        %i.large.material-icons= state_icon(attendance.state)
+
+      %ul
+        %li
+          - if can? :accept, attendance
+            = link_to [:accept, attendance.event, { attendance_id: attendance }], method: :post, remote: true, class: "btn-floating green" do
+              %i.material-icons event_available
+        %li
+          - if can? :reject, attendance
+            = link_to [:reject, attendance.event, { attendance_id: attendance }], method: :post, remote: true, class: "btn-floating red" do
+              %i.material-icons event_busy
+

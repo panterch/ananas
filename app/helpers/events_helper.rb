@@ -33,4 +33,19 @@ module EventsHelper
     return 'past' if event.start_at < Date.today
     return 'future'
   end
+
+  def duration_to_s(event)
+    if event.start_at.to_date == event.end_at.to_date
+      "%s %s - %s" % [
+        event.start_at.strftime("%d.%m.%Y"),
+        event.start_at.strftime("%H:%M"),
+        event.end_at.strftime("%H:%M")
+      ]
+    else
+      "%s - %s" % [
+        event.start_at.strftime("%d.%m.%Y %H:%M"),
+        event.end_at.strftime("%d.%m.%Y %H:%M")
+      ]
+    end
+  end
 end

@@ -1,10 +1,11 @@
 - unless resource.new_record?
   .header
     %h4= t_model Attendance
-    %div(style="position: relative")
-      .fixed-action-btn.horizontal(style="position: absolute")
-        = link_to polymorphic_url([:new, resource, :attendance]), remote: true, class: "btn-floating btn-large blue" do
-          %i.large.material-icons add
+    - if can? :create_attendance, resource
+      %div(style="position: relative")
+        .fixed-action-btn.horizontal(style="position: absolute")
+          = link_to polymorphic_url([:new, resource, :attendance]), remote: true, class: "btn-floating btn-large blue" do
+            %i.large.material-icons add
 
   %ul.collection.attendances
     = render resource.attendances

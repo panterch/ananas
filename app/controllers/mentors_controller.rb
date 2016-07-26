@@ -1,7 +1,7 @@
 class MentorsController < CrudController
 
   # apply default scope
-  has_scope :vcard_default_scope, default: nil, allow_blank: true, unless: :by_text?
+  has_scope :vcard_default_scope, default: nil, allow_blank: true, unless: :by_text?, only: :index
 
   def mentor_params
     permitted_params = params.require(:mentor)

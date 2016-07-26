@@ -1,0 +1,13 @@
+%li.collection-item.avatar
+  %i.material-icons.circle today
+  .title= event.summary
+  %p
+    = duration_to_s(event)
+    %br
+    = event.description
+
+  .secondary-content
+    - if can?(:edit, event)
+      .fixed-action-btn.horizontal
+        = link_to [:edit, event], class: "btn-floating btn-large green" do
+          %i.large.material-icons mode_edit

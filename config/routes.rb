@@ -29,6 +29,11 @@ Rails.application.routes.draw do
     resources :teams
     resources :ratings, except: :new
     resources :dashboard, only: :index
+    resources :expert_sessions do
+      member do
+        post :book
+      end
+    end
   end
 
   resources :events do
@@ -54,6 +59,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :expert_sessions do
+    member do
+      post :accept
+      post :reject
+    end
+    resources :attendances
+  end
+
   resources :attendances do
     member do
       post :attend
@@ -63,8 +76,10 @@ Rails.application.routes.draw do
 
   resources :ratings, except: :new
 
-  controller :calendar, as: :calendar, path: 'calendar/:token' do
-    get :events
+  scope as: :calendar, path: 'calendar/:token' do
+    controller :calendar do
+      get :events
+    end
   end
 
   root to: "events#timeline"

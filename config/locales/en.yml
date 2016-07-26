@@ -23,7 +23,7 @@ en:
   activerecord:
     models:
       user: User
-      mentor: Mentor
+      mentor: Expert
       team: Startup
       member: Founder
       event: Event
@@ -64,6 +64,10 @@ en:
       webcal: Open with your calendar app
       download: Download iCalendar file
 
+  expert_sessions:
+    index:
+      title: Expert Sessions
+
   mentorings:
     index:
       title: Mentoring Events
@@ -74,11 +78,11 @@ en:
 
   teams:
     index:
-      title: Teams
+      title: Startups
 
   mentors:
     index:
-      title: Mentors
+      title: Experts
 
   users:
     index:

@@ -2,6 +2,7 @@ class Mentor < ActiveRecord::Base
   has_many :team_mentors, dependent: :destroy
   has_many :teams, through: :team_mentors, dependent: :restrict_with_error
   has_many :mentorings, dependent: :restrict_with_error
+  has_many :expert_sessions, dependent: :restrict_with_error
   has_many :ratings, dependent: :destroy
   has_one  :user, as: :profile
 
@@ -18,6 +19,6 @@ class Mentor < ActiveRecord::Base
     }
 
   def to_s
-    vcard.full_name.blank? ? 'Anonymous Mentor' : vcard.full_name
+    name
   end
 end

@@ -4,7 +4,7 @@ class MentoringsController < EventsController
   belongs_to :team, optional: true
 
   def new
-    @mentoring.prefill(@team)
+    resource.prefill(parent)
     new!
   end
 

@@ -6,6 +6,8 @@ class Ability
     can :read, Mentor
     can :read, Event, mentor_id: nil, team_id: nil
     can :read, Team
+    can [:read, :update], User, id: user.id
+    can [:attend, :decline], Attendance, guest: user.profile
 
     if user.admin?
       can :manage, :all
@@ -17,16 +19,26 @@ class Ability
         can :manage, Event, mentor_id: mentor_id
         can :manage, Team, team_mentors: { mentor_id: mentor_id }
         can :manage, Rating, mentor_id: mentor_id
+        cannot :create_attendance, ExpertSession
+        can [:accept, :reject], ExpertSessionAttendance, guest_type: 'Team', event: { mentor_id: mentor_id }
+        cannot [:book], ExpertSession
       end
 
       if user.member?
         member_id = user.profile_id
 
-        can [:read, :edit], User, id: user.id
         can :manage, Member, id: member_id
         can :manage, Event, team: { team_members: { member_id: member_id } }
         can :manage, Team, team_members: { member_id: member_id }
         can :read, Rating, team: { team_members: { member_id: member_id } }
+      end
+
+      if user.team?
+        profile_id = user.profile_id
+
+        can :manage, Team, id: profile_id
+        can :manage, Event, team_id: profile_id
+        can [:read, :book], ExpertSession
       end
     end
   end

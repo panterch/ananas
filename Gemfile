@@ -5,23 +5,22 @@ source 'https://rubygems.org'
 # Rails
 # =====
 gem 'rails'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 gem 'unicorn'
 
 # Assets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'haml-rails'
-gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'jbuilder', '~> 2.0'
+gem 'uglifier'
+gem 'jbuilder'
 gem 'font-awesome-rails'
 gem 'materialize-sass'
 
 # Views
 gem 'simple_form'
-gem 'inherited_resources'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'has_scope'
 gem 'responders'
 gem 'i18n_rails_helpers'
@@ -36,7 +35,7 @@ gem 'carrierwave'
 gem 'icalendar'
 
 # Docs
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
 # Database
 gem 'pg'
@@ -55,13 +54,12 @@ group :development, :test do
   gem 'phantomjs'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'quiet_assets'
   gem 'timecop'
   gem 'poltergeist'
   gem 'selenium-webdriver'
 end
 
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
   gem 'faker'
 

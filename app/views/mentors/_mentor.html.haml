@@ -1,0 +1,49 @@
+.col.s12.m6.l4
+  .card.large.z-depth-2
+    .card-image.waves-effect.waves-block.waves-light
+      - if mentor.avatar_url
+        = image_tag mentor.avatar_url, class: :activator
+      - else
+        %i.material-icons.img-placeholder person_outline
+    .card-content
+      %span.card-title.activator
+        = mentor
+      .divider
+      %p
+        = mentor.job_title
+      %p
+        = mentor.who_i_am
+      %p
+        = mentor.interests
+    .card-action
+      %i.material-icons.activator.right more_vert
+      = link_to 'edit', edit_mentor_path(mentor) if can? :edit, mentor
+      .activator
+        = "%s open Expert Sessions" % [ mentor.expert_sessions.bookable.count ]
+    .card-reveal
+      %span.card-title.grey-text.text-darken-4
+        =mentor
+        %i.material-icons.right close
+
+      .row
+        .col.s12.field
+          .label Open Expert Sessions
+          %ul.value
+            - mentor.expert_sessions.each do |session|
+              %li= link_to duration_to_s(session), [:book, mentor, session], method: :post if can? :book, session
+      .row
+        .col.s12.field
+          .label=Mentor.human_attribute_name(:job_title)
+          .value=mentor.job_title
+      .row
+        .col.s12.field
+          .label=Mentor.human_attribute_name(:who_i_am)
+          .value=mentor.who_i_am
+      .row
+        .col.s12.field
+          .label=Mentor.human_attribute_name(:interests)
+          .value=mentor.interests
+      .row
+        .col.s12.field
+          .label=Mentor.human_attribute_name(:motivation)
+          .value=mentor.motivation

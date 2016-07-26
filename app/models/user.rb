@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :profile, polymorphic: true
+  validates :profile, presence: true
 
   def self.find_by_calendar_token!(token)
     id = token[40..-1].to_i
@@ -22,6 +23,10 @@ class User < ActiveRecord::Base
 
   def mentor?
     'Mentor' == self.profile_type
+  end
+
+  def team?
+    'Team' == self.profile_type
   end
 
   def to_s

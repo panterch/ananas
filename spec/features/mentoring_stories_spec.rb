@@ -1,33 +1,26 @@
 feature "Mentoring events" do
+  background do
+    sign_in_admin
+  end
 
   let(:mentor) { create(:mentor) }
   let(:team) { create(:team, mentors: [ mentor ]) }
 
-  background do
-    @user = create(:user, email: 'user@example.com', password: 'welcome', password_confirmation: 'welcome', admin: true)
-    visit '/users/sign_in'
-
-    fill_in 'Email', :with => 'user@example.com'
-    fill_in 'Password', :with => 'welcome'
-    click_button 'Log in'
-    expect(page).to have_content 'Signed in successfully'
-  end
-
   scenario "displays mentorings on timeline" do
     create :mentoring, summary: 'First Mentoring'
-    visit '/events/timeline'
+    visit timeline_events_path
     expect(page).to have_content 'First Mentoring'
   end
 
   scenario "edits mentorings from timeline" do
     create :mentoring, summary: 'First Mentoring'
-    visit '/events/timeline'
+    visit timeline_events_path
     click_link 'Edit event'
     expect(page).to have_field 'Summary'
   end
 
   scenario "creates mentoring from team view", js: true do
-    visit "/teams/#{team.id}"
+    visit team_path(team)
 
     # add new mentoring (plus icon)
     find("a[href$='/teams/#{team.id}/mentorings/new']").click
@@ -38,7 +31,7 @@ feature "Mentoring events" do
   end
 
   scenario "reports validation errors on mentoring from team view", js: true do
-    visit "/teams/#{team.id}"
+    visit team_path(team)
 
     # add new mentoring (plus icon)
     find("a[href$='/teams/#{team.id}/mentorings/new']").click

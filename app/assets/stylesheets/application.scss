@@ -176,22 +176,77 @@ label.input-field[for$='_avatar']::before {
   content: '\E899';
 }
 
-.image_preview {
-  margin-top: 2rem;
+.card {
+  .card-image.full {
+    max-height: 100% !important;
 
+    img {
+      height: inherit !important;
+    }
+  }
+}
+$card-image-factor: 0.3;
+
+.card {
+  .card-action .activator {
+    cursor: pointer;
+  }
+
+  .card-content {
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
+  &.small, &.medium, &.large {
+    .card-image {
+      max-height: $card-image-factor * 100%;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .card-content {
+      max-height: (1 - $card-image-factor) * 100%;
+    }
+  }
+
+  &.small {
+    .card-image {
+      img {
+        height: $card-image-factor * 300px;
+      }
+    }
+  }
+
+  &.medium {
+    .card-image {
+      img {
+        height: $card-image-factor * 400px;
+      }
+    }
+  }
+
+  &.large {
+    .card-image {
+      img {
+        height: $card-image-factor * 500px;
+      }
+    }
+  }
+}
+
+
+.image_preview {
   label.image_preview {
-    @extend .btn;
     z-index: 990;
-    width: 13rem;
     cursor: pointer;
     color: white;
+    font-size: inherit;
   }
 
   input[type="file"] {
     display: none;
   }
-}
-
-#img_prev {
-  margin-top: 3rem;
 }

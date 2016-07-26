@@ -66,7 +66,7 @@ SimpleForm.setup do |config|
 
   end
 
-  config.wrappers :halve, class: 'input-field col s6', error_class: 'has_error' do |b|
+  config.wrappers :halve, class: 'input-field col s12 m6', error_class: 'has_error' do |b|
 
     b.use :html5
     b.use :placeholder

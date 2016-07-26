@@ -9,7 +9,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body{class: [controller_name, action_name]}
+  %body{class: [controller_name, 'action-' + action_name]}
     .navbar-fixed
       %nav.nav-wrapper
         %ul.left.hide-on-med-and-down

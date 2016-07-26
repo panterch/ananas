@@ -1,0 +1,2 @@
+class ExpertSessionAttendance < Attendance
+end

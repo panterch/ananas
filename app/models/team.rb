@@ -7,6 +7,8 @@ class Team < ActiveRecord::Base
   has_many :team_mentors, dependent: :destroy
   has_many :mentors, through: :team_mentors
 
+  has_one  :user, as: :profile
+
   include HasVcard
 
   mount_uploader :avatar, AvatarUploader
@@ -14,7 +16,7 @@ class Team < ActiveRecord::Base
   include PgSearch
   pg_search_scope :by_text,
     using: { tsearch: { prefix: true } },
-    against: [ :name, :description ],
+    against: [ :description ],
     associated_against: {
       vcard: HasVcardSupport.pg_search_against
     }

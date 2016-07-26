@@ -1,16 +1,16 @@
 %h2 Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = f.input :email, :input_html => {'data-autofocus' => true}
-  = f.input :password, :hint => false
+  = f.input :email, input_html: { autofocus: true }
+  = f.input :password, hint: false
   .col.s12.show-pw
     %i.material-icons
   - if devise_mapping.rememberable?
-    = f.input :remember_me, :as => :boolean
+    = f.input :remember_me, as: :boolean
   .row
     .col.s6
-      = f.button :submit, "Log in", name: "commit", class: "waves-effect waves-light btn light-green lighten-3"
+      = f.button :submit, "Log in", name: "commit", class: "waves-effect waves-light btn light-green"
     - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
       .col.s6.right-align
-        = link_to "Password?", new_password_path(resource_name), class: "waves-effect waves-light btn orange lighten-3"
+        = link_to "Password?", new_password_path(resource_name), class: "waves-effect waves-light btn orange"
 
 = render "devise/shared/links"

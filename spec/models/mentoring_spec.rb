@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Mentoring, type: :model do
 
-  let(:mentor) { create(:mentor ) }
+  let(:mentor) { create(:mentor, name: 'Anonymous Mentor') }
   let(:team) { create(:team, mentors: [mentor], name: 'T') }
 
   context '#prefill' do

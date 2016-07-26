@@ -1,4 +1,5 @@
-- if resource_class.respond_to?(:by_text)
-  = render 'list_search'
+.index{class: resource_class&.name&.tableize}
+  - if resource_class.respond_to?(:by_text)
+    = render 'list_search'
 
-= render 'list'
+  = render 'list'
