@@ -140,6 +140,7 @@ GEM
       mime-types (< 3)
       rails (> 3.2.0)
       simple_form
+    highline (1.7.8)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -338,6 +339,7 @@ DEPENDENCIES
   haml-rails
   has_scope
   has_vcards
+  highline
   i18n_rails_helpers
   icalendar
   inherited_resources!

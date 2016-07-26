@@ -47,6 +47,7 @@ gem 'cancancan'
 
 # Deployment
 gem 'panter-rails-deploy'
+gem 'highline'
 
 group :development, :test do
   gem 'byebug'
