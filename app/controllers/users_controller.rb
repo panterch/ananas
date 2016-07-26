@@ -22,6 +22,19 @@ class UsersController < CrudController
     end
   end
 
+  def create
+    create! do |format|
+      format.html do
+        unless params[:redirect_location].blank?
+          redirect_to params[:redirect_location]
+        else
+          redirect_to user_path(@user)
+        end
+      end
+    end
+
+  end
+
   def user_params
     if current_user.admin?
       params

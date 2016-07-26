@@ -18,7 +18,7 @@ feature 'Startup creation' do
     fill_in 'team[vcard_attributes][address_attributes][postal_code]', with: '6300'
     fill_in 'team[vcard_attributes][address_attributes][locality]', with: 'Zug'
 
-    click_button 'Create Startup'
+    click_button 'Save'
 
     expect(page).to have_content 'Startup was successfully created'
 

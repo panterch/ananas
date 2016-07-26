@@ -1,5 +1,6 @@
 .list
   %ul.collection.collapsible{class: resource_class&.name&.tableize}
-    = render collection
+    - if collection.present?
+      = render collection
 
-  = guarded_paginate collection
+    = guarded_paginate collection

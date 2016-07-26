@@ -1,4 +1,5 @@
 = simple_form_for resource do |f|
+  = hidden_field_tag :redirect_location, params[:redirect_location]
   = f.input :profile_id, as: :hidden
   = f.input :profile_type, as: :hidden
 

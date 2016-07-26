@@ -28,22 +28,31 @@
           = f.button :submit
 
 - if resource.persisted?
-  %h4= t_title(:index, ExpertSession)
-  %div(style="position: relative")
-    .fixed-action-btn.horizontal(style="position: absolute")
-      = link_to new_mentor_expert_session_path(resource), remote: true, class: "btn-floating btn-medium blue" do
-        %i.large.material-icons add
-  = render 'list', collection: resource.expert_sessions.upcoming, resource_class: ExpertSession
+  .section_divider
+  .section
+    %h4= t_title(:index, ExpertSession)
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal(style="position: absolute")
+        = link_to new_mentor_expert_session_path(resource), remote: true, class: "btn-floating btn-medium blue" do
+          %i.large.material-icons add
+    = render 'list', collection: resource.expert_sessions.upcoming, resource_class: ExpertSession
 
 - if resource.has_mentoring?
-  %h4= t_title(:index, Mentoring)
-  %div(style="position: relative")
-    .fixed-action-btn.horizontal(style="position: absolute")
-      = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-medium blue" do
-        %i.large.material-icons add
-  = render 'list', collection: resource.mentorings.upcoming, resource_class: Mentoring
+  .section_divider
+  .section
+    %h4= t_title(:index, Mentoring)
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal(style="position: absolute")
+        = link_to new_team_mentoring_path(resource), remote: true, class: "btn-floating btn-medium blue" do
+          %i.large.material-icons add
+    = render 'list', collection: resource.mentorings.upcoming, resource_class: Mentoring
 
-  %h4= t_title(:index, Team)
-  = render 'list', collection: resource.teams, resource_class: Team
+  .section_divider
+  .section
+    %h4= t_title(:index, Team)
+    = render 'list', collection: resource.teams, resource_class: Team
 
-  = render 'users/profile'
+- if resource.persisted?
+  .section_divider
+  .section
+    = render 'users/profile'

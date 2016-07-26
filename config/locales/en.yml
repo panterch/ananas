@@ -29,9 +29,10 @@ en:
       event: Event
       team_member: Membership
       team_mentor: Mentoring
-      mentoring: Mentoring
+      mentoring: Mentoring Event
       rating: Rating
       dashboard: Dashboard
+      expert_session: Expert Session
 
   crud:
     action:

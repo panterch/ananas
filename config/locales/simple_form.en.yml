@@ -29,3 +29,9 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+
+  # those are handled by rails but make sense to place here
+  helpers:
+    submit:
+      create: "Save"
+      update: "Save"
