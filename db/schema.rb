@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -23,10 +22,9 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.string   "guest_type"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id", using: :btree
+    t.index ["guest_type", "guest_id"], name: "index_attendances_on_guest_type_and_guest_id", using: :btree
   end
-
-  add_index "attendances", ["event_id"], name: "index_attendances_on_event_id", using: :btree
-  add_index "attendances", ["guest_type", "guest_id"], name: "index_attendances_on_guest_type_and_guest_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "summary",     null: false
@@ -39,12 +37,11 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.string   "type"
     t.integer  "mentor_id"
     t.integer  "team_id"
+    t.index ["mentor_id"], name: "index_events_on_mentor_id", using: :btree
+    t.index ["start_at"], name: "index_events_on_start_at", using: :btree
+    t.index ["team_id"], name: "index_events_on_team_id", using: :btree
+    t.index ["type"], name: "index_events_on_type", using: :btree
   end
-
-  add_index "events", ["mentor_id"], name: "index_events_on_mentor_id", using: :btree
-  add_index "events", ["start_at"], name: "index_events_on_start_at", using: :btree
-  add_index "events", ["team_id"], name: "index_events_on_team_id", using: :btree
-  add_index "events", ["type"], name: "index_events_on_type", using: :btree
 
   create_table "has_vcards_addresses", force: :cascade do |t|
     t.string   "post_office_box"
@@ -58,9 +55,8 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.string   "address_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["vcard_id"], name: "addresses_vcard_id_index", using: :btree
   end
-
-  add_index "has_vcards_addresses", ["vcard_id"], name: "addresses_vcard_id_index", using: :btree
 
   create_table "has_vcards_phone_numbers", force: :cascade do |t|
     t.string   "number"
@@ -68,10 +64,9 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.integer  "vcard_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["phone_number_type"], name: "index_has_vcards_phone_numbers_on_phone_number_type", using: :btree
+    t.index ["vcard_id"], name: "phone_numbers_vcard_id_index", using: :btree
   end
-
-  add_index "has_vcards_phone_numbers", ["phone_number_type"], name: "index_has_vcards_phone_numbers_on_phone_number_type", using: :btree
-  add_index "has_vcards_phone_numbers", ["vcard_id"], name: "phone_numbers_vcard_id_index", using: :btree
 
   create_table "has_vcards_vcards", force: :cascade do |t|
     t.string   "full_name"
@@ -87,10 +82,9 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.string   "reference_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["active"], name: "index_has_vcards_vcards_on_active", using: :btree
+    t.index ["reference_id", "reference_type"], name: "index_has_vcards_vcards_on_reference_id_and_reference_type", using: :btree
   end
-
-  add_index "has_vcards_vcards", ["active"], name: "index_has_vcards_vcards_on_active", using: :btree
-  add_index "has_vcards_vcards", ["reference_id", "reference_type"], name: "index_has_vcards_vcards_on_reference_id_and_reference_type", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.text     "description"
@@ -118,11 +112,10 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_ratings_on_event_id", using: :btree
+    t.index ["mentor_id"], name: "index_ratings_on_mentor_id", using: :btree
+    t.index ["team_id"], name: "index_ratings_on_team_id", using: :btree
   end
-
-  add_index "ratings", ["event_id"], name: "index_ratings_on_event_id", using: :btree
-  add_index "ratings", ["mentor_id"], name: "index_ratings_on_mentor_id", using: :btree
-  add_index "ratings", ["team_id"], name: "index_ratings_on_team_id", using: :btree
 
   create_table "team_members", force: :cascade do |t|
     t.integer  "team_id"
@@ -130,10 +123,9 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_team_members_on_member_id", using: :btree
+    t.index ["team_id"], name: "index_team_members_on_team_id", using: :btree
   end
-
-  add_index "team_members", ["member_id"], name: "index_team_members_on_member_id", using: :btree
-  add_index "team_members", ["team_id"], name: "index_team_members_on_team_id", using: :btree
 
   create_table "team_mentors", force: :cascade do |t|
     t.integer  "team_id"
@@ -141,10 +133,9 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mentor_id"], name: "index_team_mentors_on_mentor_id", using: :btree
+    t.index ["team_id"], name: "index_team_mentors_on_team_id", using: :btree
   end
-
-  add_index "team_mentors", ["mentor_id"], name: "index_team_mentors_on_mentor_id", using: :btree
-  add_index "team_mentors", ["team_id"], name: "index_team_mentors_on_team_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.text     "description"
@@ -169,11 +160,10 @@ ActiveRecord::Schema.define(version: 20160712151448) do
     t.boolean  "admin",                  default: false
     t.integer  "profile_id",                             null: false
     t.string   "profile_type",                           null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["profile_id"], name: "index_users_on_profile_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["profile_id"], name: "index_users_on_profile_id", using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "attendances", "events"
   add_foreign_key "ratings", "events"

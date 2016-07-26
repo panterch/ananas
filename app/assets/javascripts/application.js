@@ -21,7 +21,7 @@
 //= require materialize
 //= require timeline
 //= require rating
-//= require file-preview
+//= require image-preview-input
 //= require showpw
 
 function init() {
