@@ -6,6 +6,7 @@ class Ability
     can :read, Mentor
     can :read, Event, mentor_id: nil, team_id: nil
     can :read, Team
+    can :read, Member
     can [:read, :update], User, id: user.id
     can [:attend, :decline], Attendance, guest: user.profile
 
