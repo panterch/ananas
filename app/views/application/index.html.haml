@@ -2,7 +2,8 @@
   %h2= t_model(resource_class)
   %div(style="position: relative")
     .fixed-action-btn.horizontal
-      = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
-        %i.large.material-icons add
+      - if can? :new, resource_class
+        = link_to url_for(action: :new), class: "btn-floating btn-large blue" do
+          %i.large.material-icons add
 
 = render 'index', collection: collection
