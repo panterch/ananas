@@ -22,7 +22,7 @@
                 = current_user.email
                 = image_tag current_user.profile.avatar_url, class: 'circle', style: "width: 40px; right: 10px; top: 10px; position: absolute;" if current_user.profile
               %ul#menu-user-dropdown.dropdown-content
-                %li= link_to t('devise.user'), current_user
+                %li= link_to t_model(User), current_user
                 - if current_user.profile
                   .divider
                   %li= link_to t('devise.profile'), polymorphic_path(current_user.profile)

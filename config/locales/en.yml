@@ -22,7 +22,7 @@
 en:
   activerecord:
     models:
-      user: User
+      user: Account
       mentor: Expert
       team: Startup
       member: Entrepreneur
@@ -87,4 +87,4 @@ en:
 
   users:
     index:
-      title: Users
+      title: Accounts
