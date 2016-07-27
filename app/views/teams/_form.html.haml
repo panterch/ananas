@@ -1,8 +1,13 @@
 = simple_form_for resource do |f|
   .section
-    .row= f.input :description
-
     .row
+      .col.s12
+        .card.z-depth-1
+          .card-content
+            = f.input :description
+          .card-action
+            = f.button :submit
+
       .col.s12.m4
         .card.medium.z-depth-1
           .card-image.full
