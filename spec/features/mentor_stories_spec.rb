@@ -22,7 +22,7 @@ feature "Mentor management" do
     expect(page).to have_content '1st mentor'
     expect(page).to have_content '20th mentor'
 
-    click_link '2'
+    click_link '2', match: :first
     expect(page).to have_content '25th mentor'
   end
 

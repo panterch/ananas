@@ -22,7 +22,7 @@ feature "Member management" do
     expect(page).to have_content '1st member'
     expect(page).to have_content '20th member'
 
-    click_link '2'
+    click_link '2', match: :first
     expect(page).to have_content '25th member'
   end
 
