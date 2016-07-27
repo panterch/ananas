@@ -5,8 +5,9 @@
     %i.material-icons.circle
       perm_identity
   .title= user
-  %p
-    = user.profile_type
+  - if user.profile
+    %p
+      = t_model user.profile.class
   .secondary-content
     - if can?(:edit, user) && 'users' == controller_name
       .fixed-action-btn.horizontal
