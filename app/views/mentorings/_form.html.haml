@@ -2,18 +2,12 @@
   = hidden_field_tag :redirect_location, params[:redirect_location]
 
   = render 'form_base', f: f
-
-
   -# when nested under team there is no need for a select field
   - if Team == parent_class && resource.team.blank?
     .row= f.association :team
-  - else
-    = f.hidden_field :team_id
-
-  -# when nested under team the mentor is pre-populated
-  - if Team == parent_class && resource.team.blank?
     .row= f.association :mentor
   - else
+    = f.hidden_field :team_id
     = f.hidden_field :mentor_id
 
   .row
