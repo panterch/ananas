@@ -9,7 +9,6 @@
         .card-content
           .row
             = f.input :email, input_html: { autofocus: true }, wrapper_class: 'col s12'
-            = f.input :login if @user.respond_to? :login
             = f.input :password, hint: !f.object.new_record?, input_html: { :autocomplete => "off" }, wrapper: :halve
             = f.input :password_confirmation, wrapper: :halve
             - unless can?(:manage, User)
