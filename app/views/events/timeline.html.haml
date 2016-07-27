@@ -17,7 +17,7 @@
             %h4= event.start_at.strftime("%b")
         - if event.start_at.strftime("%d%m") != @events[index - 1].start_at.strftime("%d%m")
           .day.left{class: epoch_class(event), id: event.start_at.today? ? 'today' : nil}
-            %a.btn-floating.btn-large.waves-effect.waves-light{id: index}
+            %a.btn-floating.btn-large{id: index}
               = event.start_at.strftime("%d")
         &nbsp;
 
