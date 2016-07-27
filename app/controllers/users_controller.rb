@@ -41,7 +41,6 @@ class UsersController < CrudController
       .require(:user)
       .permit([
         :email,
-        :login,
         :password,
         :password_confirmation,
         :current_password,
@@ -53,7 +52,6 @@ class UsersController < CrudController
       .require(:user)
       .permit([
         :email,
-        :login,
         :password,
         :password_confirmation,
         :current_password
