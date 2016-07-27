@@ -1,5 +1,9 @@
 %li.collection-item.avatar
-  %i.material-icons.circle perm_identity
+  - if user.profile
+    = image_tag user.profile.avatar_url, class: 'circle'
+  - else
+    %i.material-icons.circle
+      perm_identity
   .title= user
   %p
     = user.profile_type
