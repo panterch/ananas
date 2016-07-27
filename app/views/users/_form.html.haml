@@ -8,7 +8,11 @@
       .card.medium.z-depth-1
         .card-content
           .row
-            = f.input :email, input_html: { autofocus: true }, wrapper_class: 'col s12'
+            = f.input :email, input_html: { autofocus: true }, wrapper: :halve
+            .input-field.col.s12.m6
+              = f.check_box :admin
+              = f.label :admin
+          .row
             = f.input :password, hint: !f.object.new_record?, input_html: { :autocomplete => "off" }, wrapper: :halve
             = f.input :password_confirmation, wrapper: :halve
             - unless can?(:manage, User)
