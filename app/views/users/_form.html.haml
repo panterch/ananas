@@ -3,12 +3,20 @@
   = f.input :profile_id, as: :hidden
   = f.input :profile_type, as: :hidden
 
-  .row= f.input :email, input_html: { autofocus: true }
-  .row= f.input :login if @user.respond_to? :login
-  .row= f.input :password, hint: !f.object.new_record?, input_html: { :autocomplete => "off" }
-  .row= f.input :password_confirmation
-  - unless can?(:manage, User)
-    .row= f.input :current_password, required: true
-
   .row
-    .col.s12= f.button :submit
+    .col.s12
+      .card.medium.z-depth-1
+        .card-content
+          .row
+            = f.input :email, input_html: { autofocus: true }, wrapper: :halve
+            .input-field.col.s12.m6
+              = f.check_box :admin
+              = f.label :admin
+          .row
+            = f.input :password, hint: !f.object.new_record?, input_html: { :autocomplete => "off" }, wrapper: :halve
+            = f.input :password_confirmation, wrapper: :halve
+            - unless can?(:manage, User)
+              = f.input :current_password, required: true, wrapper: :halve
+
+          .card-action
+            = f.button :submit

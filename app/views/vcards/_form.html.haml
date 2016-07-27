@@ -1,7 +1,7 @@
 .row
   = f.simple_fields_for :vcard do |vcard|
     - if defined?(full_name)
-      = vcard.input :full_name
+      = vcard.input :full_name, wrapper_class: 'col s12'
     - elsif !defined?(address_only)
       = vcard.input :family_name, wrapper: :halve
       = vcard.input :given_name, wrapper: :halve

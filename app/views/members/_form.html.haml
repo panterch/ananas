@@ -1,10 +1,15 @@
 = simple_form_for resource do |f|
   - if defined?(team_id) && team_id.present?
     = hidden_field_tag :team_id, team_id
-  .row= f.input :name
-  .row= f.input :description
 
   .row
+    .col.s12
+      .card.z-depth-1
+        .card-content
+          = f.input :description
+        .card-action
+          = f.button :submit
+
     .col.s12.m4
       .card.medium.z-depth-1
         .card-image.full
