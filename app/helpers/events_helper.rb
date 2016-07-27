@@ -48,4 +48,8 @@ module EventsHelper
       ]
     end
   end
+
+  def duration_with_location_to_s(event)
+    [duration_to_s(event), event.location.presence].compact.join(', ')
+  end
 end

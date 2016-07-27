@@ -1,8 +1,9 @@
 .header
   %h2= t_model(resource_class)
-  %div(style="position: relative")
-    .fixed-action-btn.horizontal(style="position: absolute")
-      = link_to url_for(resource_class), class: "btn-floating btn-large green" do
-        %i.material-icons view_list
+  - if can? :index, resource_class
+    %div(style="position: relative")
+      .fixed-action-btn.horizontal
+        = link_to url_for(resource_class), class: "btn-floating btn-large green" do
+          %i.material-icons view_list
 
 = render 'form'

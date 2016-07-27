@@ -86,5 +86,5 @@ Rails.application.routes.draw do
     root to: "events#timeline"
   end
 
-  root to: "users#index"
+  root to: "mentors#index"
 end

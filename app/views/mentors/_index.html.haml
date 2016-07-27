@@ -3,7 +3,7 @@
     = render 'list_search'
 
   .list
+    = guarded_paginate collection
     .row
       = render collection
-
     = guarded_paginate collection
