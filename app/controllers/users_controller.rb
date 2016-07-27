@@ -43,7 +43,6 @@ class UsersController < CrudController
         :email,
         :password,
         :password_confirmation,
-        :current_password,
         :profile_id,
         :profile_type
       ])
