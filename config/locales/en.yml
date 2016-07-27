@@ -22,10 +22,10 @@
 en:
   activerecord:
     models:
-      user: User
+      user: Account
       mentor: Expert
       team: Startup
-      member: Founder
+      member: Entrepreneur
       event: Event
       team_member: Membership
       team_mentor: Mentoring
@@ -75,7 +75,7 @@ en:
 
   members:
     index:
-      title: Founders
+      title: Entrepreneurs
 
   teams:
     index:
@@ -87,4 +87,4 @@ en:
 
   users:
     index:
-      title: Users
+      title: Accounts

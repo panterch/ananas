@@ -1,11 +1,16 @@
 %li.collection-item.avatar
-  %i.material-icons.circle perm_identity
+  - if user.profile
+    = image_tag user.profile.avatar_url, class: 'circle'
+  - else
+    %i.material-icons.circle
+      perm_identity
   .title= user
-  %p
-    = user.profile_type
+  - if user.profile
+    %p
+      = t_model user.profile.class
   .secondary-content
     - if can?(:edit, user) && 'users' == controller_name
       .fixed-action-btn.horizontal
-        = link_to edit_user_path(user), class: "btn-floating btn-large green" do
-          %i.large.material-icons mode_edit
+        = link_to edit_user_path(user), class: "btn-floating btn-medium green" do
+          %i.material-icons mode_edit
 

@@ -5,7 +5,7 @@ feature "Member management" do
 
   scenario "Displaying without any members" do
     visit members_path
-    expect(page).to have_content 'Founder'
+    expect(page).to have_content 'Entrepreneur'
   end
 
   scenario "Displaying a single member" do
@@ -46,7 +46,7 @@ feature "Member management" do
 
   scenario "Rendering the member new form" do
     visit new_member_path
-    expect(page).to have_content("Founder")
+    expect(page).to have_content("Entrepreneur")
   end
 
 end
