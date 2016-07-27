@@ -1,19 +1,25 @@
 = simple_form_for [parent, resource].compact, wrapper: :full do |f|
   = hidden_field_tag :redirect_location, params[:redirect_location]
 
-  = f.hidden_field :mentor_id
+  .card.z-depth-1
+    .card-content
+      = f.hidden_field :mentor_id
+      .row
+        .datetime
+          .input-field.col.s6.date
+            = f.date_field :start_at, class: 'datepicker'
+            = f.label :start_at, value: f.object.start_at&.to_s(:time), class: 'active'
+          .input-field.col.s6.time
+            = f.time_field :start_at, class: 'timepicker'
+            = f.label :start_at, class: 'active'
+          = f.hidden_field :start_at
+          = f.input :location, wrapper: :halve
+          = f.input :description
 
-  .row.datetime
-    .input-field.col.s6.date
-      = f.date_field :start_at, class: 'datepicker'
-      = f.label :start_at, value: f.object.start_at&.to_s(:time), class: 'active'
-    .input-field.col.s6.time
-      = f.time_field :start_at, class: 'timepicker'
-      = f.label :start_at, class: 'active'
-    = f.hidden_field :start_at
-  .row
-    = f.input :description
-  .row
-    .col.s12= f.button :submit
+    .card-action
+      = f.button :submit
 
-= render 'attendances_form'
+  .section
+    = render 'attendances_form'
+
+

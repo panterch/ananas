@@ -1,16 +1,20 @@
 = simple_form_for resource, wrapper: :full do |f|
   = hidden_field_tag :redirect_location, params[:redirect_location]
 
-  = render 'form_base', f: f
-  -# when nested under team there is no need for a select field
-  - if Team == parent_class && resource.team.blank?
-    .row= f.association :team
-    .row= f.association :mentor
-  - else
-    = f.hidden_field :team_id
-    = f.hidden_field :mentor_id
+  .card.z-depth-1
+    .card-content
+      = render 'form_base', f: f
+      -# when nested under team there is no need for a select field
+      - if Team == parent_class && resource.team.blank?
+        .row
+          = f.association :team
+          = f.association :mentor
+      - else
+        = f.hidden_field :team_id
+        = f.hidden_field :mentor_id
 
-  .row
-    .col.s12= f.button :submit
+    .card-action
+      = f.button :submit
 
-= render 'attendances_form'
+  .section
+    = render 'attendances_form'

@@ -16,6 +16,7 @@ class MentoringsController < EventsController
       :description,
       :start_at,
       :end_at,
+      :location,
       :url,
       :team_id,
       :mentor_id

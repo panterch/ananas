@@ -1,12 +1,10 @@
 = simple_form_for resource, wrapper: :full do |f|
+  .card.z-depth-1
+    .card-content
+      = render 'form_base', f: f
+
+    .card-action
+      = f.button :submit
 
   .section
-    = render 'form_base', f: f
-
-    .row
-      .col.s12= f.button :submit
-
-  .section_divider
-  .section
-
     = render 'attendances_form'

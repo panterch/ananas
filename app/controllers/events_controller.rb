@@ -7,6 +7,7 @@ class EventsController < CrudController
       :description,
       :start_at,
       :end_at,
+      :location,
       :url
     ])
   end
