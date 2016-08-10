@@ -72,6 +72,8 @@ en:
   events:
     index:
       title: Events
+    timeline:
+      title: Timeline
 
   mentorings:
     index:
