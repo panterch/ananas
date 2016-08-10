@@ -9,6 +9,9 @@
       - if resource.has_mentoring?
         %li.tab.col.s3
           = link_to 'Mentoring', '#mentoring'
+      - if resource.user
+        %li.tab.col.s3
+          = link_to 'Account', '#user'
 
 #profile
   = simple_form_for resource do |f|
@@ -65,3 +68,7 @@
     .section
       %h4= t_title(:index, Team)
       = render 'list', collection: resource.teams, resource_class: Team
+
+- if resource.user
+  #user
+    = render 'users/form', resource: resource.user
