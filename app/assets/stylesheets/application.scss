@@ -7,6 +7,7 @@ $color-3: #ffa48c;
 $color-4: #ff8c8c;
 
 $color-dark: #d4846f;
+$color-dark-hover: lighten($color-dark, 0.6);
 $color-dark-violet: rgba(66, 11, 83, 0.87);
 
 $color-red-dark: hsl(0, 90%, 50%);
@@ -165,6 +166,18 @@ $card-image-factor: 0.3;
   }
 }
 
+// Tabs
+.tabs .tab a {
+  color: $color-dark;
+
+  &:hover {
+    color: $color-dark-hover;
+  }
+}
+
+.tabs .indicator {
+  background-color: $color-dark;
+}
 
 .image_preview {
   label.image_preview {
