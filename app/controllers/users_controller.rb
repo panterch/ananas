@@ -19,7 +19,9 @@ class UsersController < CrudController
 
     if successfully_updated
       # Sign in the user bypassing validation in case his password changed
-      sign_in @user, :bypass => true
+      if current_user == @user
+        bypass_sign_in(@user)
+      end
       redirect_to user_path(@user)
     else
       render "edit"
