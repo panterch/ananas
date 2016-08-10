@@ -1,4 +1,12 @@
 class UsersController < CrudController
+  def profile
+    if current_user.profile
+      redirect_to current_user.profile
+    else
+      redirect_to current_user
+    end
+  end
+
   def index
     @profiles_with_no_user = Mentor.with_no_user
   end
@@ -19,7 +27,9 @@ class UsersController < CrudController
 
     if successfully_updated
       # Sign in the user bypassing validation in case his password changed
-      sign_in @user, :bypass => true
+      if current_user == @user
+        bypass_sign_in(@user)
+      end
       redirect_to user_path(@user)
     else
       render "edit"

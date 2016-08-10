@@ -5,7 +5,7 @@ function initMaterialize() {
     // collect splitted up date and time values and submit them in one
     // datetime field
     $('form').submit(function() {
-        $('div.row.datetime').each(function() {
+        $('.datetime').each(function() {
             var $wrapper = $(this);
 
             var $date = $wrapper.find('.date input.datepicker');
