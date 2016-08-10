@@ -1,0 +1,8 @@
+#expert-sessions.section
+  %h4= t_title(:index, ExpertSession)
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal(style="position: absolute")
+      = link_to new_mentor_expert_session_path(resource), remote: true, class: "btn-floating btn-medium blue" do
+        %i.large.material-icons add
+  = render 'list', collection: resource.expert_sessions.upcoming, resource_class: ExpertSession
+
