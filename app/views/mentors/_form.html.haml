@@ -53,8 +53,3 @@
   .section
     %h4= t_title(:index, Team)
     = render 'list', collection: resource.teams, resource_class: Team
-
-- if resource.persisted?
-  .section_divider
-  .section
-    = render 'users/profile'
