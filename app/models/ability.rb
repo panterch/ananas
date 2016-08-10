@@ -16,10 +16,9 @@ class Ability
       if user.mentor?
         mentor_id = user.profile_id
 
-        can :manage, Mentor, id: mentor_id
+        can [:edit, :show], Mentor, id: mentor_id
         can :manage, Event, mentor_id: mentor_id
-        can :manage, Team, team_mentors: { mentor_id: mentor_id }
-        cannot :create, Team
+        can [:show], Team, team_mentors: { mentor_id: mentor_id }
         can :manage, Rating, mentor_id: mentor_id
         cannot :create_attendance, ExpertSession
         can [:accept, :reject], ExpertSessionAttendance, guest_type: 'Team', event: { mentor_id: mentor_id }
