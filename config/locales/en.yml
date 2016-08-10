@@ -69,6 +69,10 @@ en:
     index:
       title: Expert Sessions
 
+  events:
+    index:
+      title: Events
+
   mentorings:
     index:
       title: Mentoring Events
