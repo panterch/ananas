@@ -6,5 +6,5 @@
   .secondary-content
     - if can?(:new, mentor.class)
       .fixed-action-btn.horizontal
-        = link_to new_user_path(user: {profile_id: mentor.id, profile_type: mentor.class}), class: "btn-floating blue" do
+        = link_to create_for_mentor_users_path(user: {profile_id: mentor.id, profile_type: mentor.class}), remote: true, method: :post, class: "btn-floating blue" do
           %i.large.material-icons add

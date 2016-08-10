@@ -26,6 +26,21 @@ class UsersController < CrudController
     end
   end
 
+  def create_for_mentor
+    @user = User.new(user_params)
+    @user.email = @user.profile.vcard.contacts.email.first
+    @user.password = Devise.friendly_token.first(8)
+    @user.password_confirmation = @user.password
+
+    flash[:notice] = 'User created and invitation sent'
+    if @user.save
+      @user.send_reset_password_instructions
+      render js: "window.location = '#{users_path}'"
+    else
+      render 'edit'
+    end
+  end
+
   def create
     create! do |format|
       format.html do
