@@ -5,6 +5,9 @@ class Mentor < ActiveRecord::Base
   has_many :expert_sessions, dependent: :restrict_with_error
   has_many :ratings, dependent: :destroy
   has_one  :user, as: :profile
+  scope :with_no_user, -> {
+    includes(:user).where(users: { id: nil })
+  }
 
   include HasVcard
 

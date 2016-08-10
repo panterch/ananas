@@ -1,4 +1,8 @@
 class UsersController < CrudController
+  def index
+    @profiles_with_no_user = Mentor.with_no_user
+  end
+
   def update
     # Don't try to update password if not provided
     if user_params[:password].blank?

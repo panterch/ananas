@@ -1,0 +1,10 @@
+%li.collection-item.avatar
+  = image_tag mentor.avatar_url, class: 'circle'
+  .title= mentor
+  %p
+    = t_model mentor.class
+  .secondary-content
+    - if can?(:new, mentor.class)
+      .fixed-action-btn.horizontal
+        = link_to new_user_path(user: {profile_id: mentor.id, profile_type: mentor.class}), class: "btn-floating blue" do
+          %i.large.material-icons add

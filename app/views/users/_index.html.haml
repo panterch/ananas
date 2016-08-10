@@ -1,0 +1,18 @@
+.row
+  .col.s12
+    %ul.tabs
+      %li.tab.col.s3
+        = link_to 'No user', '#new'
+      %li.tab.col.s3
+        = link_to 'Unconfirmed', '#unconfirmed'
+      %li.tab.col.s3
+        = link_to 'All', '#all'
+
+#new
+  = render 'profile_list', collection: @profiles_with_no_user
+
+#unconfirmed
+  = render 'list', collection: collection.where(confirmed_at: nil)
+
+#all
+  = render 'list', collection: collection
