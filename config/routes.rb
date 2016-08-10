@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     collection do
+      get :profile
       post :create_for_mentor
     end
   end
@@ -86,9 +87,5 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticated :user, -> (user) { user.profile.present? } do
-    root to: "events#timeline"
-  end
-
-  root to: "mentors#index"
+  root to: "users#profile"
 end

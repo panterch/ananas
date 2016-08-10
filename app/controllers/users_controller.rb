@@ -1,4 +1,12 @@
 class UsersController < CrudController
+  def profile
+    if current_user.profile
+      redirect_to current_user.profile
+    else
+      redirect_to current_user
+    end
+  end
+
   def index
     @profiles_with_no_user = Mentor.with_no_user
   end
