@@ -60,9 +60,9 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-  gem 'web-console'
-  gem 'spring'
-  gem 'faker'
+gem 'web-console'
+gem 'spring'
+gem 'faker'
 
 gem 'codeclimate-test-reporter', group: :test, require: nil
 
