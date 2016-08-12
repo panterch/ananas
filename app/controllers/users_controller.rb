@@ -38,7 +38,7 @@ class UsersController < CrudController
 
   def create_for_mentor
     @user = User.new(user_params)
-    @user.email = @user.profile.vcard.contacts.email.first
+    @user.email ||= @user.profile.vcard.contacts.email.first
     @user.password = Devise.friendly_token.first(8)
     @user.password_confirmation = @user.password
 
@@ -52,6 +52,11 @@ class UsersController < CrudController
   end
 
   def create
+    if @user.profile_type == 'Mentor'
+      create_for_mentor
+      return
+    end
+
     create! do |format|
       format.html do
         unless params[:redirect_location].blank?
