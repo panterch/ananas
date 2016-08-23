@@ -3,6 +3,7 @@
   .title= mentor
   %p
     = t_model mentor.class
+    = "<%s>" % mentor.vcard.contacts.email.first
   .secondary-content
     - if can?(:new, mentor.class)
       .fixed-action-btn.horizontal
