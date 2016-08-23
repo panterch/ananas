@@ -11,14 +11,14 @@ module Features
     end
 
     def sign_in_admin
-      user = create :user, profile_type: 'Mentor', admin: true
-      create :mentor, user: user
-      expect(user).to be_mentor
+      user = create :user, admin: true
       sign_up_with user.email, user.password
     end
 
     def sign_in_mentor
       user = create :user
+      create :mentor, user: user
+      expect(user).to be_mentor
       sign_up_with user.email, user.password
     end
   end
