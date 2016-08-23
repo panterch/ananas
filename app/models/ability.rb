@@ -16,7 +16,7 @@ class Ability
       if user.mentor?
         mentor_id = user.profile_id
 
-        can [:edit, :show], Mentor, id: mentor_id
+        can [:update, :edit, :show], Mentor, id: mentor_id
         can :manage, Event, mentor_id: mentor_id
         can [:show], Team, team_mentors: { mentor_id: mentor_id }
         can :manage, Rating, mentor_id: mentor_id
