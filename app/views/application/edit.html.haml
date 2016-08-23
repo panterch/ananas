@@ -1,8 +1,11 @@
 .header
   %h2= t_model(resource_class)
-  - if can? :index, resource_class
-    %div(style="position: relative")
-      .fixed-action-btn.horizontal
+  %div(style="position: relative")
+    .fixed-action-btn.horizontal
+      - if can? :destroy, resource_class
+        = link_to url_for(resource), method: :delete, data: { confirm: t_confirm_delete(resource) }, class: "btn-floating btn-large red" do
+          %i.material-icons delete
+      - if can? :index, resource_class
         = link_to url_for(resource_class), class: "btn-floating btn-large green" do
           %i.material-icons view_list
 
