@@ -15,15 +15,16 @@ feature "Member management" do
   end
 
   scenario "Paginating on description" do
-    30.times do |i|
-      create(:member, description: "The #{i.ordinalize} member")
+    35.times do |i|
+      number = "%02i" % (i + 1)
+      create(:member, description: "The #{number} member")
     end
     visit members_path
-    expect(page).to have_content '1st member'
-    expect(page).to have_content '20th member'
+    expect(page).to have_content '01 member'
+    expect(page).to have_content '30 member'
 
     click_link '2', match: :first
-    expect(page).to have_content '25th member'
+    expect(page).to have_content '31 member'
   end
 
   scenario "Search on members" do

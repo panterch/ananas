@@ -15,15 +15,16 @@ feature "Mentor management" do
   end
 
   scenario "Paginating on mentors" do
-    30.times do |i|
-      create(:mentor, job_title: "The #{i.ordinalize} mentor's occupation")
+    35.times do |i|
+      number = "%02i" % (i + 1)
+      create(:mentor, job_title: "The #{number} mentor's occupation")
     end
     visit mentors_path
-    expect(page).to have_content '1st mentor'
-    expect(page).to have_content '20th mentor'
+    expect(page).to have_content '01 mentor'
+    expect(page).to have_content '30 mentor'
 
     click_link '2', match: :first
-    expect(page).to have_content '25th mentor'
+    expect(page).to have_content '31 mentor'
   end
 
   scenario "Search on mentors" do
