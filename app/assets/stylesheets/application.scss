@@ -114,7 +114,7 @@ $clockpicker-button-background-color: $color-4;
     }
   }
 }
-$card-image-factor: 0.3;
+$card-image-factor: 0.4;
 
 .card {
   .card-action .activator {
@@ -133,6 +133,7 @@ $card-image-factor: 0.3;
 
       img {
         object-fit: cover;
+        object-position: 0 40%;
       }
     }
 
