@@ -2,6 +2,9 @@ class Member < ActiveRecord::Base
   has_one :team_member, dependent: :destroy
   has_one :team, through: :team_member
   has_one :user, as: :profile
+  scope :with_no_user, -> {
+    includes(:user).where(users: { id: nil })
+  }
 
   include HasVcard
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :profile
-      post :create_for_mentor
+      post :create_for_profile
     end
   end
 

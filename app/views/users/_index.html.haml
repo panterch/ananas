@@ -2,14 +2,19 @@
   .col.s12
     %ul.tabs
       %li.tab.col.s3
-        = link_to 'No user', '#new'
+        = link_to 'New experts', '#new-mentors'
+      %li.tab.col.s3
+        = link_to 'New members', '#new-members'
       %li.tab.col.s3
         = link_to 'Never signed in', '#unconfirmed'
       %li.tab.col.s3
         = link_to 'All', '#all'
 
-#new
-  = render 'profile_list', collection: @profiles_with_no_user
+#new-mentors
+  = render 'profile_list', collection: @mentors_with_no_user
+
+#new-members
+  = render 'profile_list', collection: @members_with_no_user
 
 #unconfirmed
   = render 'list', collection: collection.where(sign_in_count: 0)
