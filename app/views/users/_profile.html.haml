@@ -1,13 +1,11 @@
-- if resource.user.nil? && can?(:create, User)
-  .section_divider
-  .section
-    %h4= resource.user ? t_model(User) : 'No credentials assigned yet'
-    %div(style="position: relative")
-      .fixed-action-btn.horizontal(style="position: absolute")
-        = link_to new_user_path(user: {profile_id: resource.id, profile_type: resource.class}, redirect_location: request.path), class: "btn-floating btn-large blue" do
+%li.collection-item.avatar[profile]
+  = image_tag profile.avatar_url, class: 'circle'
+  .title= profile
+  %p
+    = t_model profile.class
+    = "<%s>" % profile.vcard.contacts.email.first
+  .secondary-content
+    - if can?(:new, profile.class)
+      .fixed-action-btn.horizontal
+        = link_to create_for_profile_users_path(user: {profile_id: profile.id, profile_type: profile.class}), remote: true, method: :post, class: "btn-floating blue" do
           %i.large.material-icons add
-- if resource.user
-  .section_divider
-  .section
-    %h4= t_model(User)
-    = render 'list', collection: [ resource.user ], resource_class: User

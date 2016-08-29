@@ -8,7 +8,8 @@ class UsersController < CrudController
   end
 
   def index
-    @profiles_with_no_user = Mentor.with_no_user
+    @mentors_with_no_user = Mentor.with_no_user
+    @members_with_no_user = Member.with_no_user
   end
 
   def update
@@ -36,7 +37,7 @@ class UsersController < CrudController
     end
   end
 
-  def create_for_mentor
+  def create_for_profile
     @user = User.new(user_params)
     @user.email = @user.profile.vcard.contacts.email.first if @user.email.blank?
     @user.password = Devise.friendly_token.first(8)
@@ -45,15 +46,14 @@ class UsersController < CrudController
     flash[:notice] = 'User created and invitation sent'
     if @user.save
       @user.send_reset_password_instructions
-      render js: "window.location = '#{users_path}'"
     else
       render 'edit'
     end
   end
 
   def create
-    if @user.profile_type == 'Mentor'
-      create_for_mentor
+    if @user.profile
+      create_for_profile
       return
     end
 
