@@ -30,7 +30,7 @@
           .label Open Expert Sessions
           %ul.value
             - mentor.expert_sessions.each do |session|
-              %li= link_to duration_to_s(session), [:book, mentor, session], method: :post if can? :book, session
+              %li= link_to duration_to_s(session), [:book, mentor, session], remote: true, method: :post if can? :book, session
       .row
         .col.s12.field
           .label=Mentor.human_attribute_name(:job_title)
