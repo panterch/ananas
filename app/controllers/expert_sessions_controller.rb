@@ -6,8 +6,6 @@ class ExpertSessionsController < EventsController
 
   def book
     resource.attendances.create(guest: current_user.profile, state: :invited)
-
-    redirect_to resource
   end
 
   def accept
