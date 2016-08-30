@@ -1,4 +1,6 @@
 class UsersController < CrudController
+  has_scope :per, default: 10000, only: [ :index ]
+
   def profile
     if current_user.profile
       redirect_to current_user.profile
