@@ -32,6 +32,9 @@ class Ability
         can :manage, Event, team: { team_members: { member_id: member_id } }
         can :manage, Team, team_members: { member_id: member_id }
         can :read, Rating, team: { team_members: { member_id: member_id } }
+
+        # Explicit disallow ExpertSession management as it's a subclass of Event
+        cannot :manage, ExpertSession
         can [:read, :book], ExpertSession
       end
 
@@ -40,6 +43,9 @@ class Ability
 
         can :manage, Team, id: profile_id
         can :manage, Event, team_id: profile_id
+
+        # Explicit disallow ExpertSession management as it's a subclass of Event
+        cannot :manage, ExpertSession
       end
     end
   end
