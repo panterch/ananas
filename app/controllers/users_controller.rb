@@ -10,6 +10,8 @@ class UsersController < CrudController
   def index
     @mentors_with_no_user = Mentor.with_no_user
     @members_with_no_user = Member.with_no_user
+    @unconfirmed = collection.where(sign_in_count: 0)
+    @all = collection
   end
 
   def update
