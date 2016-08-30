@@ -17,7 +17,7 @@
   = render 'profile_list', collection: @members_with_no_user
 
 #unconfirmed
-  = render 'list', collection: collection.where(sign_in_count: 0)
+  = render 'list', collection: @unconfirmed
 
 #all
-  = render 'list', collection: collection
+  = render 'list', collection: @all
