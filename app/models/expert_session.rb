@@ -28,7 +28,7 @@ class ExpertSession < Event
     attendance.state = 'attending'
     attendance.save
 
-    self.team = attendance.guest
+    self.team = attendance.guest.team
     save
 
     attendances.reload
@@ -38,7 +38,7 @@ class ExpertSession < Event
     attendance.state = 'declined'
     attendance.save
 
-    self.team = nil if team == attendance.guest
+    self.team = nil if team == attendance.guest.team
     save
   end
 end

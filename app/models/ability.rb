@@ -32,6 +32,7 @@ class Ability
         can :manage, Event, team: { team_members: { member_id: member_id } }
         can :manage, Team, team_members: { member_id: member_id }
         can :read, Rating, team: { team_members: { member_id: member_id } }
+        can [:read, :book], ExpertSession
       end
 
       if user.team?
@@ -39,7 +40,6 @@ class Ability
 
         can :manage, Team, id: profile_id
         can :manage, Event, team_id: profile_id
-        can [:read, :book], ExpertSession
       end
     end
   end
