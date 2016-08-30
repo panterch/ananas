@@ -1,14 +1,18 @@
-%li
-  .collapsible-header
-    .collection-item.avatar
-      = image_tag member.avatar_url, class: 'circle'
-      .title= member.to_s
+.col.s12.m6.l4
+  .card.large.z-depth-2
+    .card-image.waves-effect.waves-block.waves-light
+      - if member.avatar_url
+        = image_tag member.avatar_url, class: :activator
+      - else
+        %i.material-icons.img-placeholder person_outline
+    .card-content
+      %span.card-title.activator
+        = member
+      .divider
       %p
         = member.description
-      .secondary-content
-        - if can?(:edit, member) && 'members' == controller_name
-          .fixed-action-btn.horizontal
-            = link_to edit_member_path(member), class: "btn-floating btn-large green" do
-              %i.large.material-icons mode_edit
-  .collapsible-body
-    = render 'vcards/collapsible', vcard: member.vcard
+      %p
+        = link_to member.team, member.team
+    - if can? :edit, member
+      .card-action
+        = link_to 'edit', edit_member_path(member) if can? :edit, member

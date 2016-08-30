@@ -1,0 +1,9 @@
+.index{class: resource_class&.name&.tableize}
+  - if resource_class.respond_to?(:by_text)
+    = render 'list_search'
+
+  .list
+    .row
+      = render collection
+
+    = guarded_paginate collection
