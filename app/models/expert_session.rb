@@ -18,7 +18,7 @@ class ExpertSession < Event
   before_validation :fill_up
 
   def fill_up
-    self.end_at = start_at.in(1.hour)
+    self.end_at = start_at.in(1.hour) if start_at.respond_to?(:in)
     self.summary = "Expert Session with #{mentor}"
     attendances.build(state: :attending, guest: mentor) if attendances.empty?
   end
