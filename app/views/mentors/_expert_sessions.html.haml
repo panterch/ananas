@@ -1,5 +1,4 @@
-#expert-sessions.section
-  %h3= t_title(:index, ExpertSession)
+#expert-sessions
   .unconfirmed.section
     %h4= 'Waiting for Answer'
     = render 'list', collection: @unconfirmed_expert_sessions, resource_class: ExpertSession
