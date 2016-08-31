@@ -5,11 +5,20 @@ class ExpertSession < Event
   has_many :attendances, dependent: :destroy, autosave: true, class_name: 'ExpertSessionAttendance', foreign_key: :event_id, inverse_of: :event
 
   scope :bookable, -> { where('start_at > ?', Time.zone.now).where('team_id IS NULL') }
+  scope :confirmed, -> { where.not(team_id: nil) }
+
+  def self.unconfirmed
+    includes(:attendances).select{|es| es.attendances.invited.present? }
+  end
+
+  def self.fresh
+    where(team_id: nil).includes(:attendances).select{|es| es.attendances.invited.blank? }
+  end
 
   before_validation :fill_up
 
   def fill_up
-    self.end_at = start_at.in(1.hour)
+    self.end_at = start_at.in(1.hour) if start_at.respond_to?(:in)
     self.summary = "Expert Session with #{mentor}"
     attendances.build(state: :attending, guest: mentor) if attendances.empty?
   end

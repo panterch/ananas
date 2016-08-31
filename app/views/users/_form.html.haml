@@ -8,7 +8,7 @@
       .card.medium.z-depth-1
         .card-content
           .row
-            = f.input :email, input_html: { autofocus: true }, wrapper: :halve
+            = f.input :email, wrapper: :halve
             - if current_user.admin?
               .input-field.col.s12.m6
                 = f.check_box :admin
