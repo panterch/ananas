@@ -1,11 +1,11 @@
 #expert-sessions
   .unconfirmed.section
     %h4= 'Waiting for Answer'
-    = render 'list', collection: @unconfirmed_expert_sessions, resource_class: ExpertSession
+    = render 'expert_sessions/list', collection: @unconfirmed_expert_sessions, resource_class: ExpertSession
 
   .confirmed.section
     %h4= 'Confirmed'
-    = render 'list', collection: @confirmed_expert_sessions, resource_class: ExpertSession
+    = render 'expert_sessions/list', collection: @confirmed_expert_sessions, resource_class: ExpertSession
 
   .fresh.section
     %h4= 'New/No pending Requests'
@@ -14,4 +14,4 @@
         = link_to new_mentor_expert_session_path(resource), remote: true, class: "btn-floating btn-medium blue" do
           %i.large.material-icons add
 
-    = render 'list', collection: @fresh_expert_sessions, resource_class: ExpertSession
+    = render 'expert_sessions/list', collection: @fresh_expert_sessions, resource_class: ExpertSession

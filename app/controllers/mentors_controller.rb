@@ -12,6 +12,15 @@ class MentorsController < CrudController
     edit!
   end
 
+  def show
+    upcoming_sessions = resource.expert_sessions.upcoming
+    @fresh_expert_sessions = upcoming_sessions.fresh
+    @unconfirmed_expert_sessions = upcoming_sessions.unconfirmed
+    @confirmed_expert_sessions = upcoming_sessions.confirmed
+
+    show!
+  end
+
   def mentor_params
     permitted_params = params.require(:mentor)
 

@@ -1,6 +1,6 @@
 <%= render 'create' %>
 
 <%- unless resource.errors.present? %>
-  $('.fresh .collection.expert_sessions').replaceWith('<%=j render "list", resource_class: ExpertSession, collection: resource.mentor.expert_sessions.upcoming %>')
+  $('.fresh .list.expert_sessions').replaceWith('<%=j render "list", resource_class: ExpertSession, collection: resource.mentor.expert_sessions.upcoming %>')
   init();
 <%- end %>

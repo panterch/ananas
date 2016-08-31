@@ -1,0 +1,5 @@
+.list{class: resource_class&.name&.tableize}
+  = guarded_paginate collection
+  .row
+    = render collection
+  = guarded_paginate collection
