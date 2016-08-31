@@ -5,7 +5,9 @@
         = duration_with_location_to_s(expert_session)
       %p
         = expert_session.description
-      %ul.collection.attendances
-        = render expert_session.attendances
+      - attendances = expert_session.attendances.where.not(guest_type: Mentor.sti_name)
+      - if attendances.present?
+        %ul.collection.attendances
+          = render attendances
     .card-action
       = link_to 'edit', edit_expert_session_path(expert_session, redirect_location: request.path)
