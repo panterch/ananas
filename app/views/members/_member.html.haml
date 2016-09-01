@@ -10,9 +10,9 @@
         = member
       .divider
       %p
-        = member.description
-      %p
         = link_to member.team, member.team
+      %p
+        = member.description
     - if can? :edit, member
       .card-action
         = link_to 'edit', edit_member_path(member) if can? :edit, member
