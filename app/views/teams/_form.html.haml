@@ -28,6 +28,9 @@
     %h4= t_title(:index, Member)
     %div(style="position: relative")
       .fixed-action-btn.horizontal(style="position: absolute")
-        = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
-          %i.large.material-icons add
-    = render 'list', collection: resource.members, resource_class: Member
+        - if can? :create, Member
+          = link_to new_team_team_member_path(resource), remote: true, class: "btn-floating btn-large blue" do
+            %i.large.material-icons add
+    .list.members
+      .row
+        = render resource.members
