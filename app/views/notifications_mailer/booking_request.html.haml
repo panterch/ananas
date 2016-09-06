@@ -1,0 +1,18 @@
+%p
+  Hello #{@mentor}!
+
+%p
+  You have received a new request from
+  = link_to @member, @member
+  to attend your expert session
+  = link_to duration_with_location_to_s(@expert_session), expert_session_url(@expert_session)
+
+%p
+  Please decide if you accept or decline this request on your
+  = link_to 'Expert Session Dashboard', mentor_url(@mentor, anchor: 'expert-sessions')
+
+%p
+  You may talk directly to #{@member} by replying to this mail, but please accept or decline the request anyway.
+
+%p
+  Thank you for helping Kickstart Accelerator!

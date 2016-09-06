@@ -6,10 +6,14 @@ class ExpertSessionsController < EventsController
 
   def book
     resource.attendances.create(guest: current_user.profile, state: :invited)
+    NotificationsMailer.booking_request(resource.mentor, current_user.profile, resource).deliver
   end
 
   def accept
-    resource.accept_attendance(resource.attendances.find(params[:attendance_id]))
+    attendance = resource.attendances.find(params[:attendance_id])
+    resource.accept_attendance(attendance)
+    NotificationsMailer.booking_accepted_mentor(resource.mentor, attendance.guest, resource).deliver
+    NotificationsMailer.booking_accepted_member(resource.mentor, attendance.guest, resource).deliver
   end
 
   def reject

@@ -1,0 +1,16 @@
+%p
+  Hello #{@member}!
+
+%p
+  The Expert Session #{duration_with_location_to_s(@expert_session)} has been confirmed by
+  = link_to @mentor, @mentor
+
+%p
+  You may talk directly to #{@mentor} by replying to this mail to finalize the meeting.
+
+%p
+  You can always track the state of your upcoming expert sessions (requests) in the
+  = link_to 'Expert Session Dashboard', member_url(@member, anchor: 'expert-sessions')
+
+%p
+  Thank you for being part of the Kickstart Accelerator!
