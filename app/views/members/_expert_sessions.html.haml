@@ -1,0 +1,12 @@
+#expert-sessions
+  .unconfirmed.section
+    %h4= 'Waiting for Answer by Expert'
+    = render 'expert_sessions/list', collection: @unconfirmed_expert_sessions, resource_class: ExpertSession
+
+  .confirmed.section
+    %h4= 'Confirmed'
+    = render 'expert_sessions/list', collection: @accepted_expert_sessions, resource_class: ExpertSession
+
+  .confirmed.section
+    %h4= 'Declined'
+    = render 'expert_sessions/list', collection: @declined_expert_sessions, resource_class: ExpertSession

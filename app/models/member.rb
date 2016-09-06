@@ -1,6 +1,8 @@
 class Member < ActiveRecord::Base
   has_one :team_member, dependent: :destroy
   has_one :team, through: :team_member
+  has_many :expert_session_attendances, as: :guest, dependent: :restrict_with_error
+  has_many :expert_sessions, through: :expert_session_attendances, source: :event, class_name: 'ExpertSession'
   has_one :user, as: :profile
   scope :with_no_user, -> {
     includes(:user).where(users: { id: nil })
