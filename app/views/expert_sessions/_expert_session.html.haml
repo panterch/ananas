@@ -9,5 +9,6 @@
       - if attendances.present?
         %ul.collection.attendances
           = render attendances
-    .card-action
-      = link_to 'edit', edit_expert_session_path(expert_session, redirect_location: request.path)
+    - if can? :edit, expert_session
+      .card-action
+        = link_to 'edit', edit_expert_session_path(expert_session, redirect_location: request.path)
