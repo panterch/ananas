@@ -3,6 +3,9 @@
     %ul.tabs
       %li.tab.col.s3
         = link_to 'Profile', '#profile'
+      - if resource.persisted?
+        %li.tab.col.s3
+          = link_to 'Expert Sessions', '#expert-sessions'
       - if resource.user
         %li.tab.col.s3
           = link_to 'Account', '#user'
@@ -40,6 +43,9 @@
     .section
       %h4= t_model(Team)
       = render 'list', collection: resource.team, resource_class: Team
+
+- if resource.persisted?
+  = render 'expert_sessions'
 
 - if resource.user
   #user
