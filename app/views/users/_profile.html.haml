@@ -3,7 +3,7 @@
   .title= profile
   %p
     = t_model profile.class
-    = "<%s>" % profile.vcard.contacts.email.first
+    = "<%s>" % profile.email
   .secondary-content
     - if can?(:new, profile.class)
       .fixed-action-btn.horizontal

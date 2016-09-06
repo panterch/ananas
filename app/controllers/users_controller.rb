@@ -43,7 +43,7 @@ class UsersController < CrudController
 
   def create_for_profile
     @user = User.new(user_params)
-    @user.email = @user.profile.vcard.contacts.email.first if @user.email.blank?
+    @user.email = @user.profile.email if @user.email.blank?
     @user.password = Devise.friendly_token.first(8)
     @user.password_confirmation = @user.password
 

@@ -22,4 +22,8 @@ module HasVcard
   def name=(value)
     vcard.full_name = value
   end
+
+  def email
+    vcard.contacts.email.first
+  end
 end
