@@ -1,32 +1,46 @@
-= simple_form_for resource do |f|
-  - if defined?(team_id) && team_id.present?
-    = hidden_field_tag :team_id, team_id
+.row
+  .col.s12
+    %ul.tabs
+      %li.tab.col.s3
+        = link_to 'Profile', '#profile'
+      - if resource.user
+        %li.tab.col.s3
+          = link_to 'Account', '#user'
 
-  .row
-    .col.s12
-      .card.z-depth-1
-        .card-content
-          = f.input :description
-        .card-action
-          = f.button :submit
+#profile
+  = simple_form_for resource do |f|
+    - if defined?(team_id) && team_id.present?
+      = hidden_field_tag :team_id, team_id
 
-    .col.s12.m4
-      .card.medium.z-depth-1
-        .card-image.full
-          %img{name: 'member[avatar]', alt: "no avatar uploaded yet", src: resource.avatar.url }/
-        .card-action
-          = f.input :avatar, as: :image_preview, label: 'upload avatar', label_html: { class: 'waves-effect waves-light btn waves-input-wrapper' }
+    .row
+      .col.s12
+        .card.z-depth-1
+          .card-content
+            = f.input :description
+          .card-action
+            = f.button :submit
 
-    .col.s12.m8
-      .card.z-depth-1
-        .card-content
-          %span.card-title Personal information
-          = render 'vcards/form', f: f
-        .card-action
-          = f.button :submit
+      .col.s12.m4
+        .card.medium.z-depth-1
+          .card-image.full
+            %img{name: 'member[avatar]', alt: "no avatar uploaded yet", src: resource.avatar.url }/
+          .card-action
+            = f.input :avatar, as: :image_preview, label: 'upload avatar', label_html: { class: 'waves-effect waves-light btn waves-input-wrapper' }
 
-- if resource.persisted?
-  .section_divider
-  .section
-    %h4= t_model(Team)
-    = render 'list', collection: resource.team, resource_class: Team
+      .col.s12.m8
+        .card.z-depth-1
+          .card-content
+            %span.card-title Personal information
+            = render 'vcards/form', f: f
+          .card-action
+            = f.button :submit
+
+  - if resource.persisted?
+    .section_divider
+    .section
+      %h4= t_model(Team)
+      = render 'list', collection: resource.team, resource_class: Team
+
+- if resource.user
+  #user
+    = render 'users/form', resource: resource.user
