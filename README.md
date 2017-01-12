@@ -41,7 +41,7 @@ Contributors
 
 Ananas would not be what it is without contributions from other coders.
 
-You're help is very appreciated! Thank you!
+Your help is very appreciated! Thank you!
 
 * Beat Seeliger
 * Dominique Schuwey
